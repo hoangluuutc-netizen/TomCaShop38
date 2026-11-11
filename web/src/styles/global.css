@@ -1,0 +1,51 @@
+@import "tailwindcss";
+@import "@fontsource/be-vietnam-pro/vietnamese-400.css";
+@import "@fontsource/be-vietnam-pro/vietnamese-500.css";
+@import "@fontsource/be-vietnam-pro/vietnamese-600.css";
+@import "@fontsource/be-vietnam-pro/vietnamese-700.css";
+@import "@fontsource/be-vietnam-pro/vietnamese-800.css";
+@import "@fontsource/be-vietnam-pro/latin-400.css";
+@import "@fontsource/be-vietnam-pro/latin-500.css";
+@import "@fontsource/be-vietnam-pro/latin-600.css";
+@import "@fontsource/be-vietnam-pro/latin-700.css";
+@import "@fontsource/be-vietnam-pro/latin-800.css";
+
+/* Bảng màu TomCaShop — Mẫu A · Biển xanh dịu (xem skill tomcashop-brand) */
+@theme {
+  --font-sans: "Be Vietnam Pro", ui-sans-serif, system-ui, sans-serif;
+  --color-xanh-50: #EEF7FD;
+  --color-xanh-100: #D6ECFA;
+  --color-xanh-500: #2B8FD6;
+  --color-xanh-600: #1F74B4;
+  --color-xanh-700: #185F95;
+  --color-xanh-800: #164C75;
+  --color-hong-50: #FFF1F6;
+  --color-hong-100: #FFDCE8;
+  --color-hong-400: #F27AA3;
+  --color-hong-500: #E85A8B;
+  --color-hong-600: #C93D6E;
+  --color-vang-50: #FFF8E6;
+  --color-vang-400: #F5B82E;
+}
+
+@layer base {
+  html { -webkit-tap-highlight-color: transparent; scroll-behavior: smooth; }
+  body { @apply bg-white text-slate-800 antialiased; }
+  :focus-visible { @apply outline-2 outline-offset-2 outline-xanh-600; }
+}
+
+@layer components {
+  .khung { @apply mx-auto w-full max-w-6xl px-4; }
+  .nut-chinh { @apply inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-xanh-600 px-6 font-semibold text-white shadow-lg shadow-xanh-500/25 transition hover:bg-xanh-700 disabled:cursor-not-allowed disabled:bg-slate-300 disabled:shadow-none; }
+  .nut-phu { @apply inline-flex min-h-12 items-center justify-center gap-2 rounded-full border-2 border-xanh-100 bg-white px-6 font-semibold text-xanh-700 transition hover:border-xanh-500; }
+  .nut-hong { @apply inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-hong-600 px-6 font-semibold text-white transition hover:bg-hong-500 disabled:cursor-not-allowed disabled:bg-slate-300; }
+  .tieu-de { @apply text-2xl font-extrabold text-xanh-800; }
+  .chip { @apply inline-flex min-h-10 items-center rounded-full border border-xanh-100 bg-white px-4 text-sm font-medium text-slate-700 transition hover:border-xanh-500; }
+  .chip[aria-pressed="true"], .chip.dang-chon { @apply border-xanh-600 bg-xanh-600 text-white; }
+  .o-nhap { @apply min-h-12 w-full rounded-2xl border border-slate-300 bg-white px-4 text-base outline-none transition focus:border-xanh-600 focus:ring-2 focus:ring-xanh-100; }
+}
+
+.song { background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 60' preserveAspectRatio='none'%3E%3Cpath d='M0 30 Q 180 0 360 30 T 720 30 T 1080 30 T 1440 30 V60 H0Z' fill='%23ffffff'/%3E%3C/svg%3E") bottom/100% 40px no-repeat; }
+@keyframes boi { 0%,100% { transform: translateY(0) rotate(-3deg) } 50% { transform: translateY(-8px) rotate(3deg) } }
+.boi { animation: boi 4s ease-in-out infinite; }
+@media (prefers-reduced-motion: reduce) { .boi { animation: none } html { scroll-behavior: auto } }

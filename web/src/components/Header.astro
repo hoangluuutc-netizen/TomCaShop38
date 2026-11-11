@@ -1,0 +1,51 @@
+---
+import Logo from './Logo.astro';
+import { DANH_MUC, coDuLieuMau } from '../lib/san-pham';
+import { CHINH_SACH } from '../lib/shop';
+const duongDan = Astro.url.pathname;
+---
+{coDuLieuMau() && (
+  <div class="bg-amber-100 px-4 py-1.5 text-center text-xs font-medium text-amber-900">
+    Website đang dùng <b>dữ liệu mẫu</b> — sản phẩm và giá chưa phải hàng thật.
+  </div>
+)}
+<div class="bg-hong-600 px-4 py-2 text-center text-xs font-medium text-white sm:text-sm">
+  {CHINH_SACH.mienShip} · {CHINH_SACH.kiemTra}
+</div>
+<header class="sticky top-0 z-30 border-b border-xanh-100 bg-white/95 backdrop-blur">
+  <div class="khung flex h-16 items-center gap-3">
+    <Logo />
+    <form action="/tim-kiem" method="get" role="search" class="ml-4 hidden flex-1 md:block">
+      <label class="relative block max-w-xl">
+        <span class="sr-only">Tìm sản phẩm</span>
+        <input name="q" type="search" placeholder="Tìm vali, cặp, hộp cơm cho bé…" class="o-nhap h-11 min-h-11 rounded-full border-transparent bg-xanh-50 pl-11" data-o-tim />
+        <svg class="pointer-events-none absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2 text-xanh-600" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+      </label>
+    </form>
+    <div class="ml-auto flex items-center gap-1">
+      <a href="/chinh-sach/van-chuyen" class="hidden px-3 text-sm font-medium text-slate-600 hover:text-xanh-700 lg:block">Chính sách</a>
+      <a href="/lien-he" class="hidden px-3 text-sm font-medium text-slate-600 hover:text-xanh-700 lg:block">Liên hệ</a>
+      <a href="/gio-hang" class="relative grid h-11 w-11 place-items-center rounded-full bg-xanh-50" aria-label="Giỏ hàng">
+        <svg class="h-6 w-6 text-xanh-700" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 4h2l2.5 11h11L21 7H6.2"/><circle cx="9" cy="20" r="1.5"/><circle cx="18" cy="20" r="1.5"/></svg>
+        <span data-so-gio class="absolute -right-0.5 -top-0.5 hidden h-5 min-w-5 place-items-center rounded-full bg-hong-600 px-1 text-[11px] font-bold text-white">0</span>
+      </a>
+    </div>
+  </div>
+  <form action="/tim-kiem" method="get" role="search" class="khung pb-2 md:hidden">
+    <label class="relative block">
+      <span class="sr-only">Tìm sản phẩm</span>
+      <input name="q" type="search" placeholder="Tìm vali, cặp, hộp cơm cho bé…" class="o-nhap h-11 min-h-11 rounded-full border-transparent bg-xanh-50 pl-11" data-o-tim />
+      <svg class="pointer-events-none absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2 text-xanh-600" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+    </label>
+  </form>
+  <nav aria-label="Danh mục" class="border-t border-xanh-50">
+    <div class="khung flex gap-1 overflow-x-auto py-1.5 text-sm font-medium [scrollbar-width:none]">
+      {DANH_MUC.map((d) => {
+        const dang = duongDan.startsWith(`/danh-muc/${d.slug}`);
+        return <a href={`/danh-muc/${d.slug}`} aria-current={dang ? 'page' : undefined} class:list={['whitespace-nowrap rounded-full px-4 py-2', dang ? 'bg-xanh-600 text-white' : 'text-slate-700 hover:bg-xanh-50']}>{d.ten}</a>;
+      })}
+      <a href="/tim-kiem" class="whitespace-nowrap rounded-full px-4 py-2 text-slate-700 hover:bg-xanh-50">Tất cả sản phẩm</a>
+      <a href="/chinh-sach/van-chuyen" class="whitespace-nowrap rounded-full px-4 py-2 text-slate-700 hover:bg-xanh-50 lg:hidden">Chính sách</a>
+    </div>
+  </nav>
+</header>

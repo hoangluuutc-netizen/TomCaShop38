@@ -1,0 +1,20 @@
+{
+  "name": "tomcashop-web",
+  "type": "module",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "node tools/chep-anh.mjs && astro dev",
+    "build": "node tools/chep-anh.mjs && astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@astrojs/sitemap": "^3.7.4",
+    "@fontsource/be-vietnam-pro": "^5.3.0",
+    "@tailwindcss/vite": "^4.3.5",
+    "astro": "^5.18.2",
+    "csv-parse": "^7.0.3",
+    "tailwindcss": "^4.3.5"
+  }
+}

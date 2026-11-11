@@ -6,3 +6,4 @@
 | 11/11/2026 | Nhận thông tin shop: cập nhật hồ sơ thương hiệu, viết docs/chinh-sach.md, điền kịch bản Messenger, hoàn thiện skill tomcashop-brand | Còn thiếu logo, màu, sản phẩm |
 | 11/11/2026 | Giai đoạn 1: viết docs/spec-website.md, làm 3 mẫu giao diện trang chủ (A/B/C) + ảnh 390/1280px | Chờ chủ shop chọn mẫu |
 | 11/11/2026 | Chủ shop chọn Mẫu A; chốt bảng màu (xanh #2B8FD6, hồng #E85A8B) + quy tắc tương phản vào skill tomcashop-brand | Kết thúc Giai đoạn 1 |
+| 11/11/2026 | Giai đoạn 2 (bước 1–3): khảo sát 17 web (docs/tham-khao-giao-dien.md), khởi tạo Astro + Tailwind, 9 sản phẩm mẫu, header/footer/nút nổi, trang chủ | Dữ liệu mẫu MAU-* |

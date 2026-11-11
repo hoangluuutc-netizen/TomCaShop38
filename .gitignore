@@ -6,3 +6,5 @@ dist/
 .DS_Store
 docs/kiem-thu/
 .playwright-mcp/
+!.env.example
+web/public/anh-sp/

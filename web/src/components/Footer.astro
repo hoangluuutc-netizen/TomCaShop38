@@ -1,0 +1,35 @@
+---
+import { SHOP } from '../lib/shop';
+import { DANH_MUC } from '../lib/san-pham';
+const nam = new Date().getFullYear();
+---
+<footer class="mt-16 bg-xanh-800 pb-28 text-xanh-100 md:pb-10">
+  <div class="khung grid gap-8 py-10 text-sm sm:grid-cols-2 lg:grid-cols-4">
+    <div>
+      <p class="text-lg font-bold text-white">TomCaShop</p>
+      <p class="mt-2">{SHOP.moTa}</p>
+      <p class="mt-3 font-semibold text-white">Thanh toán</p>
+      <p>Tiền mặt khi nhận hàng (COD) · Chuyển khoản QR</p>
+    </div>
+    <div>
+      <p class="font-semibold text-white">Thông tin người bán</p>
+      <p class="mt-2 leading-relaxed">{SHOP.nguoiBan}<br />{SHOP.diaChi}<br />ĐT/Zalo: <a class="underline" href={`tel:${SHOP.dienThoaiSo}`}>{SHOP.dienThoai}</a><br />Giờ làm việc: {SHOP.gioLamViec}</p>
+    </div>
+    <div>
+      <p class="font-semibold text-white">Danh mục</p>
+      <ul class="mt-2 space-y-2">{DANH_MUC.map((d) => <li><a class="hover:text-white" href={`/danh-muc/${d.slug}`}>{d.ten}</a></li>)}</ul>
+    </div>
+    <div>
+      <p class="font-semibold text-white">Chính sách</p>
+      <ul class="mt-2 space-y-2">
+        <li><a class="hover:text-white" href="/chinh-sach/van-chuyen">Vận chuyển &amp; kiểm tra hàng</a></li>
+        <li><a class="hover:text-white" href="/chinh-sach/doi-tra">Đổi trả</a></li>
+        <li><a class="hover:text-white" href="/chinh-sach/bao-hanh">Bảo hành</a></li>
+        <li><a class="hover:text-white" href="/chinh-sach/thanh-toan">Thanh toán</a></li>
+        <li><a class="hover:text-white" href="/chinh-sach/bao-mat">Bảo mật thông tin</a></li>
+        <li><a class="hover:text-white" href="/gioi-thieu">Giới thiệu</a> · <a class="hover:text-white" href="/lien-he">Liên hệ</a></li>
+      </ul>
+    </div>
+  </div>
+  <p class="khung border-t border-white/10 pt-4 text-xs text-xanh-100/70">© {nam} TomCaShop · {SHOP.nguoiBan}</p>
+</footer>

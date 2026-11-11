@@ -1,0 +1,24 @@
+---
+interface Props { muc: { ten: string; url?: string }[] }
+const { muc } = Astro.props;
+const ds = [{ ten: 'Trang chủ', url: '/' }, ...muc];
+const site = Astro.site?.toString().replace(/\/$/, '') ?? '';
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: ds.map((m, i) => ({ '@type': 'ListItem', position: i + 1, name: m.ten, ...(m.url ? { item: site + m.url } : {}) })),
+};
+---
+<nav aria-label="Đường dẫn" class="khung pt-4 text-sm text-slate-500">
+  <ol class="flex flex-wrap items-center gap-1">
+    {ds.map((m, i) => (
+      <li class="flex items-center gap-1">
+        {i > 0 && <span aria-hidden="true">›</span>}
+        {m.url && i < ds.length - 1
+          ? <a href={m.url} class="hover:text-xanh-700 hover:underline">{m.ten}</a>
+          : <span aria-current="page" class="text-slate-700">{m.ten}</span>}
+      </li>
+    ))}
+  </ol>
+</nav>
+<script type="application/ld+json" is:inline set:html={JSON.stringify(schema)} />

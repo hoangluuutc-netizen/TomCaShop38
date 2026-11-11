@@ -1,0 +1,75 @@
+---
+import '../styles/global.css';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import NutNoi from '../components/NutNoi.astro';
+import { coDuLieuMau } from '../lib/san-pham';
+import { SHOP } from '../lib/shop';
+
+interface Props {
+  title: string;
+  description: string;
+  anhChiaSe?: string; // đường dẫn ảnh Open Graph
+  noindex?: boolean;
+  loaiOg?: 'website' | 'product';
+}
+const { title, description, anhChiaSe = '/og-mac-dinh.png', noindex = false, loaiOg = 'website' } = Astro.props;
+const tieuDe = title.includes('TomCaShop') ? title : `${title} | TomCaShop`;
+const canonical = new URL(Astro.url.pathname, Astro.site);
+const anhOg = new URL(anhChiaSe, Astro.site);
+const chanIndex = noindex || coDuLieuMau();
+const toChuc = {
+  '@context': 'https://schema.org', '@type': 'Store', name: 'TomCaShop', url: Astro.site?.toString(),
+  telephone: SHOP.dienThoaiSo, address: { '@type': 'PostalAddress', streetAddress: SHOP.diaChi, addressCountry: 'VN' },
+  openingHours: 'Mo-Su 08:00-18:00',
+};
+---
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{tieuDe}</title>
+  <meta name="description" content={description} />
+  <link rel="canonical" href={canonical} />
+  {chanIndex && <meta name="robots" content="noindex, nofollow" />}
+  <meta name="theme-color" content="#2B8FD6" />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="sitemap" href="/sitemap-index.xml" />
+  <meta property="og:type" content={loaiOg} />
+  <meta property="og:locale" content="vi_VN" />
+  <meta property="og:site_name" content="TomCaShop" />
+  <meta property="og:title" content={tieuDe} />
+  <meta property="og:description" content={description} />
+  <meta property="og:url" content={canonical} />
+  <meta property="og:image" content={anhOg} />
+  <meta name="twitter:card" content="summary_large_image" />
+  <script type="application/ld+json" is:inline set:html={JSON.stringify(toChuc)} />
+  <slot name="head" />
+</head>
+<body class="min-h-dvh">
+  <a href="#noi-dung" class="sr-only focus:not-sr-only focus:fixed focus:left-2 focus:top-2 focus:z-50 focus:rounded focus:bg-white focus:p-2">Bỏ qua đến nội dung</a>
+  <Header />
+  <main id="noi-dung"><slot /></main>
+  <Footer />
+  <NutNoi />
+
+  <dialog id="chon-mau-nhanh" class="m-auto mb-0 w-full max-w-md rounded-t-3xl p-0 backdrop:bg-slate-900/40 sm:mb-auto sm:rounded-3xl">
+    <div class="p-5">
+      <p class="text-sm text-slate-500">Chọn màu cho</p>
+      <p data-ten class="font-bold"></p>
+      <div data-ds-mau class="mt-4 flex flex-wrap gap-2"></div>
+      <form method="dialog" class="mt-5"><button class="nut-phu w-full">Đóng</button></form>
+    </div>
+  </dialog>
+
+  <script>
+    import { capNhatSoGio, ganNutThemNhanh } from '../scripts/gio-hang';
+    capNhatSoGio();
+    ganNutThemNhanh();
+    // Giữ từ khóa tìm kiếm trong ô tìm
+    const q = new URLSearchParams(location.search).get('q');
+    if (q) document.querySelectorAll<HTMLInputElement>('[data-o-tim]').forEach((o) => (o.value = q));
+  </script>
+</body>
+</html>

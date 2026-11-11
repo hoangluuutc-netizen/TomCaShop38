@@ -1,0 +1,14 @@
+---
+import { SHOP } from '../lib/shop';
+---
+<div data-nut-noi class="fixed bottom-4 right-3 z-40 flex flex-col gap-2 transition-[bottom]">
+  <a href={SHOP.zalo} target="_blank" rel="noopener" aria-label="Nhắn Zalo cho shop" class="grid h-12 w-12 place-items-center rounded-full bg-[#0068FF] text-[11px] font-extrabold text-white shadow-lg">Zalo</a>
+  {SHOP.messenger && (
+    <a href={SHOP.messenger} target="_blank" rel="noopener" aria-label="Nhắn Messenger cho shop" class="grid h-12 w-12 place-items-center rounded-full bg-gradient-to-br from-[#00B2FF] to-[#A033FF] shadow-lg">
+      <svg class="h-6 w-6" viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M12 2C6.5 2 2 6.1 2 11.3c0 2.9 1.4 5.5 3.7 7.2V22l3.4-1.9c.9.3 1.9.4 2.9.4 5.5 0 10-4.1 10-9.2S17.5 2 12 2zm1 12.4-2.5-2.7-5 2.7 5.5-5.8 2.6 2.7 4.9-2.7-5.5 5.8z"/></svg>
+    </a>
+  )}
+  <a href={`tel:${SHOP.dienThoaiSo}`} aria-label={`Gọi shop ${SHOP.dienThoai}`} class="grid h-12 w-12 place-items-center rounded-full bg-hong-600 shadow-lg">
+    <svg class="h-6 w-6" fill="#fff" viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8a15 15 0 0 0 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17 17 0 0 1 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1l-2.3 2.2z"/></svg>
+  </a>
+</div>

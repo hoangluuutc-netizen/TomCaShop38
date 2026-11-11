@@ -1,0 +1,89 @@
+---
+import Base from '../layouts/Base.astro';
+import CamKet from '../components/CamKet.astro';
+import TheSanPham from '../components/TheSanPham.astro';
+import HinhMinhHoa from '../components/HinhMinhHoa.astro';
+import CaBaby from '../components/CaBaby.astro';
+import { DANH_MUC, NHOM_TUOI, laySanPham } from '../lib/san-pham';
+import { SHOP, BO_ME_HAY_TIM } from '../lib/shop';
+
+const sp = laySanPham();
+// Sản phẩm nổi bật: còn hàng trước, mỗi danh mục lấy đều
+const conHang = sp.filter((s) => s.tonKho > 0);
+const noiBat = DANH_MUC.flatMap((d) => conHang.filter((s) => s.danhMuc.slug === d.slug).slice(0, 2)).slice(0, 8);
+---
+<Base title="TomCaShop — Vali, cặp da và đồ dùng cho bé" description="Vali kéo, cặp da và đồ dùng cho bé 3–15 tuổi. Giao toàn quốc 3–5 ngày, được kiểm tra hàng, thanh toán khi nhận hàng, miễn phí ship từ 2 sản phẩm.">
+  <!-- Banner -->
+  <section class="song bg-gradient-to-b from-xanh-100 to-xanh-50 pb-16">
+    <div class="khung grid items-center gap-6 pt-6 md:grid-cols-2 md:pt-14">
+      <div>
+        <span class="inline-flex items-center gap-2 rounded-full bg-white px-3 py-1 text-xs font-semibold text-hong-600 shadow-sm">🐟 Cá Baby chào bố mẹ!</span>
+        <h1 class="mt-4 text-[32px] font-extrabold leading-tight text-xanh-800 md:text-5xl">Vali &amp; cặp xinh<br />cho bé <span class="text-hong-600">mỗi ngày đến trường</span></h1>
+        <p class="mt-4 text-slate-600 md:text-lg">Chọn theo tuổi bé từ 3 đến 15. Bố mẹ được kiểm tra hàng trước khi thanh toán, bảo hành 3 tháng.</p>
+        <div class="mt-6 flex flex-col gap-3 sm:flex-row">
+          <a href="/danh-muc/vali-tre-em" class="nut-chinh">Xem vali cho bé</a>
+          <a href={SHOP.zalo} target="_blank" rel="noopener" class="nut-phu">Nhắn Zalo tư vấn size</a>
+        </div>
+      </div>
+      <div class="relative h-56 md:h-96" aria-hidden="true">
+        <div class="absolute inset-4 rounded-[40%_60%_55%_45%] bg-white/70 md:inset-8"></div>
+        <HinhMinhHoa hinh="vali" mau="#2B8FD6" class="absolute bottom-4 left-[12%] w-28 md:w-48" />
+        <HinhMinhHoa hinh="cap" mau="#F27AA3" class="absolute bottom-8 right-[14%] w-20 md:w-36" />
+        <div class="boi absolute right-[6%] top-0"><CaBaby class="w-24 md:w-40" /></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="khung relative -mt-8"><CamKet /></section>
+
+  <!-- Danh mục -->
+  <section class="khung mt-12">
+    <h2 class="tieu-de">Bố mẹ đang tìm gì cho bé?</h2>
+    <div class="mt-5 grid grid-cols-3 gap-3 md:gap-6">
+      {DANH_MUC.map((d) => (
+        <a href={`/danh-muc/${d.slug}`} class:list={['rounded-3xl p-4 text-center transition hover:-translate-y-1 md:p-8', d.nen]}>
+          <HinhMinhHoa hinh={d.hinh} mau={d.mauHinh} class="mx-auto h-14 w-14 md:h-24 md:w-24" nhan="" />
+          <b class="mt-2 block text-sm md:text-lg">{d.ten}</b>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <!-- Theo tuổi -->
+  <section class="khung mt-12">
+    <div class="items-center gap-8 rounded-3xl bg-gradient-to-r from-xanh-600 to-xanh-700 p-6 text-white md:flex md:p-10">
+      <div class="md:flex-1"><h2 class="text-2xl font-extrabold">Bé nhà mình mấy tuổi?</h2><p class="mt-1 text-xanh-100">Chọn tuổi để xem đồ vừa với bé</p></div>
+      <div class="mt-5 grid grid-cols-3 gap-3 md:mt-0">
+        {NHOM_TUOI.map((n) => (
+          <a href={`/tim-kiem?tuoi=${n.slug}`} class="rounded-2xl bg-white px-4 py-3 text-center font-bold text-xanh-700">{n.ten.replace(' tuổi', '')}<span class="block text-xs font-medium text-slate-500">{n.phu}</span></a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Sản phẩm nổi bật -->
+  <section class="khung mt-12">
+    <div class="flex items-end justify-between"><h2 class="tieu-de">Sản phẩm nổi bật</h2><a href="/tim-kiem" class="text-sm font-semibold text-xanh-700">Xem tất cả →</a></div>
+    <div class="mt-5 grid grid-cols-2 gap-3 md:grid-cols-4 md:gap-6">
+      {noiBat.map((s, i) => <TheSanPham sp={s} uuTien={i < 2} />)}
+    </div>
+  </section>
+
+  <!-- Bố mẹ hay tìm -->
+  <section class="khung mt-12">
+    <h2 class="text-lg font-bold text-xanh-800">Bố mẹ hay tìm</h2>
+    <div class="mt-3 flex flex-wrap gap-2">{BO_ME_HAY_TIM.map((k) => <a href={k.url} class="chip">{k.ten}</a>)}</div>
+  </section>
+
+  <!-- Cá Baby -->
+  <section class="khung mt-14">
+    <div class="items-center gap-10 rounded-3xl bg-hong-50 p-6 md:flex md:p-10">
+      <CaBaby class="mx-auto w-36 shrink-0 md:mx-0 md:w-56" />
+      <div class="mt-4 md:mt-0">
+        <h2 class="tieu-de">Chuyện nhà Tôm &amp; Cá</h2>
+        <p class="mt-2 text-slate-600">Tôm xanh và Cá hồng là hai người bạn nhỏ trong logo TomCaShop. Cá Baby đồng hành cùng bé trong mỗi chuyến đi và mỗi ngày đến lớp.</p>
+        <a href="/gioi-thieu" class="mt-4 inline-block font-semibold text-hong-600">Về TomCaShop →</a>
+      </div>
+    </div>
+  </section>
+</Base>

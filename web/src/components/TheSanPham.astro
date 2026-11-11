@@ -1,0 +1,50 @@
+---
+import HinhMinhHoa from './HinhMinhHoa.astro';
+import { giaVN, maMau, nhomTuoiCua, khoangGiaCua, type SanPham } from '../lib/san-pham';
+interface Props { sp: SanPham; uuTien?: boolean }
+const { sp, uuTien = false } = Astro.props;
+const hetHang = sp.tonKho <= 0;
+const kichNgan = sp.kichThuoc.split('(')[0].trim();
+---
+<article
+  class="group relative flex flex-col overflow-hidden rounded-3xl border border-xanh-100 bg-white transition hover:shadow-lg"
+  data-the-sp
+  data-ten={sp.ten.toLowerCase()}
+  data-danh-muc={sp.danhMuc.slug}
+  data-tuoi={nhomTuoiCua(sp).join(' ')}
+  data-gia={khoangGiaCua(sp)}
+  data-gia-so={sp.giaBan}
+  data-mau={sp.mau.join('|')}
+  data-kich={kichNgan}
+>
+  <a href={sp.url} class="relative block aspect-square bg-xanh-50">
+    {sp.anh[0]
+      ? <img src={sp.anh[0]} alt={sp.ten} loading={uuTien ? 'eager' : 'lazy'} decoding="async" class="h-full w-full object-cover" width="400" height="400" />
+      : <span class:list={['grid h-full place-items-center', sp.danhMuc.nen]}><HinhMinhHoa hinh={sp.danhMuc.hinh} mau={sp.mau[0] ? maMau(sp.mau[0]) : sp.danhMuc.mauHinh} class="h-1/2 w-1/2" nhan={`Hình minh họa ${sp.ten}`} /></span>}
+    {sp.phanTramGiam && <span class="absolute left-2 top-2 rounded-full bg-hong-600 px-2 py-0.5 text-[11px] font-bold text-white">-{sp.phanTramGiam}%</span>}
+    {hetHang && <span class="absolute inset-x-0 bottom-0 bg-slate-800/75 py-1 text-center text-xs font-semibold text-white">Tạm hết hàng</span>}
+  </a>
+  <div class="flex flex-1 flex-col p-3">
+    {sp.doTuoi && <span class="text-[11px] text-slate-500">{sp.doTuoi.nhan}</span>}
+    <h3 class="text-sm font-semibold leading-snug line-clamp-2"><a href={sp.url} class="after:absolute after:inset-0 after:content-['']">{sp.ten}</a></h3>
+    <div class="mt-auto flex items-end justify-between gap-2 pt-2">
+      <div>
+        <b class="text-hong-600">{giaVN(sp.giaBan)}</b>
+        {sp.giaGoc && <s class="block text-xs text-slate-400">{giaVN(sp.giaGoc)}</s>}
+        {sp.mau.length > 0 && (
+          <div class="mt-1.5 flex gap-1" aria-label={`Màu: ${sp.mau.join(', ')}`}>
+            {sp.mau.slice(0, 4).map((m) => <i class="h-3.5 w-3.5 rounded-full ring-1 ring-black/10" style={`background:${maMau(m)}`} title={m}></i>)}
+          </div>
+        )}
+      </div>
+      {!hetHang && (
+        <button
+          type="button"
+          class="relative z-10 grid h-11 w-11 shrink-0 place-items-center rounded-full bg-xanh-600 text-2xl leading-none text-white shadow-md transition hover:bg-xanh-700"
+          aria-label={`Thêm ${sp.ten} vào giỏ`}
+          data-them-gio={JSON.stringify({ sku: sp.sku, ten: sp.ten, mau: sp.mau })}
+        >+</button>
+      )}
+    </div>
+  </div>
+</article>
