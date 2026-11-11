@@ -20,7 +20,7 @@ Bắt đầu từ Giai đoạn 0. Làm lần lượt từng giai đoạn; cuối
 
 ## Giai đoạn 1 — Chốt thiết kế
 - [x] Dùng skill brainstorming hỏi tôi từng câu để chốt phạm vi; ghi docs/spec-website.md.
-- [x] Dùng ui-ux-pro-max + frontend-design làm 3 hướng giao diện trang chủ (HTML tĩnh trong docs/mau-giao-dien/), chụp ở 390px và 1280px để tôi chọn. — *chờ chủ shop chọn A/B/C*
+- [x] Dùng ui-ux-pro-max + frontend-design làm 3 hướng giao diện trang chủ (HTML tĩnh trong docs/mau-giao-dien/), chụp ở 390px và 1280px để tôi chọn. — **Đã chọn Mẫu A (11/11/2026)**
 
 ## Giai đoạn 2 — Dựng website
 - [ ] Khởi tạo Astro + Tailwind trong web/, font Be Vietnam Pro, đọc sản phẩm từ products/products.csv.

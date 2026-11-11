@@ -24,8 +24,23 @@ description: Bộ nhận diện thương hiệu TomCaShop (màu, font, logo, mas
 ## 3. Màu
 | Vai trò | Màu | Mã |
 | --- | --- | --- |
-| Chủ đạo 1 | Xanh dương | **[CHƯA CHỐT — đề xuất ở Giai đoạn 1]** |
-| Chủ đạo 2 | Hồng | **[CHƯA CHỐT — đề xuất ở Giai đoạn 1]** |
+| Xanh nhạt nhất (nền) | xanh-50 | `#EEF7FD` |
+| Xanh nhạt (nền khối, viền) | xanh-100 | `#D6ECFA` |
+| **Xanh chủ đạo** (nút chính) | xanh-500 | `#2B8FD6` |
+| Xanh đậm (hover) | xanh-600 | `#1F74B4` |
+| Xanh rất đậm | xanh-700 | `#185F95` |
+| Xanh tiêu đề / chân trang | xanh-800 | `#164C75` |
+| Hồng nhạt (nền khối) | hong-50 / hong-100 | `#FFF1F6` / `#FFDCE8` |
+| Hồng minh họa (Cá Baby) | hong-400 | `#F27AA3` |
+| **Hồng chủ đạo** (nhãn, mảng màu, chữ to) | hong-500 | `#E85A8B` |
+| Hồng đậm (giá, chữ hồng cỡ nhỏ) | hong-600 | `#C93D6E` |
+| Chữ thường | slate-800 | `#1E293B` |
+
+Chốt 11/11/2026 theo **Mẫu A · Biển xanh dịu** (`docs/mau-giao-dien/mau-a-bien-xanh.html`):
+nền trắng + xanh nhạt, đường sóng, thẻ bo góc lớn (rounded-3xl), nút tròn (rounded-full), bóng nhẹ.
+Quy tắc tương phản (WCAG AA ≥ 4.5:1):
+- Nút chính: nền **xanh-600 `#1F74B4`** chữ trắng (≈ 5.0:1), hover xanh-700. `#2B8FD6` + chữ trắng chỉ ≈ 3.5:1 → chỉ dùng cho mảng màu, icon, chữ ≥ 24px.
+- Giá và chữ hồng cỡ nhỏ trên nền trắng: **hong-600 `#C93D6E`** (≈ 4.8:1). `#E85A8B` (≈ 3.4:1) chỉ dùng cho nhãn, nền, chữ ≥ 24px.
 
 - Nền sáng, góc bo tròn, chuyển động nhẹ.
 - Bản mẫu giao diện được dùng màu tạm, nhưng phải ghi chú "màu tạm" và thay khi có mã chính thức.

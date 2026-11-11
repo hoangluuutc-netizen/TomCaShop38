@@ -45,7 +45,7 @@ hoặc (4) nhắn Zalo/Messenger hỏi trước khi mua.
 
 ## 6. Giao diện
 - Chốt bằng 3 mẫu trang chủ trong `docs/mau-giao-dien/` — chủ shop chọn 1 (có thể ghép ý).
-- Màu xanh dương + hồng: mã màu chốt cùng mẫu được chọn.
+- **Đã chọn Mẫu A · Biển xanh dịu** (11/11/2026). Bảng màu + quy tắc tương phản: skill tomcashop-brand.
 - Logo: dùng file thật khi có; trước đó hiển thị khung "logo tạm".
 
 ## 7. Còn chờ chủ shop
