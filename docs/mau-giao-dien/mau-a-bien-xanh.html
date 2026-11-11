@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mẫu A · Biển xanh dịu — TomCaShop</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com/3.4.16"></script>
+<script>
+tailwind.config = { theme: { extend: {
+  fontFamily: { sans: ['"Be Vietnam Pro"', 'sans-serif'] },
+  colors: {
+    xanh: { 50:'#EEF7FD', 100:'#D6ECFA', 500:'#2B8FD6', 600:'#1F74B4', 700:'#185F95', 800:'#164C75' },
+    hong: { 50:'#FFF1F6', 100:'#FFDCE8', 400:'#F27AA3', 500:'#E85A8B' },
+  } } } }
+</script>
+<style>
+  body { font-family: 'Be Vietnam Pro', sans-serif; }
+  .wave { background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 60' preserveAspectRatio='none'%3E%3Cpath d='M0 30 Q 180 0 360 30 T 720 30 T 1080 30 T 1440 30 V60 H0Z' fill='%23ffffff'/%3E%3C/svg%3E") bottom/100% 40px no-repeat; }
+  @keyframes boi { 0%,100% { transform: translateY(0) rotate(-3deg) } 50% { transform: translateY(-8px) rotate(3deg) } }
+  .boi { animation: boi 4s ease-in-out infinite; }
+  @media (prefers-reduced-motion: reduce) { .boi { animation: none } }
+</style>
+</head>
+<body class="bg-white text-slate-800 antialiased">
+
+<!-- Biểu tượng dùng chung -->
+<svg width="0" height="0" class="absolute">
+  <symbol id="vali" viewBox="0 0 64 64"><rect x="24" y="4" width="16" height="8" rx="3" fill="none" stroke="currentColor" stroke-width="4"/><rect x="12" y="11" width="40" height="44" rx="9" fill="currentColor"/><rect x="20" y="17" width="4" height="32" rx="2" fill="#fff" opacity=".5"/><rect x="40" y="17" width="4" height="32" rx="2" fill="#fff" opacity=".5"/><circle cx="20" cy="59" r="4" fill="#334155"/><circle cx="44" cy="59" r="4" fill="#334155"/></symbol>
+  <symbol id="cap" viewBox="0 0 64 64"><path d="M22 12a10 10 0 0 1 20 0" fill="none" stroke="currentColor" stroke-width="4"/><rect x="10" y="12" width="44" height="46" rx="10" fill="currentColor"/><rect x="10" y="12" width="44" height="18" rx="10" fill="#fff" opacity=".35"/><rect x="28" y="26" width="8" height="8" rx="2" fill="#fff"/></symbol>
+  <symbol id="hop" viewBox="0 0 64 64"><rect x="8" y="20" width="48" height="34" rx="8" fill="currentColor"/><rect x="8" y="14" width="48" height="12" rx="6" fill="currentColor" opacity=".7"/><circle cx="22" cy="38" r="4" fill="#fff"/><circle cx="42" cy="38" r="4" fill="#fff"/><path d="M26 45q6 5 12 0" stroke="#fff" stroke-width="3" fill="none" stroke-linecap="round"/></symbol>
+  <symbol id="ca" viewBox="0 0 120 90"><path d="M95 45 L118 22 L114 45 L118 68 Z" fill="#F27AA3"/><ellipse cx="55" cy="45" rx="46" ry="36" fill="#F27AA3"/><ellipse cx="55" cy="55" rx="30" ry="18" fill="#FFDCE8"/><circle cx="38" cy="36" r="11" fill="#fff"/><circle cx="36" cy="37" r="6" fill="#164C75"/><circle cx="34" cy="34" r="2" fill="#fff"/><path d="M22 55 q6 6 12 0" stroke="#164C75" stroke-width="3" fill="none" stroke-linecap="round"/><circle cx="58" cy="48" r="5" fill="#E85A8B" opacity=".5"/><path d="M55 10 q12 -10 20 4" stroke="#F27AA3" stroke-width="6" fill="none" stroke-linecap="round"/></symbol>
+</svg>
+
+<div class="bg-hong-500 text-white text-center text-xs sm:text-sm py-2 px-4 font-medium">Miễn phí ship cho đơn từ 2 sản phẩm · Được kiểm tra hàng trước khi thanh toán</div>
+
+<header class="sticky top-0 z-30 bg-white/95 backdrop-blur border-b border-xanh-100">
+  <div class="max-w-6xl mx-auto flex items-center gap-3 px-4 h-16">
+    <a href="#" class="flex items-center gap-2">
+      <span class="w-11 h-11 rounded-full border-2 border-dashed border-xanh-500 grid place-items-center text-[9px] leading-tight text-center text-xanh-600 font-semibold">logo<br>tạm</span>
+      <span class="font-extrabold text-xl"><span class="text-xanh-600">TomCa</span><span class="text-hong-500">Shop</span></span>
+    </a>
+    <nav class="hidden md:flex gap-6 ml-8 text-sm font-medium text-slate-600">
+      <a href="#" class="hover:text-xanh-600">Vali trẻ em</a><a href="#" class="hover:text-xanh-600">Cặp da trẻ em</a><a href="#" class="hover:text-xanh-600">Đồ dùng bé</a><a href="#" class="hover:text-xanh-600">Chính sách</a>
+    </nav>
+    <div class="ml-auto flex items-center gap-2">
+      <button class="w-11 h-11 rounded-full bg-xanh-50 grid place-items-center" aria-label="Tìm kiếm"><svg class="w-5 h-5 text-xanh-600" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg></button>
+      <button class="relative w-11 h-11 rounded-full bg-xanh-50 grid place-items-center" aria-label="Giỏ hàng"><svg class="w-5 h-5 text-xanh-600" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path d="M3 4h2l2.5 11h11L21 7H6.2"/><circle cx="9" cy="20" r="1.5"/><circle cx="18" cy="20" r="1.5"/></svg><span class="absolute -top-0.5 -right-0.5 bg-hong-500 text-white text-[10px] font-bold w-5 h-5 rounded-full grid place-items-center">2</span></button>
+      <button class="md:hidden w-11 h-11 rounded-full bg-xanh-50 grid place-items-center" aria-label="Menu"><svg class="w-5 h-5 text-xanh-600" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+    </div>
+  </div>
+</header>
+
+<!-- Hero -->
+<section class="wave bg-gradient-to-b from-xanh-100 to-xanh-50 pb-16">
+  <div class="max-w-6xl mx-auto px-4 pt-8 md:pt-16 grid md:grid-cols-2 gap-8 items-center">
+    <div>
+      <span class="inline-flex items-center gap-2 bg-white rounded-full px-3 py-1 text-xs font-semibold text-hong-500 shadow-sm">🐟 Cá Baby chào bố mẹ!</span>
+      <h1 class="mt-4 text-[32px] md:text-5xl font-extrabold leading-tight text-xanh-800">Vali &amp; cặp xinh<br>cho bé <span class="text-hong-500">mỗi ngày đến trường</span></h1>
+      <p class="mt-4 text-slate-600 md:text-lg">Chọn theo tuổi bé từ 3 đến 15. Bố mẹ được kiểm tra hàng trước khi thanh toán, bảo hành 3 tháng.</p>
+      <div class="mt-6 flex flex-col sm:flex-row gap-3">
+        <a href="#" class="h-12 px-6 rounded-full bg-xanh-500 hover:bg-xanh-600 text-white font-semibold grid place-items-center shadow-lg shadow-xanh-500/30">Xem vali cho bé</a>
+        <a href="#" class="h-12 px-6 rounded-full bg-white text-xanh-600 font-semibold grid place-items-center border-2 border-xanh-100">Nhắn Zalo tư vấn size</a>
+      </div>
+    </div>
+    <div class="relative h-64 md:h-96">
+      <div class="absolute inset-4 md:inset-8 rounded-[40%_60%_55%_45%] bg-white/70"></div>
+      <svg class="absolute left-[12%] bottom-6 w-32 md:w-48 text-xanh-500"><use href="#vali"/></svg>
+      <svg class="absolute right-[14%] bottom-10 w-24 md:w-36 text-hong-400"><use href="#cap"/></svg>
+      <svg class="boi absolute right-[8%] top-2 w-28 md:w-40"><use href="#ca"/></svg>
+      <span class="absolute left-4 top-4 text-[10px] bg-white/80 rounded px-2 py-0.5 text-slate-500">Ảnh minh họa — thay ảnh thật</span>
+    </div>
+  </div>
+</section>
+
+<!-- Cam kết -->
+<section class="max-w-6xl mx-auto px-4 -mt-6 relative">
+  <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
+    <div class="bg-white rounded-2xl shadow-md p-4 flex gap-3 items-center"><span class="text-2xl">💵</span><div><b class="block text-sm">Thanh toán COD</b><span class="text-xs text-slate-500">Nhận hàng mới trả tiền</span></div></div>
+    <div class="bg-white rounded-2xl shadow-md p-4 flex gap-3 items-center"><span class="text-2xl">📦</span><div><b class="block text-sm">Kiểm tra hàng</b><span class="text-xs text-slate-500">Trước khi thanh toán</span></div></div>
+    <div class="bg-white rounded-2xl shadow-md p-4 flex gap-3 items-center"><span class="text-2xl">🚚</span><div><b class="block text-sm">Miễn phí ship</b><span class="text-xs text-slate-500">Đơn từ 2 sản phẩm</span></div></div>
+    <div class="bg-white rounded-2xl shadow-md p-4 flex gap-3 items-center"><span class="text-2xl">🛠️</span><div><b class="block text-sm">Bảo hành 3 tháng</b><span class="text-xs text-slate-500">Giao 3–5 ngày</span></div></div>
+  </div>
+</section>
+
+<!-- Danh mục -->
+<section class="max-w-6xl mx-auto px-4 mt-12">
+  <h2 class="text-2xl font-extrabold text-xanh-800">Bố mẹ đang tìm gì cho bé?</h2>
+  <div class="mt-5 grid grid-cols-3 gap-3 md:gap-6">
+    <a href="#" class="rounded-3xl bg-xanh-50 p-4 md:p-8 text-center hover:-translate-y-1 transition"><svg class="w-14 h-14 md:w-24 md:h-24 mx-auto text-xanh-500"><use href="#vali"/></svg><b class="block mt-2 text-sm md:text-lg">Vali trẻ em</b></a>
+    <a href="#" class="rounded-3xl bg-hong-50 p-4 md:p-8 text-center hover:-translate-y-1 transition"><svg class="w-14 h-14 md:w-24 md:h-24 mx-auto text-hong-400"><use href="#cap"/></svg><b class="block mt-2 text-sm md:text-lg">Cặp da trẻ em</b></a>
+    <a href="#" class="rounded-3xl bg-amber-50 p-4 md:p-8 text-center hover:-translate-y-1 transition"><svg class="w-14 h-14 md:w-24 md:h-24 mx-auto text-amber-400"><use href="#hop"/></svg><b class="block mt-2 text-sm md:text-lg">Đồ dùng bé</b></a>
+  </div>
+</section>
+
+<!-- Theo tuổi -->
+<section class="max-w-6xl mx-auto px-4 mt-12">
+  <div class="rounded-3xl bg-gradient-to-r from-xanh-500 to-xanh-600 text-white p-6 md:p-10 md:flex items-center gap-8">
+    <div class="md:flex-1"><h2 class="text-2xl font-extrabold">Bé nhà mình mấy tuổi?</h2><p class="mt-1 text-xanh-100">Chọn tuổi để xem size vừa với bé</p></div>
+    <div class="mt-5 md:mt-0 grid grid-cols-3 gap-3">
+      <a href="#" class="bg-white text-xanh-700 rounded-2xl py-3 px-4 text-center font-bold">3–5<span class="block text-xs font-medium text-slate-500">mầm non</span></a>
+      <a href="#" class="bg-white text-xanh-700 rounded-2xl py-3 px-4 text-center font-bold">6–10<span class="block text-xs font-medium text-slate-500">tiểu học</span></a>
+      <a href="#" class="bg-white text-xanh-700 rounded-2xl py-3 px-4 text-center font-bold">11–15<span class="block text-xs font-medium text-slate-500">THCS</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- Sản phẩm nổi bật -->
+<section class="max-w-6xl mx-auto px-4 mt-12">
+  <div class="flex items-end justify-between"><h2 class="text-2xl font-extrabold text-xanh-800">Sản phẩm nổi bật</h2><a href="#" class="text-sm font-semibold text-xanh-600">Xem tất cả →</a></div>
+  <p class="text-xs text-slate-400 mt-1">Sản phẩm &amp; giá minh họa — sẽ lấy từ products.csv</p>
+  <div class="mt-5 grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-6">
+    <!-- card -->
+    <article class="rounded-3xl border border-xanh-100 overflow-hidden bg-white">
+      <div class="aspect-square bg-xanh-50 grid place-items-center relative"><svg class="w-20 h-20 text-xanh-500"><use href="#vali"/></svg><span class="absolute top-2 left-2 bg-hong-500 text-white text-[10px] font-bold px-2 py-0.5 rounded-full">-15%</span></div>
+      <div class="p-3"><span class="text-[11px] text-slate-500">6–10 tuổi</span><h3 class="text-sm font-semibold leading-snug line-clamp-2">Vali kéo mẫu A 16 inch</h3><div class="mt-1"><b class="text-hong-500">xxx.000đ</b> <s class="text-xs text-slate-400">xxx.000đ</s></div><div class="mt-2 flex gap-1"><i class="w-4 h-4 rounded-full bg-xanh-500"></i><i class="w-4 h-4 rounded-full bg-hong-400"></i><i class="w-4 h-4 rounded-full bg-amber-300"></i></div></div>
+    </article>
+    <article class="rounded-3xl border border-xanh-100 overflow-hidden bg-white">
+      <div class="aspect-square bg-hong-50 grid place-items-center"><svg class="w-20 h-20 text-hong-400"><use href="#cap"/></svg></div>
+      <div class="p-3"><span class="text-[11px] text-slate-500">6–10 tuổi</span><h3 class="text-sm font-semibold leading-snug">Cặp da mẫu B</h3><div class="mt-1"><b class="text-hong-500">xxx.000đ</b></div><div class="mt-2 flex gap-1"><i class="w-4 h-4 rounded-full bg-hong-400"></i><i class="w-4 h-4 rounded-full bg-xanh-500"></i></div></div>
+    </article>
+    <article class="rounded-3xl border border-xanh-100 overflow-hidden bg-white">
+      <div class="aspect-square bg-xanh-50 grid place-items-center"><svg class="w-20 h-20 text-sky-400"><use href="#vali"/></svg></div>
+      <div class="p-3"><span class="text-[11px] text-slate-500">3–5 tuổi</span><h3 class="text-sm font-semibold leading-snug">Vali mẫu C 14 inch</h3><div class="mt-1"><b class="text-hong-500">xxx.000đ</b></div><div class="mt-2 flex gap-1"><i class="w-4 h-4 rounded-full bg-sky-400"></i><i class="w-4 h-4 rounded-full bg-lime-400"></i></div></div>
+    </article>
+    <article class="rounded-3xl border border-xanh-100 overflow-hidden bg-white">
+      <div class="aspect-square bg-amber-50 grid place-items-center"><svg class="w-20 h-20 text-amber-400"><use href="#hop"/></svg></div>
+      <div class="p-3"><span class="text-[11px] text-slate-500">3–15 tuổi</span><h3 class="text-sm font-semibold leading-snug">Hộp cơm mẫu D</h3><div class="mt-1"><b class="text-hong-500">xxx.000đ</b></div><div class="mt-2 flex gap-1"><i class="w-4 h-4 rounded-full bg-amber-300"></i></div></div>
+    </article>
+  </div>
+</section>
+
+<!-- Câu chuyện Cá Baby -->
+<section class="max-w-6xl mx-auto px-4 mt-14">
+  <div class="rounded-3xl bg-hong-50 p-6 md:p-10 md:flex items-center gap-10">
+    <svg class="w-36 h-28 md:w-56 md:h-44 mx-auto md:mx-0 shrink-0"><use href="#ca"/></svg>
+    <div class="mt-4 md:mt-0">
+      <h2 class="text-2xl font-extrabold text-xanh-800">Chuyện nhà Tôm &amp; Cá</h2>
+      <p class="mt-2 text-slate-600">[Câu chuyện thương hiệu — chủ shop kể, Claude viết lại.] Cá Baby là người bạn nhỏ đồng hành cùng bé trong mỗi chuyến đi và mỗi ngày đến lớp.</p>
+      <a href="#" class="inline-block mt-4 font-semibold text-hong-500">Về TomCaShop →</a>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="mt-16 bg-xanh-800 text-xanh-100 pb-24 md:pb-10">
+  <div class="max-w-6xl mx-auto px-4 py-10 grid md:grid-cols-3 gap-8 text-sm">
+    <div><b class="text-white text-lg">TomCaShop</b><p class="mt-2">Vali, cặp da và đồ dùng cho bé.</p></div>
+    <div><b class="text-white">Thông tin người bán</b><p class="mt-2">Nguyễn Hoàng Lưu<br>HH03A, TDP Thanh Hà 1, xã Bình Minh, TP Hà Nội<br>ĐT/Zalo: 0948 999 433<br>Giờ làm việc: 8h00 – 18h00</p></div>
+    <div><b class="text-white">Chính sách</b><ul class="mt-2 space-y-1"><li>Vận chuyển &amp; kiểm tra hàng</li><li>Đổi trả · Bảo hành</li><li>Thanh toán · Bảo mật thông tin</li></ul></div>
+  </div>
+</footer>
+
+<!-- Nút nổi -->
+<div class="fixed right-3 bottom-4 z-40 flex flex-col gap-2">
+  <a href="#" aria-label="Zalo" class="w-12 h-12 rounded-full bg-[#0068FF] text-white font-extrabold text-[11px] grid place-items-center shadow-lg">Zalo</a>
+  <a href="#" aria-label="Messenger" class="w-12 h-12 rounded-full bg-gradient-to-br from-[#00B2FF] to-[#A033FF] grid place-items-center shadow-lg"><svg class="w-6 h-6" viewBox="0 0 24 24" fill="#fff"><path d="M12 2C6.5 2 2 6.1 2 11.3c0 2.9 1.4 5.5 3.7 7.2V22l3.4-1.9c.9.3 1.9.4 2.9.4 5.5 0 10-4.1 10-9.2S17.5 2 12 2zm1 12.4-2.5-2.7-5 2.7 5.5-5.8 2.6 2.7 4.9-2.7-5.5 5.8z"/></svg></a>
+  <a href="#" aria-label="Gọi điện" class="w-12 h-12 rounded-full bg-hong-500 grid place-items-center shadow-lg"><svg class="w-6 h-6" fill="#fff" viewBox="0 0 24 24"><path d="M6.6 10.8a15 15 0 0 0 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17 17 0 0 1 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1l-2.3 2.2z"/></svg></a>
+</div>
+</body>
+</html>
