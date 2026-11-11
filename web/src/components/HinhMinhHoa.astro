@@ -2,9 +2,9 @@
 // Hình minh họa tạm khi sản phẩm chưa có ảnh thật (lấy từ Mẫu A).
 import type { Hinh } from '../lib/san-pham';
 interface Props { hinh: Hinh; mau?: string; class?: string; nhan?: string }
-const { hinh, mau = '#2B8FD6', class: lop = 'w-20 h-20', nhan } = Astro.props;
+const { hinh, mau = '#2B8FD6', class: lop = 'w-20 h-20', nhan, ...khac } = Astro.props as Props & Record<string, unknown>;
 ---
-<svg viewBox="0 0 64 64" class={lop} style={`color:${mau}`} role="img" aria-label={nhan ?? 'Hình minh họa'}>
+<svg viewBox="0 0 64 64" class={lop} style={`color:${mau}`} role="img" aria-label={nhan || undefined} aria-hidden={nhan === '' ? 'true' : undefined} {...khac}>
   {hinh === 'vali' && (<>
     <rect x="24" y="4" width="16" height="8" rx="3" fill="none" stroke="currentColor" stroke-width="4" />
     <rect x="12" y="11" width="40" height="44" rx="9" fill="currentColor" />

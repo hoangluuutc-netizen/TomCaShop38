@@ -1,0 +1,157 @@
+---
+// Danh sách sản phẩm + bộ lọc (tuổi, giá, màu, kích thước, loại) + sắp xếp. Lọc phía trình duyệt, đồng bộ lên URL.
+import TheSanPham from './TheSanPham.astro';
+import { DANH_MUC, NHOM_TUOI, KHOANG_GIA, maMau, type SanPham } from '../lib/san-pham';
+import { BO_ME_HAY_TIM } from '../lib/shop';
+interface Props { ds: SanPham[]; hienLoai?: boolean }
+const { ds, hienLoai = false } = Astro.props;
+
+const dsMau = [...new Set(ds.flatMap((s) => s.mau))];
+const dsKich = [...new Set(ds.map((s) => s.kichThuoc.split('(')[0].trim()).filter(Boolean))];
+const nhom = [
+  hienLoai && { ten: 'Loại sản phẩm', khoa: 'loai', muc: DANH_MUC.map((d) => ({ gt: d.slug, ten: d.ten })) },
+  { ten: 'Độ tuổi', khoa: 'tuoi', muc: NHOM_TUOI.map((n) => ({ gt: n.slug, ten: n.ten })) },
+  { ten: 'Khoảng giá', khoa: 'gia', muc: KHOANG_GIA.map((k) => ({ gt: k.slug, ten: k.ten })) },
+  dsMau.length > 1 && { ten: 'Màu', khoa: 'mau', muc: dsMau.map((m) => ({ gt: m, ten: m, mau: maMau(m) })) },
+  dsKich.length > 1 && { ten: 'Kích thước', khoa: 'kich', muc: dsKich.map((k) => ({ gt: k, ten: k })) },
+].filter(Boolean) as { ten: string; khoa: string; muc: { gt: string; ten: string; mau?: string }[] }[];
+---
+<div data-danh-sach-loc class="khung mt-4">
+  <!-- Chip lọc nhanh theo tuổi + nút mở bộ lọc -->
+  <div class="flex items-center gap-2 overflow-x-auto pb-2 [scrollbar-width:none]">
+    <button type="button" data-mo-loc class="chip shrink-0 gap-2 font-semibold md:hidden">
+      <svg class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 5h18M6 12h12M10 19h4"/></svg>
+      Lọc <span data-dem-loc class="hidden rounded-full bg-hong-600 px-1.5 text-xs text-white"></span>
+    </button>
+    {NHOM_TUOI.map((n) => <button type="button" class="chip shrink-0" data-chip-nhanh={`tuoi:${n.slug}`} aria-pressed="false">{n.ten}</button>)}
+    <label class="ml-auto shrink-0">
+      <span class="sr-only">Sắp xếp</span>
+      <select data-sap-xep class="chip cursor-pointer pr-8">
+        <option value="">Phù hợp</option>
+        <option value="gia-tang">Giá thấp → cao</option>
+        <option value="gia-giam">Giá cao → thấp</option>
+      </select>
+    </label>
+  </div>
+
+  <div class="mt-2 md:grid md:grid-cols-[220px_1fr] md:gap-8">
+    <!-- Bộ lọc: ngăn kéo trên điện thoại, cột trái trên máy tính -->
+    <aside data-bo-loc aria-label="Bộ lọc" class="fixed inset-0 z-50 hidden bg-slate-900/40 md:static md:z-auto md:block md:bg-transparent">
+      <div class="absolute inset-x-0 bottom-0 max-h-[85dvh] overflow-y-auto rounded-t-3xl bg-white p-5 md:static md:max-h-none md:rounded-none md:p-0">
+        <div class="mb-4 flex items-center justify-between md:hidden">
+          <p class="text-lg font-bold">Lọc sản phẩm</p>
+          <button type="button" data-dong-loc class="grid h-11 w-11 place-items-center rounded-full bg-slate-100" aria-label="Đóng bộ lọc">✕</button>
+        </div>
+        {nhom.map((g) => (
+          <fieldset class="mb-5">
+            <legend class="mb-2 text-sm font-bold text-xanh-800">{g.ten}</legend>
+            <div class="flex flex-wrap gap-2">
+              {g.muc.map((m) => (
+                <label class="cursor-pointer">
+                  <input type="checkbox" name={g.khoa} value={m.gt} class="peer sr-only" />
+                  <span class="chip gap-2 peer-checked:border-xanh-600 peer-checked:bg-xanh-600 peer-checked:text-white peer-focus-visible:outline-2 peer-focus-visible:outline-xanh-600">
+                    {m.mau && <i class="h-3.5 w-3.5 rounded-full ring-1 ring-black/10" style={`background:${m.mau}`}></i>}{m.ten}
+                  </span>
+                </label>
+              ))}
+            </div>
+          </fieldset>
+        ))}
+        <div class="sticky bottom-0 flex gap-2 bg-white pt-2 md:static">
+          <button type="button" data-xoa-loc class="nut-phu flex-1">Xóa lọc</button>
+          <button type="button" data-dong-loc class="nut-chinh flex-1 md:hidden">Xem <span data-dem-kq></span> sản phẩm</button>
+        </div>
+      </div>
+    </aside>
+
+    <div>
+      <p class="mb-3 text-sm text-slate-500" aria-live="polite"><span data-dem-kq>{ds.length}</span> sản phẩm</p>
+      <div data-luoi class="grid grid-cols-2 gap-3 sm:grid-cols-3 md:gap-5">
+        {ds.map((s, i) => <TheSanPham sp={s} uuTien={i < 2} />)}
+      </div>
+      <div data-trong class="hidden rounded-3xl bg-xanh-50 p-8 text-center">
+        <p class="font-semibold">Chưa có sản phẩm phù hợp.</p>
+        <p class="mt-1 text-sm text-slate-600">Bố mẹ thử bỏ bớt bộ lọc, hoặc nhắn Zalo để shop tư vấn nhé.</p>
+        <button type="button" data-xoa-loc class="nut-phu mt-4">Xóa lọc</button>
+      </div>
+      <div class="mt-10">
+        <h2 class="text-lg font-bold text-xanh-800">Bố mẹ hay tìm</h2>
+        <div class="mt-3 flex flex-wrap gap-2">{BO_ME_HAY_TIM.map((k) => <a href={k.url} class="chip">{k.ten}</a>)}</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  const goc = document.querySelector<HTMLElement>('[data-danh-sach-loc]');
+  if (goc) {
+    const boLoc = goc.querySelector<HTMLElement>('[data-bo-loc]')!;
+    const luoi = goc.querySelector<HTMLElement>('[data-luoi]')!;
+    const the = [...luoi.querySelectorAll<HTMLElement>('[data-the-sp]')];
+    const thuTuGoc = [...the];
+    const sapXep = goc.querySelector<HTMLSelectElement>('[data-sap-xep]')!;
+    const hop = () => [...boLoc.querySelectorAll<HTMLInputElement>('input[type=checkbox]')];
+    const KHOA = ['loai', 'tuoi', 'gia', 'mau', 'kich'];
+
+    // Đọc trạng thái từ URL
+    const url = new URL(location.href);
+    for (const o of hop()) o.checked = url.searchParams.getAll(o.name).flatMap((v) => v.split(',')).includes(o.value);
+    sapXep.value = url.searchParams.get('sap') ?? '';
+    const q = (url.searchParams.get('q') ?? '').trim().toLowerCase();
+    const boDau = (s: string) => s.normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/đ/g, 'd');
+
+    function apDung() {
+      const chon: Record<string, string[]> = {};
+      for (const o of hop()) if (o.checked) (chon[o.name] ??= []).push(o.value);
+      let dem = 0;
+      for (const t of the) {
+        const d = t.dataset;
+        const khop =
+          (!q || boDau(d.ten!).includes(boDau(q))) &&
+          (!chon.loai || chon.loai.includes(d.danhMuc!)) &&
+          (!chon.tuoi || chon.tuoi.some((v) => d.tuoi!.split(' ').includes(v))) &&
+          (!chon.gia || chon.gia.includes(d.gia!)) &&
+          (!chon.mau || chon.mau.some((v) => d.mau!.split('|').includes(v))) &&
+          (!chon.kich || chon.kich.includes(d.kich!));
+        t.hidden = !khop;
+        if (khop) dem++;
+      }
+      // Sắp xếp
+      const ds = [...thuTuGoc];
+      if (sapXep.value === 'gia-tang') ds.sort((a, b) => +a.dataset.giaSo! - +b.dataset.giaSo!);
+      if (sapXep.value === 'gia-giam') ds.sort((a, b) => +b.dataset.giaSo! - +a.dataset.giaSo!);
+      luoi.append(...ds);
+      // Hiển thị số lượng
+      goc!.querySelectorAll('[data-dem-kq]').forEach((e) => (e.textContent = String(dem)));
+      goc!.querySelector('[data-trong]')!.classList.toggle('hidden', dem > 0);
+      const soLoc = Object.values(chon).flat().length;
+      const nhan = goc!.querySelector<HTMLElement>('[data-dem-loc]')!;
+      nhan.textContent = String(soLoc);
+      nhan.classList.toggle('hidden', soLoc === 0);
+      goc!.querySelectorAll<HTMLElement>('[data-chip-nhanh]').forEach((c) => {
+        const [k, v] = c.dataset.chipNhanh!.split(':');
+        c.setAttribute('aria-pressed', String(!!chon[k]?.includes(v)));
+      });
+      // Ghi lên URL (giữ q)
+      const moi = new URL(location.href);
+      for (const k of [...KHOA, 'sap']) moi.searchParams.delete(k);
+      for (const [k, v] of Object.entries(chon)) moi.searchParams.set(k, v.join(','));
+      if (sapXep.value) moi.searchParams.set('sap', sapXep.value);
+      history.replaceState(null, '', moi);
+    }
+
+    boLoc.addEventListener('change', apDung);
+    sapXep.addEventListener('change', apDung);
+    goc.querySelectorAll<HTMLElement>('[data-chip-nhanh]').forEach((c) => c.addEventListener('click', () => {
+      const [k, v] = c.dataset.chipNhanh!.split(':');
+      const o = hop().find((x) => x.name === k && x.value === v);
+      if (o) { o.checked = !o.checked; apDung(); }
+    }));
+    goc.querySelectorAll('[data-xoa-loc]').forEach((b) => b.addEventListener('click', () => { hop().forEach((o) => (o.checked = false)); apDung(); }));
+    const mo = (m: boolean) => { boLoc.classList.toggle('hidden', !m); document.body.style.overflow = m ? 'hidden' : ''; };
+    goc.querySelector('[data-mo-loc]')!.addEventListener('click', () => mo(true));
+    goc.querySelectorAll('[data-dong-loc]').forEach((b) => b.addEventListener('click', () => { if (innerWidth < 768) mo(false); }));
+    boLoc.addEventListener('click', (e) => { if (e.target === boLoc) mo(false); });
+    apDung();
+  }
+</script>

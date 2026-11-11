@@ -1,0 +1,270 @@
+---
+import Base from '../../layouts/Base.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import HinhMinhHoa from '../../components/HinhMinhHoa.astro';
+import TheSanPham from '../../components/TheSanPham.astro';
+import { laySanPham, giaVN, maMau, hopTuoi, type SanPham } from '../../lib/san-pham';
+import { SHOP, CHINH_SACH } from '../../lib/shop';
+
+export function getStaticPaths() {
+  return laySanPham().map((sp) => ({ params: { sku: sp.sku.toLowerCase() }, props: { sp } }));
+}
+const { sp } = Astro.props as { sp: SanPham };
+const tatCa = laySanPham();
+const hetHang = sp.tonKho <= 0;
+const cungDanhMuc = tatCa.filter((s) => s.danhMuc.slug === sp.danhMuc.slug);
+const cungTuoi = tatCa
+  .filter((s) => s.sku !== sp.sku && s.tonKho > 0 && sp.doTuoi && hopTuoi(s, sp.doTuoi.tu, sp.doTuoi.den))
+  .sort((a, b) => Number(b.danhMuc.slug !== sp.danhMuc.slug) - Number(a.danhMuc.slug !== sp.danhMuc.slug))
+  .slice(0, 4);
+
+const moTaMeta = `${sp.ten} ${sp.doTuoi ? `cho bé ${sp.doTuoi.nhan}` : ''}, giá ${giaVN(sp.giaBan)}. ${CHINH_SACH.giaoHang}, được kiểm tra hàng, thanh toán khi nhận hàng.`.replace(/\s+/g, ' ');
+const site = Astro.site?.toString().replace(/\/$/, '') ?? '';
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'Product',
+  name: sp.ten,
+  sku: sp.sku,
+  description: sp.moTaNgan,
+  category: sp.danhMuc.ten,
+  ...(sp.anh.length ? { image: sp.anh.map((a) => (a.startsWith('http') ? a : site + a)) } : {}),
+  ...(sp.chatLieu ? { material: sp.chatLieu } : {}),
+  ...(sp.mau.length ? { color: sp.mau.join(', ') } : {}),
+  brand: { '@type': 'Brand', name: 'TomCaShop' },
+  offers: {
+    '@type': 'Offer',
+    url: site + sp.url,
+    priceCurrency: 'VND',
+    price: sp.giaBan,
+    availability: hetHang ? 'https://schema.org/OutOfStock' : 'https://schema.org/InStock',
+    itemCondition: 'https://schema.org/NewCondition',
+    seller: { '@type': 'Organization', name: 'TomCaShop' },
+  },
+};
+const thongSo = [
+  ['Mã sản phẩm', sp.sku],
+  ['Kích thước', sp.kichThuoc],
+  ['Chất liệu', sp.chatLieu],
+  ['Độ tuổi phù hợp', sp.doTuoi?.nhan ?? ''],
+  ['Màu', sp.mau.join(', ')],
+].filter(([, v]) => v);
+const hoiDap = [
+  ['Ship bao lâu, phí thế nào?', `${CHINH_SACH.giaoHang}. ${CHINH_SACH.phiShip}. ${CHINH_SACH.mienShip}.`],
+  ['Có được kiểm tra hàng không?', `${CHINH_SACH.kiemTra}. Bố mẹ mở hộp xem sản phẩm rồi mới trả tiền.`],
+  ['Đổi trả thế nào?', `${CHINH_SACH.doiTra}. Bố mẹ nhắn Zalo ${SHOP.dienThoai} kèm ảnh/video sản phẩm.`],
+  ['Bảo hành bao lâu?', `${CHINH_SACH.baoHanh} kể từ ngày nhận hàng.`],
+  ['Bé nhà mình dùng size nào?', `Bố mẹ xem bảng so sánh size phía trên, hoặc nhắn Zalo ${SHOP.dienThoai} kèm tuổi và chiều cao của bé để shop tư vấn.`],
+];
+---
+<Base title={sp.ten} description={moTaMeta} anhChiaSe={sp.anh[0]} loaiOg="product">
+  <script slot="head" type="application/ld+json" is:inline set:html={JSON.stringify(schema)} />
+  <Breadcrumb muc={[{ ten: sp.danhMuc.ten, url: `/danh-muc/${sp.danhMuc.slug}` }, { ten: sp.ten }]} />
+
+  <div class="khung mt-4 grid gap-6 md:grid-cols-2 md:gap-10" data-trang-sp data-sku={sp.sku} data-ten={sp.ten}>
+    <!-- Ảnh -->
+    <div>
+      {sp.anh.length > 0 ? (
+        <div class="flex snap-x snap-mandatory gap-2 overflow-x-auto rounded-3xl [scrollbar-width:none]">
+          {sp.anh.map((a, i) => <img src={a} alt={`${sp.ten} — ảnh ${i + 1}`} class="aspect-square w-full shrink-0 snap-center rounded-3xl object-cover" width="800" height="800" loading={i ? 'lazy' : 'eager'} />)}
+        </div>
+      ) : (
+        <div class:list={['relative grid aspect-square place-items-center rounded-3xl', sp.danhMuc.nen]}>
+          <HinhMinhHoa hinh={sp.danhMuc.hinh} mau={sp.mau[0] ? maMau(sp.mau[0]) : sp.danhMuc.mauHinh} class="h-1/2 w-1/2" nhan={`Hình minh họa ${sp.ten}`} data-hinh-sp />
+          <span class="absolute bottom-3 left-3 rounded-full bg-white/80 px-3 py-1 text-xs text-slate-500">Hình minh họa — ảnh thật sẽ cập nhật</span>
+        </div>
+      )}
+    </div>
+
+    <!-- Thông tin mua -->
+    <div>
+      {sp.doTuoi && <span class="inline-block rounded-full bg-xanh-50 px-3 py-1 text-xs font-semibold text-xanh-700">Bé {sp.doTuoi.nhan}</span>}
+      <h1 class="mt-2 text-2xl font-extrabold leading-tight text-xanh-800 md:text-3xl">{sp.ten}</h1>
+      <div class="mt-3 flex flex-wrap items-baseline gap-x-3 gap-y-1">
+        <span class="text-3xl font-extrabold text-hong-600">{giaVN(sp.giaBan)}</span>
+        {sp.giaGoc && <s class="text-slate-400">{giaVN(sp.giaGoc)}</s>}
+        {sp.phanTramGiam && <span class="rounded-full bg-hong-100 px-2 py-0.5 text-sm font-bold text-hong-600">-{sp.phanTramGiam}%</span>}
+      </div>
+      <p class="mt-1 text-sm font-medium text-xanh-700">🚚 Mua từ 2 sản phẩm được miễn phí ship</p>
+
+      {sp.mau.length > 0 && (
+        <fieldset class="mt-5">
+          <legend class="text-sm font-bold">Màu: <span data-mau-dang-chon class="font-normal">{sp.mau[0]}</span></legend>
+          <div class="mt-2 flex flex-wrap gap-2">
+            {sp.mau.map((m, i) => (
+              <label class="cursor-pointer">
+                <input type="radio" name="mau" value={m} checked={i === 0} class="peer sr-only" data-ma={maMau(m)} />
+                <span class="chip gap-2 peer-checked:border-xanh-600 peer-checked:ring-2 peer-checked:ring-xanh-100 peer-focus-visible:outline-2 peer-focus-visible:outline-xanh-600">
+                  <i class="h-4 w-4 rounded-full ring-1 ring-black/10" style={`background:${maMau(m)}`}></i>{m}
+                </span>
+              </label>
+            ))}
+          </div>
+        </fieldset>
+      )}
+
+      {!hetHang && (
+        <div class="mt-5 flex items-center gap-3">
+          <span class="text-sm font-bold">Số lượng</span>
+          <div class="flex items-center rounded-full border border-slate-300">
+            <button type="button" data-giam class="grid h-11 w-11 place-items-center text-xl" aria-label="Giảm số lượng">−</button>
+            <input data-so-luong type="number" inputmode="numeric" min="1" max={Math.min(sp.tonKho, 99)} value="1" class="h-11 w-12 border-0 text-center font-semibold [appearance:textfield] [&::-webkit-inner-spin-button]:appearance-none" aria-label="Số lượng" />
+            <button type="button" data-tang class="grid h-11 w-11 place-items-center text-xl" aria-label="Tăng số lượng">+</button>
+          </div>
+          <span class="text-sm text-slate-500">Còn {sp.tonKho} sản phẩm</span>
+        </div>
+      )}
+
+      <!-- Khối giao hàng (ngay trên nút mua) -->
+      <ul class="mt-5 space-y-2 rounded-2xl bg-xanh-50 p-4 text-sm">
+        <li class="flex gap-2"><span aria-hidden="true">🚚</span><span><b>{CHINH_SACH.giaoHang}</b> · {CHINH_SACH.phiShip}</span></li>
+        <li class="flex gap-2"><span aria-hidden="true">💵</span><span>Thanh toán khi nhận hàng (COD) hoặc chuyển khoản QR</span></li>
+        <li class="flex gap-2"><span aria-hidden="true">📦</span><span>{CHINH_SACH.kiemTra}</span></li>
+        {sp.doTuoi && <li class="flex gap-2"><span aria-hidden="true">👶</span><span>Độ tuổi phù hợp: <b>{sp.doTuoi.nhan}</b></span></li>}
+      </ul>
+
+      <div data-khoi-nut class="mt-5 grid grid-cols-2 gap-3">
+        {hetHang ? (<>
+          <button type="button" disabled class="nut-chinh col-span-2">Tạm hết hàng</button>
+          <a href={SHOP.zalo} target="_blank" rel="noopener" class="nut-phu col-span-2">Nhắn Zalo đặt trước</a>
+        </>) : (<>
+          <button type="button" data-them class="nut-phu">Thêm vào giỏ</button>
+          <button type="button" data-mua-ngay class="nut-chinh">Mua ngay</button>
+        </>)}
+      </div>
+
+      <!-- Chính sách ngắn dưới nút mua -->
+      <div class="mt-4 grid gap-2 text-sm text-slate-600">
+        <p>🔁 <b>Đổi trả:</b> {CHINH_SACH.doiTra}. <a href="/chinh-sach/doi-tra" class="text-xanh-700 underline">Chi tiết</a></p>
+        <p>🛠️ <b>Bảo hành:</b> {CHINH_SACH.baoHanh}. <a href="/chinh-sach/bao-hanh" class="text-xanh-700 underline">Chi tiết</a></p>
+        <p>💬 Cần tư vấn size? <a href={SHOP.zalo} target="_blank" rel="noopener" class="font-semibold text-xanh-700 underline">Hỏi shop qua Zalo</a> hoặc gọi <a href={`tel:${SHOP.dienThoaiSo}`} class="font-semibold text-xanh-700 underline">{SHOP.dienThoai}</a></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Thông số, size, mô tả, hỏi đáp -->
+  <div class="khung mt-10 grid gap-8 md:grid-cols-2 md:gap-10">
+    <section>
+      <h2 class="text-xl font-extrabold text-xanh-800">Thông số sản phẩm</h2>
+      <table class="mt-3 w-full overflow-hidden rounded-2xl text-sm">
+        <tbody>
+          {thongSo.map(([k, v], i) => <tr class:list={[i % 2 ? 'bg-white' : 'bg-xanh-50']}><th scope="row" class="w-2/5 px-4 py-3 text-left font-medium text-slate-500">{k}</th><td class="px-4 py-3 font-medium">{v}</td></tr>)}
+        </tbody>
+      </table>
+      {sp.moTaNgan && (<>
+        <h2 class="mt-8 text-xl font-extrabold text-xanh-800">Mô tả</h2>
+        <p class="mt-2 leading-relaxed text-slate-700">{sp.moTaNgan}</p>
+      </>)}
+    </section>
+    <section>
+      {cungDanhMuc.length > 1 && (<>
+        <h2 class="text-xl font-extrabold text-xanh-800">So sánh size {sp.danhMuc.ten.toLowerCase()}</h2>
+        <div class="mt-3 overflow-x-auto rounded-2xl border border-xanh-100">
+          <table class="w-full min-w-[420px] text-sm">
+            <thead class="bg-xanh-50 text-left text-slate-600"><tr><th class="px-4 py-3">Sản phẩm</th><th class="px-4 py-3">Kích thước</th><th class="px-4 py-3">Độ tuổi</th></tr></thead>
+            <tbody>
+              {cungDanhMuc.map((s) => (
+                <tr class:list={['border-t border-xanh-100', s.sku === sp.sku && 'bg-hong-50 font-semibold']}>
+                  <td class="px-4 py-3">{s.sku === sp.sku ? s.ten : <a href={s.url} class="text-xanh-700 underline">{s.ten}</a>}</td>
+                  <td class="px-4 py-3">{s.kichThuoc}</td>
+                  <td class="px-4 py-3 whitespace-nowrap">{s.doTuoi?.nhan ?? '—'}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </>)}
+      <h2 class="mt-8 text-xl font-extrabold text-xanh-800">Bố mẹ hay hỏi</h2>
+      <div class="mt-3 divide-y divide-xanh-100 rounded-2xl border border-xanh-100">
+        {hoiDap.map(([h, d]) => (
+          <details class="group px-4">
+            <summary class="flex min-h-12 cursor-pointer list-none items-center justify-between gap-3 py-3 font-semibold">{h}<span class="text-xanh-600 transition group-open:rotate-45" aria-hidden="true">+</span></summary>
+            <p class="pb-4 text-sm leading-relaxed text-slate-600">{d}</p>
+          </details>
+        ))}
+      </div>
+    </section>
+  </div>
+
+  {cungTuoi.length > 0 && (
+    <section class="khung mt-12">
+      <h2 class="tieu-de">Cùng độ tuổi {sp.doTuoi?.nhan}</h2>
+      <div class="mt-5 grid grid-cols-2 gap-3 md:grid-cols-4 md:gap-6">{cungTuoi.map((s) => <TheSanPham sp={s} />)}</div>
+    </section>
+  )}
+  <section class="khung mt-12 hidden" data-vua-xem>
+    <h2 class="tieu-de">Bố mẹ vừa xem</h2>
+    <div class="mt-5 flex gap-3 overflow-x-auto pb-2" data-ds-vua-xem></div>
+  </section>
+
+  <!-- Thanh mua dính đáy màn hình (điện thoại) -->
+  {!hetHang && (
+    <div data-thanh-mua class="fixed inset-x-0 bottom-0 z-40 translate-y-full border-t border-xanh-100 bg-white/95 px-4 py-3 shadow-[0_-4px_20px_rgba(0,0,0,.08)] backdrop-blur transition md:hidden">
+      <div class="flex items-center gap-3">
+        <div class="min-w-0 flex-1"><p class="truncate text-xs text-slate-500">{sp.ten}</p><p class="font-extrabold text-hong-600">{giaVN(sp.giaBan)}</p></div>
+        <button type="button" data-them class="nut-phu min-h-11 px-4 text-sm">Thêm giỏ</button>
+        <button type="button" data-mua-ngay class="nut-chinh min-h-11 px-4 text-sm">Mua ngay</button>
+      </div>
+    </div>
+  )}
+</Base>
+
+<script>
+  import { themVaoGio, thongBao, ghiVuaXem, docVuaXem, layDuLieuSp, giaVN } from '../../scripts/gio-hang';
+  const trang = document.querySelector<HTMLElement>('[data-trang-sp]')!;
+  const sku = trang.dataset.sku!;
+  const ten = trang.dataset.ten!;
+  const oSl = document.querySelector<HTMLInputElement>('[data-so-luong]');
+  const mauChon = () => document.querySelector<HTMLInputElement>('input[name=mau]:checked')?.value ?? '';
+  const sl = () => Math.max(1, Math.min(+(oSl?.max ?? 99), Math.floor(+(oSl?.value ?? 1)) || 1));
+
+  document.querySelectorAll<HTMLInputElement>('input[name=mau]').forEach((r) => r.addEventListener('change', () => {
+    document.querySelector('[data-mau-dang-chon]')!.textContent = r.value;
+    const hinh = document.querySelector<SVGElement>('[data-hinh-sp]');
+    if (hinh) hinh.style.color = r.dataset.ma!;
+  }));
+  document.querySelector('[data-giam]')?.addEventListener('click', () => { oSl!.value = String(Math.max(1, sl() - 1)); });
+  document.querySelector('[data-tang]')?.addEventListener('click', () => { oSl!.value = String(Math.min(+oSl!.max, sl() + 1)); });
+  oSl?.addEventListener('change', () => (oSl.value = String(sl())));
+
+  document.querySelectorAll('[data-them]').forEach((b) => b.addEventListener('click', () => {
+    themVaoGio(sku, mauChon(), sl());
+    thongBao(`Đã thêm ${sl()} "${ten}"${mauChon() ? ` (${mauChon()})` : ''} vào giỏ`, { ten: 'Xem giỏ', url: '/gio-hang' });
+  }));
+  document.querySelectorAll('[data-mua-ngay]').forEach((b) => b.addEventListener('click', () => {
+    themVaoGio(sku, mauChon(), sl());
+    location.href = '/dat-hang';
+  }));
+
+  // Thanh mua dính đáy: hiện khi khối nút chính đã cuộn qua; dời nút nổi lên để không che
+  const thanh = document.querySelector<HTMLElement>('[data-thanh-mua]');
+  const khoi = document.querySelector('[data-khoi-nut]');
+  const nutNoi = document.querySelector<HTMLElement>('[data-nut-noi]');
+  if (thanh && khoi) {
+    new IntersectionObserver(([e]) => {
+      const hien = !e.isIntersecting && e.boundingClientRect.top < 0;
+      thanh.classList.toggle('translate-y-full', !hien);
+      if (nutNoi && innerWidth < 768) nutNoi.style.bottom = hien ? '84px' : '';
+    }).observe(khoi);
+  }
+
+  // Bố mẹ vừa xem
+  const truoc = docVuaXem().filter((s) => s !== sku).slice(0, 6);
+  ghiVuaXem(sku);
+  if (truoc.length) {
+    layDuLieuSp().then((bang) => {
+      const hop = document.querySelector('[data-ds-vua-xem]')!;
+      for (const s of truoc) {
+        const p = bang.get(s);
+        if (!p) continue;
+        const a = document.createElement('a');
+        a.href = p.url;
+        a.className = 'w-36 shrink-0 rounded-2xl border border-xanh-100 p-3 text-sm';
+        const t = document.createElement('p'); t.className = 'line-clamp-2 font-semibold'; t.textContent = p.ten;
+        const g = document.createElement('p'); g.className = 'mt-1 font-bold text-hong-600'; g.textContent = giaVN(p.gia);
+        a.append(t, g);
+        hop.append(a);
+      }
+      if (hop.children.length) document.querySelector('[data-vua-xem]')!.classList.remove('hidden');
+    });
+  }
+</script>

@@ -1,0 +1,20 @@
+---
+import Base from '../../layouts/Base.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import DanhSachLoc from '../../components/DanhSachLoc.astro';
+import { DANH_MUC, laySanPham, type DanhMuc } from '../../lib/san-pham';
+
+export function getStaticPaths() {
+  return DANH_MUC.map((d) => ({ params: { slug: d.slug }, props: { dm: d } }));
+}
+const { dm } = Astro.props as { dm: DanhMuc };
+const ds = laySanPham().filter((s) => s.danhMuc.slug === dm.slug);
+---
+<Base title={`${dm.ten} cho bé 3–15 tuổi`} description={`${dm.moTa} Lọc theo tuổi, giá, màu. Giao toàn quốc 3–5 ngày, kiểm tra hàng trước khi thanh toán, miễn ship từ 2 sản phẩm.`}>
+  <Breadcrumb muc={[{ ten: dm.ten }]} />
+  <div class="khung mt-3">
+    <h1 class="text-2xl font-extrabold text-xanh-800 md:text-3xl">{dm.ten}</h1>
+    <p class="mt-1 text-slate-600">{dm.moTa}</p>
+  </div>
+  <DanhSachLoc ds={ds} />
+</Base>
