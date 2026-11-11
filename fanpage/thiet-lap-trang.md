@@ -47,7 +47,7 @@ Bố mẹ nhắn tin cho shop kèm tuổi và chiều cao của bé để đư�
 | Email | Tùy chủ shop |
 
 ## 5. Ảnh
-- Ảnh đại diện: logo huy hiệu tròn tôm–cá → **chờ file logo** trong `brand/`; Claude xuất `fanpage/anh/anh-dai-dien.png` (720×720).
+- Ảnh đại diện: **`fanpage/anh/anh-dai-dien.png`** (720×720, xuất từ brand/logo.png).
 - Ảnh bìa: **`fanpage/anh/anh-bia-a.png`** (1640×624) — chủ shop đã chọn phương án A (11/11/2026).
 
 ## 6. Checklist chủ shop bấm

@@ -7,7 +7,7 @@
 - Sản phẩm: đồ dùng trẻ em, vali trẻ em, cặp da trẻ em
 - Tính cách thương hiệu: đáng yêu, thân thiện, dễ nhận biết
 - Màu chủ đạo: xanh dương `#2B8FD6` + hồng `#E85A8B` (chốt 11/11/2026 theo Mẫu A · Biển xanh dịu; bảng màu đầy đủ trong skill tomcashop-brand)
-- Logo: tôm xanh và cá hồng đối diện nhau trong huy hiệu tròn — file logo: **[CHƯA CÓ — đặt vào brand/]**
+- Logo: tôm xanh ngọc và cá hồng đối diện nhau trong vòng nước, chữ "TomcaShop38" — file: `brand/logo.png` (nhận 11/11/2026)
 - Mascot: Cá Baby (nhân vật bé dùng trong video quảng cáo)
 - Xưng hô: shop – bố mẹ/ba mẹ
 

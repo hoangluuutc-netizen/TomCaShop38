@@ -17,8 +17,11 @@ description: Bộ nhận diện thương hiệu TomCaShop (màu, font, logo, mas
 - Kênh bán: website, Facebook, TikTok Shop, Shopee.
 
 ## 2. Logo & mascot
-- Logo: tôm xanh + cá hồng đối diện nhau trong huy hiệu tròn. File logo: **[CHƯA CÓ]** (đặt vào `brand/`).
-  Khi chưa có file: dùng chữ "TomCaShop" + chỗ trống ghi rõ "logo", không tự vẽ logo thay thế để dùng thật.
+- Logo: tôm xanh ngọc + cá hồng đối diện nhau trong vòng nước xanh, chữ **"TomcaShop38"** (chữ "Shop" màu vàng) phía dưới.
+  File gốc: `brand/logo.png` (1254×1254, nền trắng, chưa có bản nền trong suốt/SVG).
+  Các bản đã xuất (chạy `node tools/xuat-logo.mjs` trong `web/`): ảnh đại diện Fanpage `fanpage/anh/anh-dai-dien.png`,
+  `web/public/logo-160.webp`, `logo-512.png`, favicon `favicon-32.png`, `apple-touch-icon.png`, `icon-192.png` (favicon chỉ lấy hình tôm + cá, bỏ chữ).
+  Logo là hình minh họa nhiều chi tiết → không dùng nhỏ hơn 40px; dưới 40px dùng bản favicon.
 - Mascot: **Cá Baby** — nhân vật bé, dùng trong video, minh họa, lời chào Messenger.
 
 ## 3. Màu
@@ -38,6 +41,10 @@ description: Bộ nhận diện thương hiệu TomCaShop (màu, font, logo, mas
 
 Chốt 11/11/2026 theo **Mẫu A · Biển xanh dịu** (`docs/mau-giao-dien/mau-a-bien-xanh.html`):
 nền trắng + xanh nhạt, đường sóng, thẻ bo góc lớn (rounded-3xl), nút tròn (rounded-full), bóng nhẹ.
+Màu đo từ logo (11/11/2026): tôm `#3DCFD6` (xanh ngọc), cá `#F394A0` (hồng san hô), vòng nước `#5BC0F0`, chữ "Shop" vàng (~`#F5B82E`).
+Các màu này sáng, chữ trắng/đen trên đó không đủ tương phản → **chỉ dùng cho mảng trang trí, minh họa**; chữ và nút vẫn dùng bảng màu trên.
+Vàng `#F5B82E` (vang-400) dùng làm màu nhấn phụ, ăn khớp chữ "Shop" trong logo.
+
 Quy tắc tương phản (WCAG AA ≥ 4.5:1):
 - Nút chính: nền **xanh-600 `#1F74B4`** chữ trắng (≈ 5.0:1), hover xanh-700. `#2B8FD6` + chữ trắng chỉ ≈ 3.5:1 → chỉ dùng cho mảng màu, icon, chữ ≥ 24px.
 - Giá và chữ hồng cỡ nhỏ trên nền trắng: **hong-600 `#C93D6E`** (≈ 4.8:1). `#E85A8B` (≈ 3.4:1) chỉ dùng cho nhãn, nền, chữ ≥ 24px.

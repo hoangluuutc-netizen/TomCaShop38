@@ -1,10 +1,7 @@
 ---
-// Khi có file logo thật: đặt vào web/public/logo.svg (hoặc .png) và đổi CO_LOGO = true.
-const CO_LOGO = false;
+// Logo thật: brand/logo.png → xuất bằng `node tools/xuat-logo.mjs` thành public/logo-160.webp.
 ---
 <a href="/" class="flex shrink-0 items-center gap-2" aria-label="TomCaShop — về trang chủ">
-  {CO_LOGO
-    ? <img src="/logo.svg" alt="" width="44" height="44" class="h-11 w-11" />
-    : <span class="grid h-11 w-11 place-items-center rounded-full border-2 border-dashed border-xanh-500 text-center text-[9px] font-semibold leading-tight text-xanh-600">logo<br />tạm</span>}
+  <img src="/logo-160.webp" alt="" width="48" height="48" class="h-12 w-12 rounded-full" />
   <span class="text-xl font-extrabold"><span class="text-xanh-600">TomCa</span><span class="text-hong-600">Shop</span></span>
 </a>
