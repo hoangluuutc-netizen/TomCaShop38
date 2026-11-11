@@ -3,6 +3,7 @@ import '../styles/global.css';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import NutNoi from '../components/NutNoi.astro';
+import MetaPixel from '../components/MetaPixel.astro';
 import { coDuLieuMau } from '../lib/san-pham';
 import { SHOP } from '../lib/shop';
 
@@ -47,6 +48,7 @@ const toChuc = {
   <meta property="og:image" content={anhOg} />
   <meta name="twitter:card" content="summary_large_image" />
   <script type="application/ld+json" is:inline set:html={JSON.stringify(toChuc)} />
+  <MetaPixel />
   <slot name="head" />
 </head>
 <body class="min-h-dvh">

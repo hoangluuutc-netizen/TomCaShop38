@@ -25,6 +25,13 @@ export function themVaoGio(sku: string, mau: string, sl = 1) {
   const co = gio.find((d) => d.sku === sku && d.mau === mau);
   if (co) co.sl = Math.min(co.sl + sl, 99); else gio.push({ sku, mau, sl });
   luuGio(gio);
+  // Meta Pixel: AddToCart (giá lấy từ dữ liệu chuẩn)
+  if (window.tomcaPixel) {
+    layDuLieuSp().then((bang) => {
+      const p = bang.get(sku);
+      if (p) window.tomcaPixel?.('AddToCart', { content_ids: [sku], content_type: 'product', content_name: p.ten, value: p.gia * sl, currency: 'VND' });
+    }).catch(() => {});
+  }
 }
 
 export function capNhatSoGio() {

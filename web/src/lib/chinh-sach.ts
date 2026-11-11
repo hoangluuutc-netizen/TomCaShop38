@@ -64,6 +64,7 @@ export const CHINH_SACH_TRANG: TrangChinhSach[] = [
     doan: [
       { tieuDe: 'Thông tin shop thu thập', y: ['Khi đặt hàng, bố mẹ cung cấp: họ tên, số điện thoại, địa chỉ giao hàng và ghi chú (nếu có).'] },
       { tieuDe: 'Mục đích sử dụng', y: ['Xác nhận đơn, giao hàng (thông tin được chuyển cho đơn vị vận chuyển để giao), hỗ trợ đổi trả và bảo hành.'] },
+      { tieuDe: 'Công cụ đo lường', y: ['Website có thể dùng Meta Pixel (của Facebook) để đo số lượt xem sản phẩm, thêm giỏ và đặt hàng, giúp shop đánh giá hiệu quả quảng cáo. Shop không gửi họ tên, số điện thoại hay địa chỉ của bố mẹ qua công cụ này.'] },
       { tieuDe: 'Liên hệ về thông tin cá nhân', y: [`Bố mẹ muốn xem, sửa hoặc xóa thông tin của mình, vui lòng liên hệ ${SHOP.dienThoai} (gọi/Zalo) trong giờ làm việc ${SHOP.gioLamViec}.`] },
     ],
   },

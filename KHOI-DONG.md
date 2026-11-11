@@ -41,7 +41,7 @@ Bắt đầu từ Giai đoạn 0. Làm lần lượt từng giai đoạn; cuối
 ## Giai đoạn 4 — Lên mạng
 - [ ] Hướng dẫn tôi tạo kho GitHub và đẩy code (hỏi trước khi push).
 - [ ] Hướng dẫn tôi kết nối Cloudflare Pages với kho GitHub, cấu hình build cho Astro, gắn tên miền.
-- [ ] Gắn Meta Pixel (ID do tôi cung cấp) với sự kiện ViewContent, AddToCart, Purchase.
+- [x] Gắn Meta Pixel (ID do tôi cung cấp) với sự kiện ViewContent, AddToCart, Purchase. — code xong (+PageView, InitiateCheckout), *chờ Pixel ID*
 - [ ] Kiểm thử lại trên bản đã lên mạng bằng Playwright.
 
 ## Giai đoạn 5 — Thanh toán tự động & quảng cáo

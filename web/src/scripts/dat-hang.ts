@@ -40,6 +40,7 @@ export async function khoiTaoDatHang() {
   const soSp = dong.reduce((t, d) => t + d.sl, 0);
   const tamTinh = dong.reduce((t, d) => t + d.thanhTien, 0);
   const phiShip = soSp >= MIEN_SHIP_TU ? 'Miễn phí' : 'Shop báo khi xác nhận đơn';
+  window.tomcaPixel?.('InitiateCheckout', { content_ids: dong.map((d) => d.sku), content_type: 'product', num_items: soSp, value: tamTinh, currency: 'VND' });
   const tomTat = $('[data-tom-tat]');
   tomTat.innerHTML = '';
   for (const d of dong) {

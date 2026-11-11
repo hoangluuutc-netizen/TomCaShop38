@@ -71,6 +71,12 @@ const nganHang = {
   if (!don) $('[data-khong-don]').classList.remove('hidden');
   else {
     $('[data-co-don]').classList.remove('hidden');
+    // Meta Pixel: Purchase — gửi 1 lần cho mỗi mã đơn (eventID chống trùng); không gửi đơn thử
+    const khoaPx = 'tomca-px-' + don.maDon;
+    if (!don.cheDoThu && !sessionStorage.getItem(khoaPx)) {
+      window.tomcaPixel?.('Purchase', { content_ids: don.dong.map((d) => d.sku), content_type: 'product', num_items: don.soSp, value: don.tong, currency: 'VND' }, { eventID: don.maDon });
+      sessionStorage.setItem(khoaPx, '1');
+    }
     goc.querySelectorAll('[data-ma-don]').forEach((e) => (e.textContent = don!.maDon));
     $('[data-sdt]').textContent = don.sdt.replace(/^(\d{4})(\d{3})(\d{3})$/, '$1 $2 $3');
     $('[data-thu]').classList.toggle('hidden', !don.cheDoThu);

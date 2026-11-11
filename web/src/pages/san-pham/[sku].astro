@@ -60,7 +60,7 @@ const hoiDap = [
   <script slot="head" type="application/ld+json" is:inline set:html={JSON.stringify(schema)} />
   <Breadcrumb muc={[{ ten: sp.danhMuc.ten, url: `/danh-muc/${sp.danhMuc.slug}` }, { ten: sp.ten }]} />
 
-  <div class="khung mt-4 grid gap-6 md:grid-cols-2 md:gap-10" data-trang-sp data-sku={sp.sku} data-ten={sp.ten}>
+  <div class="khung mt-4 grid gap-6 md:grid-cols-2 md:gap-10" data-trang-sp data-sku={sp.sku} data-ten={sp.ten} data-gia={sp.giaBan}>
     <!-- Ảnh -->
     <div>
       {sp.anh.length > 0 ? (
@@ -213,6 +213,7 @@ const hoiDap = [
   const trang = document.querySelector<HTMLElement>('[data-trang-sp]')!;
   const sku = trang.dataset.sku!;
   const ten = trang.dataset.ten!;
+  window.tomcaPixel?.('ViewContent', { content_ids: [sku], content_type: 'product', content_name: ten, value: Number(trang.dataset.gia), currency: 'VND' });
   const oSl = document.querySelector<HTMLInputElement>('[data-so-luong]');
   const mauChon = () => document.querySelector<HTMLInputElement>('input[name=mau]:checked')?.value ?? '';
   const sl = () => Math.max(1, Math.min(+(oSl?.max ?? 99), Math.floor(+(oSl?.value ?? 1)) || 1));
