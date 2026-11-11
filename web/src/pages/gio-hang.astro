@@ -1,0 +1,110 @@
+---
+import Base from '../layouts/Base.astro';
+import Breadcrumb from '../components/Breadcrumb.astro';
+import { CHINH_SACH } from '../lib/shop';
+---
+<Base title="Giỏ hàng" description="Giỏ hàng của bố mẹ tại TomCaShop." noindex>
+  <Breadcrumb muc={[{ ten: 'Giỏ hàng' }]} />
+  <div class="khung mt-3">
+    <h1 class="text-2xl font-extrabold text-xanh-800 md:text-3xl">Giỏ hàng</h1>
+  </div>
+
+  <div data-gio class="khung mt-4 grid gap-6 md:grid-cols-[1fr_340px]">
+    <div>
+      <div data-tien-do class="hidden rounded-2xl bg-xanh-50 p-4">
+        <p data-tien-do-chu class="text-sm font-semibold text-xanh-800"></p>
+        <div class="mt-2 h-2 overflow-hidden rounded-full bg-white"><div data-tien-do-thanh class="h-full rounded-full bg-xanh-600 transition-all" style="width:0"></div></div>
+      </div>
+      <ul data-ds class="mt-4 divide-y divide-xanh-100" aria-live="polite"></ul>
+      <div data-trong class="hidden rounded-3xl bg-xanh-50 p-10 text-center">
+        <p class="text-lg font-semibold">Giỏ hàng đang trống</p>
+        <p class="mt-1 text-slate-600">Bố mẹ xem vali, cặp và đồ dùng cho bé nhé.</p>
+        <a href="/tim-kiem" class="nut-chinh mt-5">Xem sản phẩm</a>
+      </div>
+      <p data-dang-tai class="py-10 text-center text-slate-500">Đang tải giỏ hàng…</p>
+    </div>
+
+    <aside data-tong class="hidden h-fit rounded-3xl border border-xanh-100 p-5 md:sticky md:top-40">
+      <h2 class="font-bold">Tóm tắt đơn</h2>
+      <dl class="mt-3 space-y-2 text-sm">
+        <div class="flex justify-between"><dt>Tạm tính (<span data-so-sp></span> sản phẩm)</dt><dd data-tam-tinh class="font-semibold"></dd></div>
+        <div class="flex justify-between gap-4"><dt>Phí ship</dt><dd data-phi-ship class="text-right"></dd></div>
+      </dl>
+      <div class="mt-3 flex items-baseline justify-between border-t border-xanh-100 pt-3"><span class="font-bold">Tổng tạm tính</span><span data-tong-tien class="text-xl font-extrabold text-hong-600"></span></div>
+      <a href="/dat-hang" class="nut-chinh mt-4 w-full">Đặt hàng</a>
+      <ul class="mt-4 space-y-1 text-xs text-slate-500">
+        <li>✓ {CHINH_SACH.kiemTra}</li>
+        <li>✓ Thanh toán khi nhận hàng (COD)</li>
+        <li>✓ {CHINH_SACH.baoHanh}</li>
+      </ul>
+    </aside>
+  </div>
+</Base>
+
+<script>
+  import { docGio, luuGio, layDuLieuSp, giaVN, MIEN_SHIP_TU, type SpRutGon } from '../scripts/gio-hang';
+
+  const $ = <T extends Element = HTMLElement>(s: string) => document.querySelector<T>(s)!;
+
+  async function veGio() {
+    const bang = await layDuLieuSp();
+    // Bỏ dòng không còn tồn tại / hết hàng; giới hạn theo tồn kho
+    const gio = docGio().filter((d) => bang.get(d.sku)?.tonKho);
+    gio.forEach((d) => (d.sl = Math.min(d.sl, bang.get(d.sku)!.tonKho)));
+    luuGio(gio);
+    document.querySelector('[data-dang-tai]')?.remove();
+    const ds = $('[data-ds]');
+    ds.innerHTML = '';
+    $('[data-trong]').classList.toggle('hidden', gio.length > 0);
+    $('[data-tong]').classList.toggle('hidden', gio.length === 0);
+    $('[data-tien-do]').classList.toggle('hidden', gio.length === 0);
+    if (!gio.length) return;
+
+    let tam = 0, soSp = 0;
+    gio.forEach((d, i) => {
+      const p = bang.get(d.sku) as SpRutGon;
+      tam += p.gia * d.sl; soSp += d.sl;
+      const li = document.createElement('li');
+      li.className = 'flex gap-3 py-4';
+      li.innerHTML = `
+        <a class="grid h-20 w-20 shrink-0 place-items-center overflow-hidden rounded-2xl bg-xanh-50" data-anh></a>
+        <div class="min-w-0 flex-1">
+          <a class="line-clamp-2 font-semibold leading-snug" data-ten></a>
+          <p class="text-xs text-slate-500" data-phu></p>
+          <div class="mt-2 flex items-center justify-between gap-2">
+            <div class="flex items-center rounded-full border border-slate-300">
+              <button type="button" class="grid h-10 w-10 place-items-center text-lg" data-giam aria-label="Giảm">−</button>
+              <span class="w-8 text-center font-semibold" data-sl></span>
+              <button type="button" class="grid h-10 w-10 place-items-center text-lg" data-tang aria-label="Tăng">+</button>
+            </div>
+            <b class="text-hong-600" data-tien></b>
+          </div>
+        </div>
+        <button type="button" class="grid h-10 w-10 shrink-0 place-items-center rounded-full text-slate-400 hover:bg-slate-100 hover:text-slate-700" data-xoa>✕</button>`;
+      const anh = li.querySelector<HTMLAnchorElement>('[data-anh]')!;
+      anh.href = p.url;
+      if (p.anh) { const im = document.createElement('img'); im.src = p.anh; im.alt = p.ten; im.className = 'h-full w-full object-cover'; anh.append(im); }
+      else anh.innerHTML = `<span class="h-10 w-10 rounded-xl" style="background:${p.mauHinh}"></span>`;
+      const t = li.querySelector<HTMLAnchorElement>('[data-ten]')!; t.href = p.url; t.textContent = p.ten;
+      li.querySelector('[data-phu]')!.textContent = [d.mau && `Màu: ${d.mau}`, `${giaVN(p.gia)}/cái`].filter(Boolean).join(' · ');
+      li.querySelector('[data-sl]')!.textContent = String(d.sl);
+      li.querySelector('[data-tien]')!.textContent = giaVN(p.gia * d.sl);
+      li.querySelector('[data-xoa]')!.setAttribute('aria-label', `Xóa ${p.ten} khỏi giỏ`);
+      li.querySelector('[data-giam]')!.addEventListener('click', () => { gio[i].sl = Math.max(1, d.sl - 1); luuGio(gio); veGio(); });
+      li.querySelector('[data-tang]')!.addEventListener('click', () => { gio[i].sl = Math.min(p.tonKho, d.sl + 1, 99); luuGio(gio); veGio(); });
+      li.querySelector('[data-xoa]')!.addEventListener('click', () => { gio.splice(i, 1); luuGio(gio); veGio(); });
+      ds.append(li);
+    });
+
+    const mien = soSp >= MIEN_SHIP_TU;
+    $('[data-so-sp]').textContent = String(soSp);
+    $('[data-tam-tinh]').textContent = giaVN(tam);
+    $('[data-phi-ship]').innerHTML = mien ? '<b class="text-xanh-700">Miễn phí</b>' : 'Shop báo khi xác nhận đơn';
+    $('[data-tong-tien]').textContent = giaVN(tam);
+    $('[data-tien-do-chu]').textContent = mien
+      ? '🎉 Đơn của bố mẹ được miễn phí ship!'
+      : `Thêm ${MIEN_SHIP_TU - soSp} sản phẩm nữa để được miễn phí ship`;
+    $('[data-tien-do-thanh]').style.width = `${Math.min(100, (soSp / MIEN_SHIP_TU) * 100)}%`;
+  }
+  veGio();
+</script>

@@ -1,0 +1,85 @@
+---
+import Base from '../layouts/Base.astro';
+import Breadcrumb from '../components/Breadcrumb.astro';
+import { CHINH_SACH } from '../lib/shop';
+const cheDoThu = !import.meta.env.PUBLIC_ORDER_ENDPOINT;
+---
+<Base title="Đặt hàng" description="Đặt hàng tại TomCaShop — thanh toán khi nhận hàng hoặc chuyển khoản QR." noindex>
+  <Breadcrumb muc={[{ ten: 'Giỏ hàng', url: '/gio-hang' }, { ten: 'Đặt hàng' }]} />
+  <div class="khung mt-3">
+    <h1 class="text-2xl font-extrabold text-xanh-800 md:text-3xl">Đặt hàng</h1>
+    {cheDoThu && <p class="mt-2 rounded-2xl bg-amber-100 px-4 py-2 text-sm text-amber-900">Chế độ thử: chưa kết nối Google Sheets, đơn đặt ở đây <b>không được gửi tới shop</b>.</p>}
+  </div>
+
+  <form data-form-dat class="khung mt-4 grid gap-6 md:grid-cols-[1fr_360px]" novalidate>
+    <div class="space-y-6">
+      <!-- Bước 1 -->
+      <fieldset class="rounded-3xl border border-xanh-100 p-5">
+        <legend class="px-2 font-bold text-xanh-800"><span class="mr-1 inline-grid h-7 w-7 place-items-center rounded-full bg-xanh-600 text-sm text-white">1</span> Người nhận</legend>
+        <div class="grid gap-4 sm:grid-cols-2">
+          <label class="block"><span class="text-sm font-semibold">Họ và tên *</span>
+            <input name="hoTen" required autocomplete="name" class="o-nhap mt-1" placeholder="Nguyễn Văn A" />
+            <span data-loi="hoTen" class="mt-1 hidden text-sm text-red-600"></span></label>
+          <label class="block"><span class="text-sm font-semibold">Số điện thoại *</span>
+            <input name="sdt" required type="tel" inputmode="tel" autocomplete="tel" class="o-nhap mt-1" placeholder="0912 345 678" />
+            <span data-loi="sdt" class="mt-1 hidden text-sm text-red-600"></span></label>
+        </div>
+      </fieldset>
+
+      <!-- Bước 2 -->
+      <fieldset class="rounded-3xl border border-xanh-100 p-5">
+        <legend class="px-2 font-bold text-xanh-800"><span class="mr-1 inline-grid h-7 w-7 place-items-center rounded-full bg-xanh-600 text-sm text-white">2</span> Địa chỉ giao hàng</legend>
+        <div class="grid gap-4 sm:grid-cols-2">
+          <label class="block"><span class="text-sm font-semibold">Tỉnh / Thành phố *</span>
+            <select name="tinh" required class="o-nhap mt-1" disabled><option value="">Đang tải…</option></select>
+            <span data-loi="tinh" class="mt-1 hidden text-sm text-red-600"></span></label>
+          <div>
+            <label class="block"><span class="text-sm font-semibold">Phường / Xã *</span>
+              <input data-loc-xa type="search" class="o-nhap mt-1 hidden" placeholder="Gõ để tìm phường/xã…" aria-label="Tìm phường/xã" />
+              <select name="xa" required class="o-nhap mt-1" disabled><option value="">Chọn tỉnh/thành trước</option></select></label>
+            <span data-loi="xa" class="mt-1 hidden text-sm text-red-600"></span>
+          </div>
+          <label class="block sm:col-span-2"><span class="text-sm font-semibold">Số nhà, tên đường / thôn, xóm *</span>
+            <input name="diaChi" required autocomplete="street-address" class="o-nhap mt-1" placeholder="Ví dụ: Số 12, ngõ 34 đường Nguyễn Trãi" />
+            <span data-loi="diaChi" class="mt-1 hidden text-sm text-red-600"></span></label>
+        </div>
+        <p class="mt-3 text-xs text-slate-500">Danh mục tỉnh/thành – phường/xã theo đơn vị hành chính mới từ 01/07/2025 (34 tỉnh/thành).</p>
+      </fieldset>
+
+      <!-- Bước 3 -->
+      <fieldset class="rounded-3xl border border-xanh-100 p-5">
+        <legend class="px-2 font-bold text-xanh-800"><span class="mr-1 inline-grid h-7 w-7 place-items-center rounded-full bg-xanh-600 text-sm text-white">3</span> Thanh toán</legend>
+        <div class="grid gap-3">
+          <label class="flex cursor-pointer items-start gap-3 rounded-2xl border-2 border-slate-200 p-4 has-[:checked]:border-xanh-600 has-[:checked]:bg-xanh-50">
+            <input type="radio" name="thanhToan" value="COD" checked class="mt-1 h-5 w-5 accent-xanh-600" />
+            <span><b>Thanh toán khi nhận hàng (COD)</b><span class="block text-sm text-slate-600">{CHINH_SACH.kiemTra}.</span></span>
+          </label>
+          <label class="flex cursor-pointer items-start gap-3 rounded-2xl border-2 border-slate-200 p-4 has-[:checked]:border-xanh-600 has-[:checked]:bg-xanh-50">
+            <input type="radio" name="thanhToan" value="CK" class="mt-1 h-5 w-5 accent-xanh-600" />
+            <span><b>Chuyển khoản qua mã QR</b><span class="block text-sm text-slate-600">Mã QR kèm số tiền hiện ở bước sau. Shop xác nhận đơn sau khi nhận tiền.</span></span>
+          </label>
+        </div>
+        <label class="mt-4 block"><span class="text-sm font-semibold">Ghi chú cho shop</span>
+          <textarea name="ghiChu" rows="2" class="o-nhap mt-1 py-3" placeholder="Ví dụ: giao giờ hành chính, gọi trước khi giao…"></textarea></label>
+      </fieldset>
+    </div>
+
+    <aside class="h-fit rounded-3xl border border-xanh-100 p-5 md:sticky md:top-40">
+      <h2 class="font-bold">Đơn hàng</h2>
+      <ul data-tom-tat class="mt-3 space-y-3 text-sm"><li class="text-slate-500">Đang tải…</li></ul>
+      <dl class="mt-4 space-y-2 border-t border-xanh-100 pt-3 text-sm">
+        <div class="flex justify-between"><dt>Tạm tính</dt><dd data-tam-tinh class="font-semibold"></dd></div>
+        <div class="flex justify-between gap-4"><dt>Phí ship</dt><dd data-phi-ship class="text-right"></dd></div>
+      </dl>
+      <div class="mt-3 flex items-baseline justify-between border-t border-xanh-100 pt-3"><span class="font-bold">Tổng</span><span data-tong-tien class="text-xl font-extrabold text-hong-600"></span></div>
+      <button type="submit" class="nut-chinh mt-4 w-full" data-nut-dat>Đặt hàng</button>
+      <p data-loi-chung class="mt-3 hidden rounded-xl bg-red-50 p-3 text-sm text-red-700" role="alert"></p>
+      <p class="mt-3 text-xs text-slate-500">Bằng việc đặt hàng, bố mẹ đồng ý với <a href="/chinh-sach/bao-mat" class="underline">chính sách bảo mật thông tin</a> của shop.</p>
+    </aside>
+  </form>
+</Base>
+
+<script>
+  import { khoiTaoDatHang } from '../scripts/dat-hang';
+  khoiTaoDatHang();
+</script>

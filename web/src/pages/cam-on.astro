@@ -1,0 +1,111 @@
+---
+import Base from '../layouts/Base.astro';
+import CaBaby from '../components/CaBaby.astro';
+import { SHOP } from '../lib/shop';
+const nganHang = {
+  id: import.meta.env.PUBLIC_BANK_ID ?? '',
+  stk: import.meta.env.PUBLIC_BANK_ACCOUNT ?? '',
+  ten: import.meta.env.PUBLIC_BANK_ACCOUNT_NAME ?? '',
+};
+---
+<Base title="Cảm ơn bố mẹ đã đặt hàng" description="TomCaShop đã nhận đơn hàng của bố mẹ." noindex>
+  <div class="khung mt-8 max-w-2xl" data-cam-on data-ngan-hang={JSON.stringify(nganHang)}>
+    <div data-khong-don class="hidden rounded-3xl bg-xanh-50 p-8 text-center">
+      <p class="font-semibold">Không tìm thấy đơn hàng vừa đặt.</p>
+      <a href="/" class="nut-chinh mt-4">Về trang chủ</a>
+    </div>
+
+    <div data-co-don class="hidden">
+      <div class="text-center">
+        <CaBaby class="mx-auto w-28" />
+        <h1 class="mt-3 text-2xl font-extrabold text-xanh-800 md:text-3xl">Cảm ơn bố mẹ đã đặt hàng!</h1>
+        <p class="mt-2 text-slate-600">Mã đơn của bố mẹ: <b data-ma-don class="text-xanh-800"></b></p>
+        <p data-thu class="mx-auto mt-3 hidden max-w-md rounded-2xl bg-amber-100 px-4 py-2 text-sm text-amber-900">Đây là <b>đơn thử</b> — website chưa kết nối Google Sheets nên đơn chưa được gửi tới shop.</p>
+        <p class="mt-2 text-sm text-slate-600">Shop sẽ gọi hoặc nhắn Zalo số <b data-sdt></b> để xác nhận đơn trong giờ làm việc ({SHOP.gioLamViec}).</p>
+      </div>
+
+      <!-- Chuyển khoản -->
+      <section data-ck class="mt-6 hidden rounded-3xl border-2 border-xanh-100 p-5 text-center">
+        <h2 class="font-bold text-xanh-800">Chuyển khoản qua mã QR</h2>
+        <div data-co-qr class="hidden">
+          <img data-qr alt="Mã QR chuyển khoản" class="mx-auto mt-3 w-64 max-w-full rounded-2xl" width="256" height="256" />
+          <dl class="mx-auto mt-3 max-w-xs space-y-1 text-left text-sm">
+            <div class="flex justify-between gap-3"><dt class="text-slate-500">Ngân hàng</dt><dd data-nh class="font-semibold"></dd></div>
+            <div class="flex justify-between gap-3"><dt class="text-slate-500">Số tài khoản</dt><dd data-stk class="font-semibold"></dd></div>
+            <div class="flex justify-between gap-3"><dt class="text-slate-500">Chủ tài khoản</dt><dd data-chu class="font-semibold"></dd></div>
+            <div class="flex justify-between gap-3"><dt class="text-slate-500">Số tiền</dt><dd data-so-tien class="font-bold text-hong-600"></dd></div>
+            <div class="flex justify-between gap-3"><dt class="text-slate-500">Nội dung</dt><dd data-nd class="font-semibold"></dd></div>
+          </dl>
+          <p class="mt-3 text-xs text-slate-500">Mở app ngân hàng → Quét mã QR. Số tiền và nội dung đã điền sẵn.</p>
+        </div>
+        <p data-chua-qr class="mt-2 hidden text-sm text-slate-600">Shop sẽ gửi thông tin chuyển khoản qua Zalo khi xác nhận đơn. Bố mẹ ghi nội dung chuyển khoản là mã đơn <b data-ma-don></b> giúp shop nhé.</p>
+      </section>
+
+      <!-- Tóm tắt -->
+      <section class="mt-6 rounded-3xl border border-xanh-100 p-5">
+        <h2 class="font-bold">Thông tin đơn</h2>
+        <ul data-ds class="mt-3 space-y-2 text-sm"></ul>
+        <dl class="mt-3 space-y-1 border-t border-xanh-100 pt-3 text-sm">
+          <div class="flex justify-between"><dt>Phí ship</dt><dd data-phi></dd></div>
+          <div class="flex justify-between font-bold"><dt>Tổng</dt><dd data-tong class="text-hong-600"></dd></div>
+          <div class="flex justify-between gap-3"><dt>Thanh toán</dt><dd data-tt class="text-right"></dd></div>
+          <div class="flex justify-between gap-3"><dt>Giao tới</dt><dd data-dc class="text-right"></dd></div>
+        </dl>
+      </section>
+
+      <div class="mt-6 grid gap-3 sm:grid-cols-2">
+        <a href={SHOP.zalo} target="_blank" rel="noopener" class="nut-chinh">Nhắn Zalo cho shop</a>
+        <a href="/" class="nut-phu">Tiếp tục xem đồ cho bé</a>
+      </div>
+    </div>
+  </div>
+</Base>
+
+<script>
+  import { giaVN } from '../scripts/gio-hang';
+  import { KHOA_DON, type Don } from '../scripts/dat-hang';
+  const goc = document.querySelector<HTMLElement>('[data-cam-on]')!;
+  const $ = (s: string) => goc.querySelector<HTMLElement>(s)!;
+  let don: Don | null = null;
+  try { don = JSON.parse(sessionStorage.getItem(KHOA_DON) ?? 'null'); } catch {}
+  if (!don) $('[data-khong-don]').classList.remove('hidden');
+  else {
+    $('[data-co-don]').classList.remove('hidden');
+    goc.querySelectorAll('[data-ma-don]').forEach((e) => (e.textContent = don!.maDon));
+    $('[data-sdt]').textContent = don.sdt.replace(/^(\d{4})(\d{3})(\d{3})$/, '$1 $2 $3');
+    $('[data-thu]').classList.toggle('hidden', !don.cheDoThu);
+    const ds = $('[data-ds]');
+    for (const d of don.dong) {
+      const li = document.createElement('li');
+      li.className = 'flex justify-between gap-3';
+      const a = document.createElement('span'); a.textContent = `${d.ten}${d.mau ? ` · ${d.mau}` : ''} × ${d.sl}`;
+      const b = document.createElement('b'); b.textContent = giaVN(d.thanhTien);
+      li.append(a, b); ds.append(li);
+    }
+    $('[data-phi]').textContent = don.phiShip;
+    $('[data-tong]').textContent = don.phiShip === 'Miễn phí' ? giaVN(don.tong) : `${giaVN(don.tong)} + ship`;
+    $('[data-tt]').textContent = don.thanhToan === 'CK' ? 'Chuyển khoản QR' : 'Thanh toán khi nhận hàng (COD)';
+    $('[data-dc]').textContent = `${don.diaChi}, ${don.xa}, ${don.tinh}`;
+
+    if (don.thanhToan === 'CK') {
+      $('[data-ck]').classList.remove('hidden');
+      const nh = JSON.parse(goc.dataset.nganHang!) as { id: string; stk: string; ten: string };
+      // Đơn chưa đủ 2 sản phẩm thì phí ship chưa biết → QR chỉ ghi tiền hàng, shop báo phí ship sau
+      if (nh.id && nh.stk) {
+        const url = new URL(`https://img.vietqr.io/image/${encodeURIComponent(nh.id)}-${encodeURIComponent(nh.stk)}-compact2.png`);
+        url.searchParams.set('amount', String(don.tong));
+        url.searchParams.set('addInfo', don.maDon);
+        if (nh.ten) url.searchParams.set('accountName', nh.ten);
+        goc.querySelector<HTMLImageElement>('[data-qr]')!.src = url.toString();
+        $('[data-nh]').textContent = nh.id;
+        $('[data-stk]').textContent = nh.stk;
+        $('[data-chu]').textContent = nh.ten || '—';
+        $('[data-so-tien]').textContent = giaVN(don.tong) + (don.phiShip === 'Miễn phí' ? '' : ' (chưa gồm ship)');
+        $('[data-nd]').textContent = don.maDon;
+        $('[data-co-qr]').classList.remove('hidden');
+      } else {
+        $('[data-chua-qr]').classList.remove('hidden');
+      }
+    }
+  }
+</script>
