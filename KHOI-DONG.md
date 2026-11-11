@@ -34,9 +34,9 @@ Bắt đầu từ Giai đoạn 0. Làm lần lượt từng giai đoạn; cuối
 
 ## Giai đoạn 3 — Fanpage
 - [ ] Thiết kế ảnh bìa Fanpage + ảnh đại diện (xuất PNG vào fanpage/).
-- [ ] Viết phần giới thiệu Trang, hoàn thiện fanpage/messenger/kich-ban.md.
-- [ ] Lịch nội dung 1 tháng (fanpage/posts/<tháng>/lich.csv) theo 4 trụ cột; viết sẵn caption 2 tuần đầu + 3 kịch bản video ngắn (2–3 phương án A/B).
-- [ ] Chạy trợ lý con kiem-duyet-qc trên toàn bộ nội dung.
+- [x] Viết phần giới thiệu Trang, hoàn thiện fanpage/messenger/kich-ban.md.
+- [x] Lịch nội dung 1 tháng (fanpage/posts/<tháng>/lich.csv) theo 4 trụ cột; viết sẵn caption 2 tuần đầu + 3 kịch bản video ngắn (2–3 phương án A/B).
+- [x] Chạy trợ lý con kiem-duyet-qc trên toàn bộ nội dung. — ĐẠT (11/11/2026)
 
 ## Giai đoạn 4 — Lên mạng
 - [ ] Hướng dẫn tôi tạo kho GitHub và đẩy code (hỏi trước khi push).
