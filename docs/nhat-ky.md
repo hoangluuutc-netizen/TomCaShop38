@@ -14,3 +14,4 @@
 | 11/11/2026 | Nhận logo: xuất ảnh đại diện Fanpage, logo + favicon website, ghi màu logo vào skill | Hỏi chủ shop tên hiển thị TomCaShop hay TomcaShop38 |
 | 11/11/2026 | Đổi tên hiển thị TomCaShop → TomcaShop38 (web, Fanpage, Messenger, bài viết, hồ sơ, skill, CLAUDE.md); xuất lại ảnh bìa A/B, ảnh xem trước, ảnh chia sẻ Facebook có logo; domain tạm tomcashop38.pages.dev | Username đề xuất @tomcashop38 |
 | 11/11/2026 | Giai đoạn 4: chuẩn bị Cloudflare Pages (.node-version, _headers), gắn Meta Pixel bật theo biến môi trường (5 sự kiện, đã thử), hướng dẫn docs/huong-dan-len-mang.md | Chờ URL kho GitHub, Pixel ID |
+| 11/11/2026 | Đẩy code lên GitHub hoangluuutc-netizen/TomCaShop38 (nhánh main) | Tiếp: kết nối Cloudflare Pages |

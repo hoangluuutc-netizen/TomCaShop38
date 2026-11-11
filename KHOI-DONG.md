@@ -39,7 +39,7 @@ Bắt đầu từ Giai đoạn 0. Làm lần lượt từng giai đoạn; cuối
 - [x] Chạy trợ lý con kiem-duyet-qc trên toàn bộ nội dung. — ĐẠT (11/11/2026)
 
 ## Giai đoạn 4 — Lên mạng
-- [ ] Hướng dẫn tôi tạo kho GitHub và đẩy code (hỏi trước khi push).
+- [x] Hướng dẫn tôi tạo kho GitHub và đẩy code (hỏi trước khi push). — đã đẩy lên github.com/hoangluuutc-netizen/TomCaShop38 (11/11/2026)
 - [ ] Hướng dẫn tôi kết nối Cloudflare Pages với kho GitHub, cấu hình build cho Astro, gắn tên miền.
 - [x] Gắn Meta Pixel (ID do tôi cung cấp) với sự kiện ViewContent, AddToCart, Purchase. — code xong (+PageView, InitiateCheckout), *chờ Pixel ID*
 - [ ] Kiểm thử lại trên bản đã lên mạng bằng Playwright.
