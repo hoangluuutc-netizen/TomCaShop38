@@ -9,14 +9,14 @@
 ## Caption
 Cuối tuần sắm đồ cho bé, bố mẹ nhớ quy tắc "2 món" của shop nha 🎁
 
-Đơn từ 2 sản phẩm trở lên → TomCaShop miễn phí ship toàn quốc.
+Đơn từ 2 sản phẩm trở lên → TomcaShop38 miễn phí ship toàn quốc.
 
 Vài cặp đôi shop gợi ý:
 🧳 Vali + cặp — một cho đi chơi, một cho đi học
 🎒 Cặp + hộp cơm — đủ bộ cho ngày đến trường
 👧👦 2 cặp cho 2 anh chị em — mỗi bạn một màu
 
-Ở TomCaShop, bố mẹ luôn được:
+Ở TomcaShop38, bố mẹ luôn được:
 📦 Kiểm tra hàng trước khi thanh toán
 💵 Thanh toán khi nhận hàng (COD)
 🛠️ Bảo hành 3 tháng
@@ -28,4 +28,4 @@ Bố mẹ nhắn shop món đang để ý, shop gợi ý thêm món thứ 2 hợ
 - Dòng nhỏ dưới: "Áp dụng cho đơn từ 2 sản phẩm · Giao toàn quốc".
 
 ## Hashtag
-#TomCaShop #mienphiship #valichobe #capdachobe #quachobe
+#TomcaShop38 #mienphiship #valichobe #capdachobe #quachobe

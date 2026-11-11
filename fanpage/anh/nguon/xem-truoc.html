@@ -1,7 +1,7 @@
 <!doctype html>
 <!-- Giả lập vị trí ảnh bìa trên Facebook. Tham số: ?anh=a|b&khung=may-tinh|dien-thoai
      Máy tính: ảnh bìa hiện đủ 1640×624 (thu nhỏ). Điện thoại: Facebook cắt còn tỉ lệ ~16:9 ở giữa.
-     Vòng tròn ảnh đại diện là khuôn tạm (chưa có logo). Chỉ để xem trước, không đăng. -->
+     Vòng tròn dùng fanpage/anh/anh-dai-dien.png. Chỉ để xem trước, không đăng. -->
 <html lang="vi"><head><meta charset="utf-8"><title>Xem trước ảnh bìa</title>
 <link rel="stylesheet" href="font/400.css"><link rel="stylesheet" href="font/700.css"><link rel="stylesheet" href="font/800.css">
 <style>
@@ -41,8 +41,8 @@ document.write(`
 <div class="thanh"><b style="color:#1877F2;font-size:22px">f</b><span class="o"></span><span class="ghi">Xem trước phương án ${anh.toUpperCase()} · ${khung==='dien-thoai'?'điện thoại':'máy tính'}</span></div>
 <div class="trang"><div class="khung">
   <img class="bia" src="../anh-bia-${anh}.png" alt="">
-  <div class="dd"><span>logo</span></div>
-  <div class="dong"><div style="flex:1"><div class="ten">TomCaShop</div><div class="ghi">Cửa hàng đồ dùng trẻ em</div></div>
+  <div class="dd" style="overflow:hidden;padding:0"><img src="../anh-dai-dien.png" alt="" style="width:100%;height:100%;border-radius:50%;display:block"></div>
+  <div class="dong"><div style="flex:1"><div class="ten">TomcaShop38</div><div class="ghi">Cửa hàng đồ dùng trẻ em</div></div>
   <div><span class="nut">Nhắn tin</span> <span class="nut xam">Thích</span></div></div>
 </div></div>`);
 </script>

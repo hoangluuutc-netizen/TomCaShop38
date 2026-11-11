@@ -33,7 +33,7 @@ Bé nhà mình học lớp mấy rồi ạ? Nhắn shop kèm chiều cao của b
 5. Các màu xếp cạnh nhau + chữ "Còn [các màu]".
 
 ## Hashtag
-#TomCaShop #capdachobe #captieuhoc #dodunghoctap #chobedihoc
+#TomcaShop38 #capdachobe #captieuhoc #dodunghoctap #chobedihoc
 
 ## Ghi chú kiểm duyệt
 - Không viết "chống gù", "bảo vệ cột sống", "chống nước tuyệt đối" nếu không có kiểm định.

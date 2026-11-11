@@ -26,7 +26,7 @@
 - ⚠️ **Chủ shop xác nhận trước khi đăng:** shop có kiểm tra mọi đơn trước khi gửi không (nếu không, bỏ câu "Vali được shop kiểm tra…" trong caption)? Có dùng túi chống bụi / thiệp Cá Baby không? Câu nào không đúng thì bỏ.
 
 ## Caption
-Một buổi sáng đóng đơn ở TomCaShop 📦🐟
+Một buổi sáng đóng đơn ở TomcaShop38 📦🐟
 
 Vali được shop kiểm tra khóa kéo, bánh xe, tay kéo; cặp được kiểm tra khóa và quai — rồi mới bọc kỹ gửi đi.
 Khi nhận, bố mẹ vẫn được mở hộp kiểm tra trước khi thanh toán nha.
@@ -36,4 +36,4 @@ Khi nhận, bố mẹ vẫn được mở hộp kiểm tra trước khi thanh to
 Đơn tiếp theo là của bé nhà mình nhé? Nhắn shop ngay 💬
 
 ## Hashtag
-#TomCaShop #hautruong #dongdonhang #CaBaby #shopdochobe
+#TomcaShop38 #hautruong #dongdonhang #CaBaby #shopdochobe

@@ -39,4 +39,4 @@ Mẹo nhỏ: bố mẹ đo từ vai xuống hông của bé rồi so với chi�
 Nhắn shop chiều cao của bé, shop đối chiếu kích thước và gợi ý mẫu vừa với bé nhé! 💬
 
 ## Hashtag
-#TomCaShop #capdachobe #caplop1 #chobedihoc #CaBaby
+#TomcaShop38 #capdachobe #caplop1 #chobedihoc #CaBaby

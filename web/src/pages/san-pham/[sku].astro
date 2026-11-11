@@ -30,7 +30,7 @@ const schema = {
   ...(sp.anh.length ? { image: sp.anh.map((a) => (a.startsWith('http') ? a : site + a)) } : {}),
   ...(sp.chatLieu ? { material: sp.chatLieu } : {}),
   ...(sp.mau.length ? { color: sp.mau.join(', ') } : {}),
-  brand: { '@type': 'Brand', name: 'TomCaShop' },
+  brand: { '@type': 'Brand', name: 'TomcaShop38' },
   offers: {
     '@type': 'Offer',
     url: site + sp.url,
@@ -38,7 +38,7 @@ const schema = {
     price: sp.giaBan,
     availability: hetHang ? 'https://schema.org/OutOfStock' : 'https://schema.org/InStock',
     itemCondition: 'https://schema.org/NewCondition',
-    seller: { '@type': 'Organization', name: 'TomCaShop' },
+    seller: { '@type': 'Organization', name: 'TomcaShop38' },
   },
 };
 const thongSo = [

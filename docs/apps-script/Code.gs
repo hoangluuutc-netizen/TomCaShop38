@@ -1,5 +1,5 @@
 /**
- * TomCaShop — nhận đơn hàng từ website và ghi vào Google Sheets.
+ * TomcaShop38 — nhận đơn hàng từ website và ghi vào Google Sheets.
  * Cách cài: xem docs/huong-dan-apps-script.md
  *
  * Website gửi POST (Content-Type: text/plain) với nội dung JSON:
@@ -34,7 +34,7 @@ function doPost(e) {
     ]);
 
     if (EMAIL_BAO_DON) {
-      MailApp.sendEmail(EMAIL_BAO_DON, '[TomCaShop] Đơn mới ' + don.maDon + ' — ' + dinhDangGia(don.tamTinh),
+      MailApp.sendEmail(EMAIL_BAO_DON, '[TomcaShop38] Đơn mới ' + don.maDon + ' — ' + dinhDangGia(don.tamTinh),
         'Khách: ' + don.hoTen + ' — ' + don.sdt + '\n' +
         'Địa chỉ: ' + don.diaChi + ', ' + don.xa + ', ' + don.tinh + '\n' +
         'Thanh toán: ' + (don.thanhToan === 'CK' ? 'Chuyển khoản' : 'COD') + '\n\n' + sanPham + '\n\n' +
@@ -50,7 +50,7 @@ function doPost(e) {
 }
 
 function doGet() {
-  return traVe({ ok: true, thongTin: 'TomCaShop nhận đơn — dùng POST' });
+  return traVe({ ok: true, thongTin: 'TomcaShop38 nhận đơn — dùng POST' });
 }
 
 function kiemTra(d) {

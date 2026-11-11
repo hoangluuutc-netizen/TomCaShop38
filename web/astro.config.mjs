@@ -4,7 +4,7 @@ import tailwindcss from '@tailwindcss/vite';
 import sitemap from '@astrojs/sitemap';
 
 // Đổi SITE_URL khi có tên miền thật (ví dụ https://tomcashop.vn)
-const SITE_URL = process.env.SITE_URL || 'https://tomcashop.pages.dev';
+const SITE_URL = process.env.SITE_URL || 'https://tomcashop38.pages.dev';
 
 export default defineConfig({
   site: SITE_URL,

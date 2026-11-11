@@ -15,12 +15,12 @@ interface Props {
   loaiOg?: 'website' | 'product';
 }
 const { title, description, anhChiaSe = "/og-mac-dinh.png", noindex = false, loaiOg = "website", anNutNoiDiDong = false } = Astro.props;
-const tieuDe = title.includes('TomCaShop') ? title : `${title} | TomCaShop`;
+const tieuDe = title.includes('TomcaShop38') ? title : `${title} | TomcaShop38`;
 const canonical = new URL(Astro.url.pathname, Astro.site);
 const anhOg = new URL(anhChiaSe, Astro.site);
 const chanIndex = noindex || coDuLieuMau();
 const toChuc = {
-  '@context': 'https://schema.org', '@type': 'Store', name: 'TomCaShop', url: Astro.site?.toString(),
+  '@context': 'https://schema.org', '@type': 'Store', name: 'TomcaShop38', url: Astro.site?.toString(),
   telephone: SHOP.dienThoaiSo, address: { '@type': 'PostalAddress', streetAddress: SHOP.diaChi, addressCountry: 'VN' },
   openingHours: 'Mo-Su 08:00-18:00',
 };
@@ -40,7 +40,7 @@ const toChuc = {
   <link rel="sitemap" href="/sitemap-index.xml" />
   <meta property="og:type" content={loaiOg} />
   <meta property="og:locale" content="vi_VN" />
-  <meta property="og:site_name" content="TomCaShop" />
+  <meta property="og:site_name" content="TomcaShop38" />
   <meta property="og:title" content={tieuDe} />
   <meta property="og:description" content={description} />
   <meta property="og:url" content={canonical} />

@@ -1,4 +1,4 @@
-# Spec website TomCaShop (giai đoạn 1)
+# Spec website TomcaShop38 (giai đoạn 1)
 
 > Viết 11/11/2026. Chủ shop chọn "làm luôn" (bỏ qua phần hỏi đáp), nên phạm vi dưới đây do Claude chốt
 > dựa trên CLAUDE.md, docs/cam-nang-du-an.md, docs/chinh-sach.md và brand/. Mục ghi *(Claude chọn)* chủ shop có thể đổi.

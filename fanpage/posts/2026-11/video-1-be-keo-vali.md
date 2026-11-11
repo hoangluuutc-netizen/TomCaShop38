@@ -40,4 +40,4 @@ Vali [kích thước] — bé cao [__] cm kéo vừa tầm tay. Bên trong vừa
 Bố mẹ nhắn shop tuổi + chiều cao của bé, shop gợi ý size vừa với bé nhé! 💬
 
 ## Hashtag
-#TomCaShop #valichobe #dulichcungbe #betukeovali #CaBaby
+#TomcaShop38 #valichobe #dulichcungbe #betukeovali #CaBaby

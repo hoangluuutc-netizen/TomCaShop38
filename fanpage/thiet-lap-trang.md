@@ -1,4 +1,4 @@
-# Thiết lập Fanpage TomCaShop
+# Thiết lập Fanpage TomcaShop38
 
 > Chủ shop tự bấm (cần đăng nhập Facebook). Claude đã soạn sẵn nội dung — copy dán vào đúng ô.
 > Đã kiểm duyệt nội dung ngày 11/11/2026 (xem mục "Cần chủ shop xác nhận" cuối file).
@@ -6,8 +6,8 @@
 ## 1. Thông tin cơ bản
 | Ô trên Facebook | Nội dung |
 | --- | --- |
-| Tên Trang | **TomCaShop – Vali & Cặp da cho bé** |
-| Tên người dùng (username) | **@tomcashop** (nếu đã có người dùng: @tomcashop.vn hoặc @tomcashopvn) |
+| Tên Trang | **TomcaShop38 – Vali & Cặp da cho bé** |
+| Tên người dùng (username) | **@tomcashop38** (nếu đã có người dùng: @tomcashop38.vn hoặc @tomcashop38vn) |
 | Hạng mục | **Cửa hàng đồ trẻ em** (Baby goods/kids goods) · thêm: **Cửa hàng hành lý** (Luggage service), **Cửa hàng bán lẻ** |
 | Nút hành động | **Gửi tin nhắn** |
 
@@ -20,7 +20,7 @@ Chọn 1 (đã đếm ký tự):
 
 ## 3. Mô tả chi tiết (phần "Giới thiệu" / Thông tin chi tiết)
 ```
-TomCaShop — vali, cặp da và đồ dùng cho bé từ 3 đến 15 tuổi.
+TomcaShop38 — vali, cặp da và đồ dùng cho bé từ 3 đến 15 tuổi.
 
 Tôm xanh và Cá hồng trong logo là hai người bạn nhỏ của shop, cùng Cá Baby đồng hành với bé trong mỗi chuyến đi và mỗi ngày đến lớp.
 
@@ -55,7 +55,7 @@ Bố mẹ nhắn tin cho shop kèm tuổi và chiều cao của bé để đư�
 2. [ ] Tải ảnh đại diện + ảnh bìa (mục 5).
 3. [ ] **Chỉnh sửa trang → Thông tin**: dán Mô tả chi tiết, SĐT, địa chỉ, giờ (mục 3–4).
 4. [ ] **Thêm nút → Gửi tin nhắn**.
-5. [ ] Đặt **tên người dùng** @tomcashop.
+5. [ ] Đặt **tên người dùng** @tomcashop38.
 6. [ ] Vào **business.facebook.com** (Meta Business Suite) → tạo Business Portfolio → thêm Trang.
 7. [ ] **Hộp thư → Tự động hóa**: tạo Lời chào, Câu hỏi thường gặp, Trả lời nhanh, Tin nhắn vắng mặt — copy từ `fanpage/messenger/kich-ban.md`.
 8. [ ] Copy link **m.me/<username>** gửi cho Claude để bật nút Messenger trên website.

@@ -26,7 +26,7 @@ Bố mẹ nhắn shop màu bé thích, shop gửi ảnh thật từng màu để
 3. Hộp + bình đặt trong cặp của bé (thấy vừa ngăn).
 
 ## Hashtag
-#TomCaShop #hopcomchobe #binhnuocchobe #dodungchobe #chobedihoc
+#TomcaShop38 #hopcomchobe #binhnuocchobe #dodungchobe #chobedihoc
 
 ## Ghi chú kiểm duyệt
 - Không viết "an toàn tuyệt đối", "không chứa BPA" hay "giữ nhiệt X giờ" nếu chưa có giấy tờ/thông số thật từ nhà cung cấp.

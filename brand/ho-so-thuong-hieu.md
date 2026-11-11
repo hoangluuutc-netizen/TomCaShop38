@@ -1,9 +1,9 @@
-# Hồ sơ thương hiệu TomCaShop
+# Hồ sơ thương hiệu TomcaShop38
 
 > Cập nhật 11/11/2026 từ thông tin chủ shop cung cấp. Mục **[CHƯA CÓ]** cần bổ sung.
 
 ## Thương hiệu
-- Tên shop: TomCaShop
+- Tên shop: TomcaShop38
 - Sản phẩm: đồ dùng trẻ em, vali trẻ em, cặp da trẻ em
 - Tính cách thương hiệu: đáng yêu, thân thiện, dễ nhận biết
 - Màu chủ đạo: xanh dương `#2B8FD6` + hồng `#E85A8B` (chốt 11/11/2026 theo Mẫu A · Biển xanh dịu; bảng màu đầy đủ trong skill tomcashop-brand)

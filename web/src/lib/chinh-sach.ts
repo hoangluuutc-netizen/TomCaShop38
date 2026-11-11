@@ -38,7 +38,7 @@ export const CHINH_SACH_TRANG: TrangChinhSach[] = [
   {
     slug: 'bao-hanh',
     ten: 'Bảo hành',
-    moTa: 'Sản phẩm TomCaShop được bảo hành 3 tháng kể từ ngày nhận hàng.',
+    moTa: 'Sản phẩm TomcaShop38 được bảo hành 3 tháng kể từ ngày nhận hàng.',
     doan: [
       { y: [
         'Bảo hành 3 tháng kể từ ngày nhận hàng.',
@@ -60,7 +60,7 @@ export const CHINH_SACH_TRANG: TrangChinhSach[] = [
   {
     slug: 'bao-mat',
     ten: 'Bảo mật thông tin',
-    moTa: 'Cách TomCaShop thu thập và sử dụng thông tin khi bố mẹ đặt hàng.',
+    moTa: 'Cách TomcaShop38 thu thập và sử dụng thông tin khi bố mẹ đặt hàng.',
     doan: [
       { tieuDe: 'Thông tin shop thu thập', y: ['Khi đặt hàng, bố mẹ cung cấp: họ tên, số điện thoại, địa chỉ giao hàng và ghi chú (nếu có).'] },
       { tieuDe: 'Mục đích sử dụng', y: ['Xác nhận đơn, giao hàng (thông tin được chuyển cho đơn vị vận chuyển để giao), hỗ trợ đổi trả và bảo hành.'] },

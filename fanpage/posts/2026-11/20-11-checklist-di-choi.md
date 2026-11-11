@@ -26,7 +26,7 @@ Bố mẹ còn hay mang thêm món gì cho bé? Comment để shop bổ sung và
 7. Ảnh cuối: vali trẻ em của shop mở nắp, đồ đã xếp gọn + "Nhắn shop để được tư vấn size".
 
 ## Hashtag
-#TomCaShop #dichoicungbe #checklistdulich #meobime #valichobe
+#TomcaShop38 #dichoicungbe #checklistdulich #meobime #valichobe
 
 ## Ghi chú kiểm duyệt
 - Mục thuốc: chỉ ghi "theo hướng dẫn của bác sĩ", không khuyên dùng thuốc cụ thể.

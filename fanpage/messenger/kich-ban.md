@@ -1,10 +1,10 @@
-# Kịch bản Messenger — TomCaShop
+# Kịch bản Messenger — TomcaShop38
 
 > Chép vào Meta Business Suite → Hộp thư → Tự động hóa (Automations).
 > Chính sách lấy từ docs/chinh-sach.md. Chỗ **[…]** điền khi có sản phẩm thật / tên miền.
 
 ## Lời chào (Instant reply)
-Chào bố mẹ ạ! TomCaShop và Cá Baby đây 🐟 Bố mẹ đang tìm vali hay cặp cho bé mấy tuổi ạ? Shop tư vấn size cho bố mẹ trong giờ làm việc (8h00 – 18h00) nhé.
+Chào bố mẹ ạ! TomcaShop38 và Cá Baby đây 🐟 Bố mẹ đang tìm vali hay cặp cho bé mấy tuổi ạ? Shop tư vấn size cho bố mẹ trong giờ làm việc (8h00 – 18h00) nhé.
 
 ## Câu hỏi thường gặp (FAQ — hiện thành nút bấm)
 | Nút khách bấm | Shop trả lời tự động |
@@ -24,7 +24,7 @@ Chào bố mẹ ạ! TomCaShop và Cá Baby đây 🐟 Bố mẹ đang tìm vali
 - **/doitra**: Nếu sản phẩm bị hư hỏng do shop hoặc do vận chuyển, bố mẹ báo shop trong vòng 1 ngày kể từ khi nhận hàng (kèm ảnh/video), shop đổi và chịu toàn bộ phí ship ạ.
 - **/baohanh**: Sản phẩm được bảo hành 3 tháng kể từ ngày nhận hàng ạ. Bố mẹ gửi shop mã đơn kèm ảnh/video sản phẩm, shop hướng dẫn bố mẹ nhé.
 - **/chotdon**: Bố mẹ gửi shop giúp: Họ tên – SĐT – Địa chỉ (tỉnh/thành, phường/xã, số nhà) – Mẫu/màu – Số lượng. Shop liên hệ xác nhận đơn trong giờ làm việc (8h00 – 18h00) ạ.
-- **/camon**: Shop cảm ơn bố mẹ đã tin chọn TomCaShop 🐟 Bé dùng thấy thế nào bố mẹ nhắn shop nhé, shop rất vui được nghe ạ!
+- **/camon**: Shop cảm ơn bố mẹ đã tin chọn TomcaShop38 🐟 Bé dùng thấy thế nào bố mẹ nhắn shop nhé, shop rất vui được nghe ạ!
 
 ## Tin nhắn vắng mặt (Away message — đặt theo giờ 18h00 – 8h00)
 Shop đã nhận tin của bố mẹ! Hiện ngoài giờ làm việc (8h00 – 18h00), shop sẽ trả lời bố mẹ sớm nhất vào sáng mai ạ. [Bố mẹ có thể xem và đặt hàng tại website — thêm khi có tên miền]

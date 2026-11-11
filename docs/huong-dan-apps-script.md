@@ -4,7 +4,7 @@
 
 ## 1. Tạo Google Sheet
 1. Vào https://sheets.google.com → **Trống** (Blank).
-2. Đặt tên file, ví dụ **TomCaShop – Đơn hàng**.
+2. Đặt tên file, ví dụ **TomcaShop38 – Đơn hàng**.
 
 ## 2. Dán mã nhận đơn
 1. Trong Sheet: menu **Tiện ích mở rộng → Apps Script** (Extensions → Apps Script).
@@ -17,7 +17,7 @@
 1. Bấm **Triển khai → Tùy chọn triển khai mới** (Deploy → New deployment).
 2. Bấm bánh răng ⚙ cạnh "Chọn loại" → **Ứng dụng web** (Web app).
 3. Điền:
-   - Mô tả: `Nhận đơn TomCaShop`
+   - Mô tả: `Nhận đơn TomcaShop38`
    - Thực thi dưới dạng: **Tôi** (Me)
    - Ai có quyền truy cập: **Bất kỳ ai** (Anyone)
 4. Bấm **Triển khai** → Google hỏi quyền → **Cho phép** (chọn tài khoản của shop; nếu hiện "Google chưa xác minh ứng dụng này" bấm **Nâng cao → Đi tới … (không an toàn)** — đây là script của chính shop).

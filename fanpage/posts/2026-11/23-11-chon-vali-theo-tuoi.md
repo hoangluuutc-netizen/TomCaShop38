@@ -29,7 +29,7 @@ Mỗi bé một khác, nên bố mẹ nhắn shop tuổi + chiều cao của bé
 5. "Nhắn shop: tuổi + chiều cao của bé" + SĐT/Zalo 0948 999 433.
 
 ## Hashtag
-#TomCaShop #valichobe #dulichcungbe #meobime #chonvali
+#TomcaShop38 #valichobe #dulichcungbe #meobime #chonvali
 
 ## Ghi chú kiểm duyệt
 - Mẹo "tay kéo ngang hông" là gợi ý thực tế, không phải tiêu chuẩn y tế — không viết "giúp bảo vệ cột sống".

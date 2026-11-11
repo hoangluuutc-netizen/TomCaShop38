@@ -1,6 +1,6 @@
 // Thông tin shop — nguồn: brand/ho-so-thuong-hieu.md và docs/chinh-sach.md. Sửa ở đây khi thông tin thay đổi.
 export const SHOP = {
-  ten: 'TomCaShop',
+  ten: 'TomcaShop38',
   moTa: 'Vali, cặp da và đồ dùng cho bé 3–15 tuổi. Giao toàn quốc, thanh toán khi nhận hàng.',
   nguoiBan: 'Nguyễn Hoàng Lưu',
   diaChi: 'HH03A, TDP Thanh Hà 1, xã Bình Minh, TP Hà Nội',

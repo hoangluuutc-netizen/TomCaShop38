@@ -1,15 +1,15 @@
 ---
 name: tomcashop-brand
-description: Bộ nhận diện thương hiệu TomCaShop (màu, font, logo, mascot Cá Baby, giọng văn, xưng hô, từ cấm). Dùng mỗi khi viết nội dung cho khách (web, Fanpage, Messenger, mô tả sản phẩm, quảng cáo) hoặc làm giao diện, banner, ảnh cho TomCaShop.
+description: Bộ nhận diện thương hiệu TomcaShop38 (màu, font, logo, mascot Cá Baby, giọng văn, xưng hô, từ cấm). Dùng mỗi khi viết nội dung cho khách (web, Fanpage, Messenger, mô tả sản phẩm, quảng cáo) hoặc làm giao diện, banner, ảnh cho TomcaShop38.
 ---
 
-# TomCaShop — Bộ nhận diện thương hiệu
+# TomcaShop38 — Bộ nhận diện thương hiệu
 
 > Nguồn: `brand/ho-so-thuong-hieu.md`. Khi file đó thay đổi, cập nhật lại skill này.
 > Mục ghi **[CHƯA CÓ]** là thông tin chủ shop chưa cung cấp — KHÔNG tự bịa, hỏi chủ shop.
 
 ## 1. Thương hiệu
-- Tên: **TomCaShop** (viết liền, T và C viết hoa).
+- Tên: **TomcaShop38** (viết liền, chỉ T và S viết hoa, số 38 liền sau — đúng như chữ trên logo; đổi từ "TomCaShop" ngày 11/11/2026). Tên miền/username dùng chữ thường: tomcashop38.
 - Bán: vali trẻ em, cặp da trẻ em, đồ dùng cho bé.
 - Tính cách: đáng yêu, thân thiện, dễ nhận biết.
 - Khách chính: bố mẹ 25–45 tuổi, bé 3–15 tuổi, bán toàn quốc. Mua trên điện thoại,

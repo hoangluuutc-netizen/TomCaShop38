@@ -1,4 +1,4 @@
-# Chính sách bán hàng TomCaShop
+# Chính sách bán hàng TomcaShop38
 
 > Nguồn: thông tin chủ shop cung cấp ngày 11/11/2026. Đây là bản gốc để đưa lên website, Fanpage, Messenger.
 > Dòng có **(đề xuất — chờ duyệt)** là Claude tự điền theo yêu cầu, chủ shop xác nhận hoặc sửa.
