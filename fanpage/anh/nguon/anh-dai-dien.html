@@ -1,0 +1,24 @@
+<!doctype html>
+<!-- KHUÔN ảnh đại diện Fanpage TomCaShop — 720×720. CHƯA XUẤT PNG (chưa có file logo).
+     Khi chủ shop gửi logo: đặt file vào brand/logo.png (nền trong suốt, vuông), mở trang này
+     qua máy chủ http từ thư mục gốc dự án, rồi chụp phần tử #khung thành fanpage/anh/anh-dai-dien.png.
+     Facebook cắt ảnh đại diện thành hình tròn → giữ logo trong vòng tròn giữa. -->
+<html lang="vi"><head><meta charset="utf-8"><title>Ảnh đại diện</title>
+<link rel="stylesheet" href="font/700.css"><link rel="stylesheet" href="font/800.css">
+<style>
+*{box-sizing:border-box;margin:0}
+body{background:#fff;font-family:'Be Vietnam Pro',sans-serif}
+#khung{position:relative;width:720px;height:720px;background:#EEF7FD;display:grid;place-items:center}
+.tron{width:680px;height:680px;border-radius:50%;background:#fff;border:22px solid #2B8FD6;
+  box-shadow:inset 0 0 0 10px #D6ECFA;display:grid;place-items:center;overflow:hidden}
+.tron img{width:520px;height:520px;object-fit:contain}
+.cho{width:480px;height:480px;border-radius:50%;border:6px dashed #2B8FD6;display:none;place-items:center;
+  text-align:center;color:#1F74B4;font-weight:800;font-size:54px;line-height:1.2}
+.cho small{display:block;font-size:26px;font-weight:700;color:#C93D6E;margin-top:10px}
+.thieu .cho{display:grid}.thieu img{display:none}
+</style></head><body>
+<div id="khung"><div class="tron">
+  <img src="../../../brand/logo.png" alt="Logo TomCaShop" onerror="document.getElementById('khung').classList.add('thieu')">
+  <div class="cho"><div>logo<small>đặt brand/logo.png</small></div></div>
+</div></div>
+</body></html>

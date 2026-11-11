@@ -1,0 +1,49 @@
+<!doctype html>
+<!-- Giả lập vị trí ảnh bìa trên Facebook. Tham số: ?anh=a|b&khung=may-tinh|dien-thoai
+     Máy tính: ảnh bìa hiện đủ 1640×624 (thu nhỏ). Điện thoại: Facebook cắt còn tỉ lệ ~16:9 ở giữa.
+     Vòng tròn ảnh đại diện là khuôn tạm (chưa có logo). Chỉ để xem trước, không đăng. -->
+<html lang="vi"><head><meta charset="utf-8"><title>Xem trước ảnh bìa</title>
+<link rel="stylesheet" href="font/400.css"><link rel="stylesheet" href="font/700.css"><link rel="stylesheet" href="font/800.css">
+<style>
+*{box-sizing:border-box;margin:0}
+html,body{overflow-x:hidden}
+body{font-family:'Be Vietnam Pro',sans-serif;background:#F0F2F5;color:#1C1E21}
+.thanh{height:56px;background:#fff;box-shadow:0 1px 2px rgba(0,0,0,.1);display:flex;align-items:center;padding:0 16px;gap:10px;color:#65676B;font-size:14px}
+.thanh .o{width:200px;height:36px;border-radius:999px;background:#F0F2F5}
+.trang{background:#fff;box-shadow:0 1px 2px rgba(0,0,0,.1)}
+.bia{display:block;width:100%;object-fit:cover}
+.dd{position:absolute;border-radius:50%;background:#fff;border:4px solid #fff;box-shadow:0 0 0 1px #ddd}
+.dd span{display:grid;place-items:center;width:100%;height:100%;border-radius:50%;border:5px solid #2B8FD6;color:#1F74B4;font-weight:800}
+.ten{font-weight:800}
+.nut{display:inline-block;background:#1F74B4;color:#fff;font-weight:700;border-radius:8px;padding:8px 14px;font-size:14px}
+.nut.xam{background:#E4E6EB;color:#1C1E21}
+.ghi{font-size:12px;color:#65676B}
+/* máy tính */
+.pc .khung{width:1100px;margin:0 auto;position:relative}
+.pc .bia{height:419px;border-radius:0 0 10px 10px}
+.pc .dd{width:176px;height:176px;left:32px;top:330px}
+.pc .dd span{font-size:30px}
+.pc .dong{display:flex;align-items:flex-end;gap:16px;padding:16px 32px 20px 232px;min-height:110px}
+.pc .ten{font-size:32px}
+/* điện thoại */
+.dt{width:390px}
+.dt .khung{position:relative}
+.dt .bia{height:219px}
+.dt .dd{width:124px;height:124px;left:14px;top:150px}
+.dt .dd span{font-size:22px;border-width:4px}
+.dt .dong{padding:84px 16px 16px}
+.dt .ten{font-size:24px}
+</style></head><body>
+<script>
+const q=new URLSearchParams(location.search),anh=q.get('anh')||'a',khung=q.get('khung')||'may-tinh';
+document.body.className=khung==='dien-thoai'?'dt':'pc';
+document.write(`
+<div class="thanh"><b style="color:#1877F2;font-size:22px">f</b><span class="o"></span><span class="ghi">Xem trước phương án ${anh.toUpperCase()} · ${khung==='dien-thoai'?'điện thoại':'máy tính'}</span></div>
+<div class="trang"><div class="khung">
+  <img class="bia" src="../anh-bia-${anh}.png" alt="">
+  <div class="dd"><span>logo</span></div>
+  <div class="dong"><div style="flex:1"><div class="ten">TomCaShop</div><div class="ghi">Cửa hàng đồ dùng trẻ em</div></div>
+  <div><span class="nut">Nhắn tin</span> <span class="nut xam">Thích</span></div></div>
+</div></div>`);
+</script>
+</body></html>
