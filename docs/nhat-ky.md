@@ -10,3 +10,4 @@
 | 11/11/2026 | Giai đoạn 2 xong (dữ liệu mẫu): danh mục/tìm kiếm có lọc, trang sản phẩm, giỏ hàng, đặt hàng 34 tỉnh–3.321 xã, cảm ơn + QR, Apps Script, chính sách, SEO; kiểm thử 390/1280px đạt | Chờ sản phẩm thật, URL Apps Script, ngân hàng, link m.me |
 | 11/11/2026 | Giai đoạn 3: thông tin Trang, kịch bản Messenger, lịch 16/11–13/12 (18 bài), 6 bài + 3 kịch bản video A/B; kiểm duyệt QC ĐẠT | Ảnh bìa làm ở phiên riêng; ảnh đại diện chờ logo |
 | 11/11/2026 | Giai đoạn 3: 2 phương án ảnh bìa Fanpage 1640×624 + ảnh xem trước + khuôn ảnh đại diện | Chờ chủ shop chọn A/B, gửi logo |
+| 11/11/2026 | Chủ shop chọn ảnh bìa Fanpage phương án A | Giai đoạn 3 hoàn tất (trừ ảnh đại diện chờ logo) |

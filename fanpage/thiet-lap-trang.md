@@ -48,7 +48,7 @@ Bố mẹ nhắn tin cho shop kèm tuổi và chiều cao của bé để đư�
 
 ## 5. Ảnh
 - Ảnh đại diện: logo huy hiệu tròn tôm–cá → **chờ file logo** trong `brand/`; Claude xuất `fanpage/anh/anh-dai-dien.png` (720×720).
-- Ảnh bìa: `fanpage/anh/anh-bia-*.png` (1640×624) — chọn 1 phương án.
+- Ảnh bìa: **`fanpage/anh/anh-bia-a.png`** (1640×624) — chủ shop đã chọn phương án A (11/11/2026).
 
 ## 6. Checklist chủ shop bấm
 1. [ ] Facebook → **Trang → Tạo Trang mới** → điền Tên + Hạng mục + Bio (mục 1–2).

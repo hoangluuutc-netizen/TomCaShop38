@@ -22,7 +22,7 @@ Trong logo của shop có hai người bạn: Tôm xanh và Cá hồng, đối d
 Bé nhà mình năm nay mấy tuổi rồi ạ? Bố mẹ nhắn tin cho shop, Cá Baby gợi ý đồ vừa với bé nhé! 💬
 
 ## Gợi ý ảnh
-- Ảnh bìa Fanpage (bản đã chọn), hoặc ảnh logo + hình Cá Baby trên nền xanh nhạt.
+- Ảnh bìa Fanpage (fanpage/anh/anh-bia-a.png), hoặc ảnh logo + hình Cá Baby trên nền xanh nhạt.
 - Khi có ảnh sản phẩm thật: ghép 3 ảnh (vali · cặp · hộp cơm) xếp cạnh nhau trên nền trắng.
 
 ## Hashtag
