@@ -14,9 +14,9 @@ Bắt đầu từ Giai đoạn 0. Làm lần lượt từng giai đoạn; cuối
 - [x] Kiểm tra máy có `git`, `node` (bản LTS), `npm`; nếu thiếu, hướng dẫn tôi cài.
 - [x] `git init`, commit đầu tiên.
 - [x] Nhắc tôi cài plugin: frontend-design, playwright, superpowers, code-review (lệnh trong BAT-DAU.md).
-- [ ] Kiểm tra brand/ và products/products.csv; hỏi tôi những thông tin còn thiếu (logo, màu chính xác, giọng văn, chính sách đổi trả/ship, SĐT, Zalo, địa chỉ, danh sách sản phẩm).
-- [ ] Tạo skill dự án `tomcashop-brand` trong .claude/skills/ từ nội dung brand/ (màu, font, logo, giọng văn, từ cấm).
-- [ ] Ghi docs/chinh-sach.md từ thông tin tôi cung cấp.
+- [x] Kiểm tra brand/ và products/products.csv; hỏi tôi những thông tin còn thiếu (logo, màu chính xác, giọng văn, chính sách đổi trả/ship, SĐT, Zalo, địa chỉ, danh sách sản phẩm).
+- [x] Tạo skill dự án `tomcashop-brand` trong .claude/skills/ từ nội dung brand/ (màu, font, logo, giọng văn, từ cấm).
+- [x] Ghi docs/chinh-sach.md từ thông tin tôi cung cấp.
 
 ## Giai đoạn 1 — Chốt thiết kế
 - [ ] Dùng skill brainstorming hỏi tôi từng câu để chốt phạm vi; ghi docs/spec-website.md.

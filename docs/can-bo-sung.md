@@ -1,4 +1,5 @@
 # Thông tin shop cần bổ sung (Giai đoạn 0)
+n> **11/11/2026:** Đã nhận mục B, C và khách mục tiêu (xem brand/ho-so-thuong-hieu.md, docs/chinh-sach.md). Còn thiếu: logo, mã màu (Claude đề xuất), link m.me, đơn vị vận chuyển, phạm vi bảo hành, ngân hàng nhận chuyển khoản, danh sách sản phẩm + ảnh.
 
 > Chủ shop điền trực tiếp vào file này (hoặc trả lời trong chat). Mục nào chưa có thì để trống, Claude sẽ để chỗ trống trên web chứ không tự điền.
 

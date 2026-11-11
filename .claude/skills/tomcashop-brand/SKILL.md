@@ -12,8 +12,8 @@ description: Bộ nhận diện thương hiệu TomCaShop (màu, font, logo, mas
 - Tên: **TomCaShop** (viết liền, T và C viết hoa).
 - Bán: vali trẻ em, cặp da trẻ em, đồ dùng cho bé.
 - Tính cách: đáng yêu, thân thiện, dễ nhận biết.
-- Khách chính: bố mẹ có con nhỏ, mua trên điện thoại, hay hỏi qua Messenger/Zalo trước khi mua.
-  Chi tiết độ tuổi bố mẹ/bé, khu vực, thu nhập: **[CHƯA CÓ]**.
+- Khách chính: bố mẹ 25–45 tuổi, bé 3–15 tuổi, bán toàn quốc. Mua trên điện thoại,
+  hay hỏi qua Messenger/Zalo trước khi mua.
 - Kênh bán: website, Facebook, TikTok Shop, Shopee.
 
 ## 2. Logo & mascot
@@ -24,8 +24,8 @@ description: Bộ nhận diện thương hiệu TomCaShop (màu, font, logo, mas
 ## 3. Màu
 | Vai trò | Màu | Mã |
 | --- | --- | --- |
-| Chủ đạo 1 | Xanh dương | **[CHƯA CÓ mã chính xác]** |
-| Chủ đạo 2 | Hồng | **[CHƯA CÓ mã chính xác]** |
+| Chủ đạo 1 | Xanh dương | **[CHƯA CHỐT — đề xuất ở Giai đoạn 1]** |
+| Chủ đạo 2 | Hồng | **[CHƯA CHỐT — đề xuất ở Giai đoạn 1]** |
 
 - Nền sáng, góc bo tròn, chuyển động nhẹ.
 - Bản mẫu giao diện được dùng màu tạm, nhưng phải ghi chú "màu tạm" và thay khi có mã chính thức.
@@ -55,5 +55,10 @@ description: Bộ nhận diện thương hiệu TomCaShop (màu, font, logo, mas
 - Nội dung Fanpage/quảng cáo: chạy trợ lý con `kiem-duyet-qc` trước khi giao.
 
 ## 8. Liên hệ & chính sách
-- SĐT, Zalo, địa chỉ, giờ làm việc: **[CHƯA CÓ]**.
-- Chính sách đổi trả, ship, thanh toán: xem `docs/chinh-sach.md` (khi đã có).
+- Người bán: Nguyễn Hoàng Lưu · ĐT/Zalo: 0948 999 433 (zalo.me/0948999433)
+- Địa chỉ: HH03A, TDP Thanh Hà 1, xã Bình Minh, TP Hà Nội · Giờ làm việc: 8h00 – 18h00
+- Fanpage: TomcaShop (link m.me/…: **[CHƯA CÓ]**)
+- Tóm tắt chính sách (bản chuẩn: `docs/chinh-sach.md`): giao toàn quốc 3–5 ngày · phí ship theo
+  đơn vị vận chuyển · **miễn phí ship từ 2 sản phẩm** · được kiểm tra hàng · đổi trả trong 1 ngày
+  nếu lỗi shop/vận chuyển, shop chịu phí · bảo hành 3 tháng · COD mặc định + chuyển khoản QR.
+- Dòng "(đề xuất — chờ duyệt)" trong chinh-sach.md chưa dùng cho khách đến khi chủ shop duyệt.
