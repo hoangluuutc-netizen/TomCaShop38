@@ -23,8 +23,8 @@ const duongDan = Astro.url.pathname;
       </label>
     </form>
     <div class="ml-auto flex items-center gap-1">
-      <a href="/chinh-sach/van-chuyen" class="hidden px-3 text-sm font-medium text-slate-600 hover:text-xanh-700 lg:block">Chính sách</a>
-      <a href="/lien-he" class="hidden px-3 text-sm font-medium text-slate-600 hover:text-xanh-700 lg:block">Liên hệ</a>
+      <a href="/chinh-sach/van-chuyen" class="hidden px-3 py-3 text-sm font-medium text-slate-600 hover:text-xanh-700 lg:block">Chính sách</a>
+      <a href="/lien-he" class="hidden px-3 py-3 text-sm font-medium text-slate-600 hover:text-xanh-700 lg:block">Liên hệ</a>
       <a href="/gio-hang" class="relative grid h-11 w-11 place-items-center rounded-full bg-xanh-50" aria-label="Giỏ hàng">
         <svg class="h-6 w-6 text-xanh-700" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 4h2l2.5 11h11L21 7H6.2"/><circle cx="9" cy="20" r="1.5"/><circle cx="18" cy="20" r="1.5"/></svg>
         <span data-so-gio class="absolute -right-0.5 -top-0.5 hidden h-5 min-w-5 place-items-center rounded-full bg-hong-600 px-1 text-[11px] font-bold text-white">0</span>
@@ -42,10 +42,10 @@ const duongDan = Astro.url.pathname;
     <div class="khung flex gap-1 overflow-x-auto py-1.5 text-sm font-medium [scrollbar-width:none]">
       {DANH_MUC.map((d) => {
         const dang = duongDan.startsWith(`/danh-muc/${d.slug}`);
-        return <a href={`/danh-muc/${d.slug}`} aria-current={dang ? 'page' : undefined} class:list={['whitespace-nowrap rounded-full px-4 py-2', dang ? 'bg-xanh-600 text-white' : 'text-slate-700 hover:bg-xanh-50']}>{d.ten}</a>;
+        return <a href={`/danh-muc/${d.slug}`} aria-current={dang ? 'page' : undefined} class:list={['inline-flex min-h-11 items-center whitespace-nowrap rounded-full px-4', dang ? 'bg-xanh-600 text-white' : 'text-slate-700 hover:bg-xanh-50']}>{d.ten}</a>;
       })}
-      <a href="/tim-kiem" class="whitespace-nowrap rounded-full px-4 py-2 text-slate-700 hover:bg-xanh-50">Tất cả sản phẩm</a>
-      <a href="/chinh-sach/van-chuyen" class="whitespace-nowrap rounded-full px-4 py-2 text-slate-700 hover:bg-xanh-50 lg:hidden">Chính sách</a>
+      <a href="/tim-kiem" class="inline-flex min-h-11 items-center whitespace-nowrap rounded-full px-4 text-slate-700 hover:bg-xanh-50">Tất cả sản phẩm</a>
+      <a href="/chinh-sach/van-chuyen" class="inline-flex min-h-11 items-center whitespace-nowrap rounded-full px-4 text-slate-700 hover:bg-xanh-50 lg:hidden">Chính sách</a>
     </div>
   </nav>
 </header>

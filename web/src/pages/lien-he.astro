@@ -1,0 +1,34 @@
+---
+import Base from '../layouts/Base.astro';
+import Breadcrumb from '../components/Breadcrumb.astro';
+import { SHOP } from '../lib/shop';
+const banDo = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(SHOP.diaChi)}`;
+---
+<Base title="Liên hệ TomCaShop" description={`Liên hệ TomCaShop: gọi/Zalo ${SHOP.dienThoai}, giờ làm việc ${SHOP.gioLamViec}. Địa chỉ: ${SHOP.diaChi}.`}>
+  <Breadcrumb muc={[{ ten: 'Liên hệ' }]} />
+  <div class="khung mt-4 max-w-3xl">
+    <h1 class="text-2xl font-extrabold text-xanh-800 md:text-3xl">Liên hệ shop</h1>
+    <p class="mt-2 text-slate-600">Bố mẹ cần tư vấn size, hỏi đơn hàng hay đổi trả — nhắn shop bất cứ lúc nào, shop trả lời trong giờ làm việc {SHOP.gioLamViec}.</p>
+    <div class="mt-6 grid gap-3 sm:grid-cols-2">
+      <a href={SHOP.zalo} target="_blank" rel="noopener" class="flex items-center gap-4 rounded-3xl bg-[#0068FF] p-5 text-white">
+        <span class="grid h-12 w-12 place-items-center rounded-full bg-white text-xs font-extrabold text-[#0068FF]">Zalo</span>
+        <span><b class="block">Nhắn Zalo</b><span class="text-sm opacity-90">{SHOP.dienThoai}</span></span>
+      </a>
+      <a href={`tel:${SHOP.dienThoaiSo}`} class="flex items-center gap-4 rounded-3xl bg-hong-600 p-5 text-white">
+        <span class="grid h-12 w-12 place-items-center rounded-full bg-white text-2xl" aria-hidden="true">📞</span>
+        <span><b class="block">Gọi điện</b><span class="text-sm opacity-90">{SHOP.dienThoai}</span></span>
+      </a>
+      {SHOP.messenger && (
+        <a href={SHOP.messenger} target="_blank" rel="noopener" class="flex items-center gap-4 rounded-3xl bg-gradient-to-br from-[#00B2FF] to-[#A033FF] p-5 text-white sm:col-span-2">
+          <b>Nhắn Messenger — Fanpage {SHOP.fanpage}</b>
+        </a>
+      )}
+    </div>
+    <section class="mt-8 rounded-3xl border border-xanh-100 p-6">
+      <h2 class="font-bold text-xanh-800">Địa chỉ</h2>
+      <p class="mt-1">{SHOP.diaChi}</p>
+      <a href={banDo} target="_blank" rel="noopener" class="nut-phu mt-4">Xem trên Google Maps</a>
+      <p class="mt-4 text-sm text-slate-500">Người bán: {SHOP.nguoiBan} · Fanpage: {SHOP.fanpage}</p>
+    </section>
+  </div>
+</Base>

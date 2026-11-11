@@ -1,0 +1,16 @@
+---
+import Base from '../layouts/Base.astro';
+import CaBaby from '../components/CaBaby.astro';
+import { DANH_MUC } from '../lib/san-pham';
+---
+<Base title="Không tìm thấy trang" description="Trang bố mẹ tìm không tồn tại." noindex>
+  <div class="khung mt-12 max-w-xl text-center">
+    <CaBaby class="mx-auto w-32" />
+    <h1 class="mt-4 text-2xl font-extrabold text-xanh-800">Ối, Cá Baby không tìm thấy trang này</h1>
+    <p class="mt-2 text-slate-600">Có thể đường dẫn đã thay đổi. Bố mẹ xem các danh mục dưới đây nhé.</p>
+    <div class="mt-6 flex flex-wrap justify-center gap-2">
+      {DANH_MUC.map((d) => <a href={`/danh-muc/${d.slug}`} class="chip">{d.ten}</a>)}
+    </div>
+    <a href="/" class="nut-chinh mt-6">Về trang chủ</a>
+  </div>
+</Base>

@@ -1,0 +1,5 @@
+User-agent: *
+Disallow: /gio-hang
+Disallow: /dat-hang
+Disallow: /cam-on
+Sitemap: https://tomcashop.pages.dev/sitemap-index.xml

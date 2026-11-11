@@ -11,9 +11,10 @@ interface Props {
   description: string;
   anhChiaSe?: string; // đường dẫn ảnh Open Graph
   noindex?: boolean;
+  anNutNoiDiDong?: boolean; // ẩn nút Zalo/Gọi nổi trên điện thoại (trang giỏ hàng, đặt hàng) để không che tổng tiền
   loaiOg?: 'website' | 'product';
 }
-const { title, description, anhChiaSe = '/og-mac-dinh.png', noindex = false, loaiOg = 'website' } = Astro.props;
+const { title, description, anhChiaSe = "/og-mac-dinh.png", noindex = false, loaiOg = "website", anNutNoiDiDong = false } = Astro.props;
 const tieuDe = title.includes('TomCaShop') ? title : `${title} | TomCaShop`;
 const canonical = new URL(Astro.url.pathname, Astro.site);
 const anhOg = new URL(anhChiaSe, Astro.site);
@@ -52,7 +53,7 @@ const toChuc = {
   <Header />
   <main id="noi-dung"><slot /></main>
   <Footer />
-  <NutNoi />
+  <div class:list={[anNutNoiDiDong && "hidden md:block"]}><NutNoi /></div>
 
   <dialog id="chon-mau-nhanh" class="m-auto mb-0 w-full max-w-md rounded-t-3xl p-0 backdrop:bg-slate-900/40 sm:mb-auto sm:rounded-3xl">
     <div class="p-5">

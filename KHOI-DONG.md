@@ -23,14 +23,14 @@ Bắt đầu từ Giai đoạn 0. Làm lần lượt từng giai đoạn; cuối
 - [x] Dùng ui-ux-pro-max + frontend-design làm 3 hướng giao diện trang chủ (HTML tĩnh trong docs/mau-giao-dien/), chụp ở 390px và 1280px để tôi chọn. — **Đã chọn Mẫu A (11/11/2026)**
 
 ## Giai đoạn 2 — Dựng website
-- [ ] Khởi tạo Astro + Tailwind trong web/, font Be Vietnam Pro, đọc sản phẩm từ products/products.csv.
-- [ ] Trang chủ, danh mục, trang sản phẩm (bảng size, chính sách dưới nút mua).
-- [ ] Nút nổi Zalo / Messenger / Gọi điện.
-- [ ] Giỏ hàng + form đặt hàng (COD mặc định, chuyển khoản QR), trang cảm ơn.
-- [ ] Gửi đơn về Google Sheets qua Apps Script; viết docs/huong-dan-apps-script.md để tôi tự tạo script.
-- [ ] Trang chính sách, giới thiệu, liên hệ.
-- [ ] SEO: title, meta, Open Graph, sitemap, schema Product.
-- [ ] Chạy /kiem-tra-web và sửa lỗi.
+- [x] Khởi tạo Astro + Tailwind trong web/, font Be Vietnam Pro, đọc sản phẩm từ products/products.csv.
+- [x] Trang chủ, danh mục, trang sản phẩm (bảng size, chính sách dưới nút mua).
+- [x] Nút nổi Zalo / Messenger / Gọi điện.
+- [x] Giỏ hàng + form đặt hàng (COD mặc định, chuyển khoản QR), trang cảm ơn.
+- [x] Gửi đơn về Google Sheets qua Apps Script; viết docs/huong-dan-apps-script.md để tôi tự tạo script. — *chờ chủ shop tạo script + dán URL*
+- [x] Trang chính sách, giới thiệu, liên hệ.
+- [x] SEO: title, meta, Open Graph, sitemap, schema Product.
+- [x] Chạy /kiem-tra-web và sửa lỗi. — *đang dùng dữ liệu mẫu MAU-**
 
 ## Giai đoạn 3 — Fanpage
 - [ ] Thiết kế ảnh bìa Fanpage + ảnh đại diện (xuất PNG vào fanpage/).

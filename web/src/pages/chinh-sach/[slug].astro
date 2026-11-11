@@ -1,0 +1,37 @@
+---
+import Base from '../../layouts/Base.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import { CHINH_SACH_TRANG, type TrangChinhSach } from '../../lib/chinh-sach';
+import { SHOP } from '../../lib/shop';
+
+export function getStaticPaths() {
+  return CHINH_SACH_TRANG.map((t) => ({ params: { slug: t.slug }, props: { trang: t } }));
+}
+const { trang } = Astro.props as { trang: TrangChinhSach };
+---
+<Base title={`Chính sách ${trang.ten.toLowerCase()}`} description={trang.moTa}>
+  <Breadcrumb muc={[{ ten: 'Chính sách' }, { ten: trang.ten }]} />
+  <div class="khung mt-4 grid gap-8 md:grid-cols-[220px_1fr]">
+    <nav aria-label="Các chính sách" class="order-2 md:order-1">
+      <ul class="flex flex-wrap gap-2 md:flex-col">
+        {CHINH_SACH_TRANG.map((t) => (
+          <li><a href={`/chinh-sach/${t.slug}`} aria-current={t.slug === trang.slug ? 'page' : undefined}
+            class:list={['chip w-full md:justify-start', t.slug === trang.slug && 'dang-chon']}>{t.ten}</a></li>
+        ))}
+      </ul>
+    </nav>
+    <article class="order-1 max-w-2xl md:order-2">
+      <h1 class="text-2xl font-extrabold text-xanh-800 md:text-3xl">{trang.ten}</h1>
+      {trang.doan.map((d) => (
+        <section class="mt-6">
+          {d.tieuDe && <h2 class="text-lg font-bold text-xanh-800">{d.tieuDe}</h2>}
+          <ul class="mt-2 list-disc space-y-2 pl-5 leading-relaxed text-slate-700">{d.y.map((y) => <li>{y}</li>)}</ul>
+        </section>
+      ))}
+      <section class="mt-8 rounded-2xl bg-xanh-50 p-5 text-sm leading-relaxed">
+        <h2 class="font-bold text-xanh-800">Thông tin người bán & khiếu nại</h2>
+        <p class="mt-1">{SHOP.nguoiBan} · {SHOP.diaChi}<br />Điện thoại/Zalo: <a href={`tel:${SHOP.dienThoaiSo}`} class="font-semibold underline">{SHOP.dienThoai}</a> · Giờ làm việc: {SHOP.gioLamViec}</p>
+      </section>
+    </article>
+  </div>
+</Base>

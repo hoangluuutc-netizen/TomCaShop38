@@ -18,12 +18,12 @@ const nhom = [
 ---
 <div data-danh-sach-loc class="khung mt-4">
   <!-- Chip lọc nhanh theo tuổi + nút mở bộ lọc -->
-  <div class="flex items-center gap-2 overflow-x-auto pb-2 [scrollbar-width:none]">
+  <div class="relative flex items-center gap-2 overflow-x-auto pb-2 [scrollbar-width:none]">
     <button type="button" data-mo-loc class="chip shrink-0 gap-2 font-semibold md:hidden">
       <svg class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 5h18M6 12h12M10 19h4"/></svg>
       Lọc <span data-dem-loc class="hidden rounded-full bg-hong-600 px-1.5 text-xs text-white"></span>
     </button>
-    {NHOM_TUOI.map((n) => <button type="button" class="chip shrink-0" data-chip-nhanh={`tuoi:${n.slug}`} aria-pressed="false">{n.ten}</button>)}
+    {NHOM_TUOI.map((n) => <button type="button" class="chip shrink-0 md:hidden" data-chip-nhanh={`tuoi:${n.slug}`} aria-pressed="false">{n.ten}</button>)}
     <label class="ml-auto shrink-0">
       <span class="sr-only">Sắp xếp</span>
       <select data-sap-xep class="chip cursor-pointer pr-8">
