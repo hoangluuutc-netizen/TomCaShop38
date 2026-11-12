@@ -40,9 +40,9 @@ Bắt đầu từ Giai đoạn 0. Làm lần lượt từng giai đoạn; cuối
 
 ## Giai đoạn 4 — Lên mạng
 - [x] Hướng dẫn tôi tạo kho GitHub và đẩy code (hỏi trước khi push). — đã đẩy lên github.com/hoangluuutc-netizen/TomCaShop38 (11/11/2026)
-- [ ] Hướng dẫn tôi kết nối Cloudflare Pages với kho GitHub, cấu hình build cho Astro, gắn tên miền.
+- [x] Hướng dẫn tôi kết nối Cloudflare Pages với kho GitHub, cấu hình build cho Astro, gắn tên miền. — chạy ở https://tomcashop38.pages.dev; *tên miền: chờ chủ shop mua*
 - [x] Gắn Meta Pixel (ID do tôi cung cấp) với sự kiện ViewContent, AddToCart, Purchase. — code xong (+PageView, InitiateCheckout), *chờ Pixel ID*
-- [ ] Kiểm thử lại trên bản đã lên mạng bằng Playwright.
+- [x] Kiểm thử lại trên bản đã lên mạng bằng Playwright. — 12/11/2026 đạt (390/1280px, đặt thử COD + CK)
 
 ## Giai đoạn 5 — Thanh toán tự động & quảng cáo
 - [ ] Tích hợp payOS: tạo link VietQR cho đơn chuyển khoản, nhận webhook (Cloudflare Pages Functions), cập nhật trạng thái đơn. Khóa API đặt trong biến môi trường, không commit.

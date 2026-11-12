@@ -16,3 +16,4 @@
 | 11/11/2026 | Giai đoạn 4: chuẩn bị Cloudflare Pages (.node-version, _headers), gắn Meta Pixel bật theo biến môi trường (5 sự kiện, đã thử), hướng dẫn docs/huong-dan-len-mang.md | Chờ URL kho GitHub, Pixel ID |
 | 11/11/2026 | Đẩy code lên GitHub hoangluuutc-netizen/TomCaShop38 (nhánh main) | Tiếp: kết nối Cloudflare Pages |
 | 12/11/2026 | Kiểm thử bản online tomcashop38.pages.dev: 13 trang × 390/1280px đạt, đặt thử COD + CK đạt; sửa chuyển hướng 308 (build.format file) + canonical | |
+| 12/11/2026 | Kiểm thử lại sau sửa chuyển hướng: các trang 200 trực tiếp, đặt hàng thông suốt. Giai đoạn 4 xong (trừ tên miền, Pixel ID) | |
