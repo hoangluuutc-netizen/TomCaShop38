@@ -36,6 +36,14 @@
 ## Khi sửa mã Code.gs
 Sửa xong phải **Triển khai → Quản lý triển khai → ✏️ → Phiên bản: Phiên bản mới → Triển khai**. URL giữ nguyên.
 
+## Bật xác nhận chuyển khoản tự động (payOS — Giai đoạn 5)
+1. Dán lại toàn bộ `docs/apps-script/Code.gs` bản mới → Lưu → triển khai **Phiên bản mới** (như trên).
+2. Tạo một **chuỗi bí mật** dài ~32 ký tự ngẫu nhiên (ví dụ dùng trình quản lý mật khẩu → "tạo mật khẩu", chỉ chữ + số).
+3. Apps Script → **Cài đặt dự án** (⚙) → **Thuộc tính tập lệnh** → **Thêm** → Thuộc tính: `BI_MAT`, Giá trị: chuỗi bí mật → Lưu.
+4. Cloudflare → dự án `tomcashop38` → Settings → Variables and Secrets → thêm **Secret** `APPS_SCRIPT_SECRET` = **cùng chuỗi bí mật** đó.
+5. Sheet sẽ có thêm 3 cột: **Mã payOS**, **Đã nhận tiền**, **Mã giao dịch**. Đơn chuyển khoản mới có trạng thái "Chờ chuyển khoản", tự đổi thành **"Đã thanh toán"** khi payOS báo tiền về.
+> Không gửi chuỗi bí mật vào chat hay lưu trong file dự án.
+
 ## Lưu ý
 - Sheet chứa dữ liệu khách hàng (tên, SĐT, địa chỉ): chỉ chia sẻ cho người cần xử lý đơn.
 - Mã đã kiểm tra dữ liệu cơ bản (SĐT, mã đơn, giỏ không rỗng). Nếu bị spam đơn ảo, báo Claude để thêm lớp chống spam.

@@ -17,3 +17,4 @@
 | 11/11/2026 | Đẩy code lên GitHub hoangluuutc-netizen/TomCaShop38 (nhánh main) | Tiếp: kết nối Cloudflare Pages |
 | 12/11/2026 | Kiểm thử bản online tomcashop38.pages.dev: 13 trang × 390/1280px đạt, đặt thử COD + CK đạt; sửa chuyển hướng 308 (build.format file) + canonical | |
 | 12/11/2026 | Kiểm thử lại sau sửa chuyển hướng: các trang 200 trực tiếp, đặt hàng thông suốt. Giai đoạn 4 xong (trừ tên miền, Pixel ID) | |
+| 12/11/2026 | Giai đoạn 5 phần A: payOS qua Cloudflare Pages Functions (tạo link tính lại tiền ở máy chủ, webhook kiểm chữ ký), Apps Script cập nhật trạng thái, hướng dẫn docs/huong-dan-payos.md; 16 kiểm thử hàm + Playwright 390/1280 đạt | Chờ tài khoản payOS + khóa |

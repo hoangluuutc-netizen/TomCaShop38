@@ -37,7 +37,12 @@ const nganHang = {
             <div class="flex justify-between gap-3"><dt class="text-slate-500">Nội dung</dt><dd data-nd class="font-semibold"></dd></div>
           </dl>
           <p class="mt-3 text-xs text-slate-500">Mở app ngân hàng → Quét mã QR. Số tiền và nội dung đã điền sẵn.</p>
+          <p data-payos-ghi-chu class="mt-2 hidden text-xs text-slate-500">Thanh toán qua payOS: shop nhận thông báo tự động khi bố mẹ chuyển khoản đúng số tiền và nội dung.</p>
+          <a data-payos-link href="#" target="_blank" rel="noopener" class="nut-phu mt-4 hidden">Mở trang thanh toán payOS</a>
+          <p data-ship-rieng class="mt-3 hidden rounded-xl bg-amber-50 p-3 text-xs text-amber-900">Số tiền trên là <b>tiền hàng</b>. Phí ship (nếu có) bố mẹ trả cho shipper khi nhận hàng.</p>
         </div>
+        <p data-tt-ok class="mt-3 hidden rounded-xl bg-xanh-50 p-3 text-sm text-xanh-800">Shop đã nhận được thông báo từ cổng thanh toán. Shop sẽ kiểm tra và xác nhận đơn cho bố mẹ trong giờ làm việc ạ.</p>
+        <p data-tt-huy class="mt-3 hidden rounded-xl bg-amber-50 p-3 text-sm text-amber-900">Bố mẹ đã hủy bước thanh toán. Bố mẹ vẫn có thể quét mã QR ở trên, hoặc nhắn Zalo để shop chuyển sang thanh toán khi nhận hàng (COD) nhé.</p>
         <p data-chua-qr class="mt-2 hidden text-sm text-slate-600">Shop sẽ gửi thông tin chuyển khoản qua Zalo khi xác nhận đơn. Bố mẹ ghi nội dung chuyển khoản là mã đơn <b data-ma-don></b> giúp shop nhé.</p>
       </section>
 
@@ -95,20 +100,40 @@ const nganHang = {
 
     if (don.thanhToan === 'CK') {
       $('[data-ck]').classList.remove('hidden');
-      const nh = JSON.parse(goc.dataset.nganHang!) as { id: string; stk: string; ten: string };
-      // Đơn chưa đủ 2 sản phẩm thì phí ship chưa biết → QR chỉ ghi tiền hàng, shop báo phí ship sau
+      const tinh = JSON.parse(goc.dataset.nganHang!) as { id: string; stk: string; ten: string };
+      // Ưu tiên tài khoản payOS (có xác nhận tự động); không có thì dùng tài khoản shop (VietQR tĩnh).
+      // QR chỉ thu tiền hàng; đơn chưa đủ 2 sản phẩm thì phí ship trả cho shipper khi nhận.
+      const p = don.payos;
+      const nh = p
+        ? { id: p.bin, stk: p.accountNumber, ten: p.accountName, tien: p.amount, nd: p.description }
+        : { id: tinh.id, stk: tinh.stk, ten: tinh.ten, tien: don.tong, nd: don.maDon };
       if (nh.id && nh.stk) {
         const url = new URL(`https://img.vietqr.io/image/${encodeURIComponent(nh.id)}-${encodeURIComponent(nh.stk)}-compact2.png`);
-        url.searchParams.set('amount', String(don.tong));
-        url.searchParams.set('addInfo', don.maDon);
+        url.searchParams.set('amount', String(nh.tien));
+        url.searchParams.set('addInfo', nh.nd);
         if (nh.ten) url.searchParams.set('accountName', nh.ten);
         goc.querySelector<HTMLImageElement>('[data-qr]')!.src = url.toString();
-        $('[data-nh]').textContent = nh.id;
+        const TEN_NH: Record<string, string> = {
+          '970422': 'MB Bank', '970436': 'Vietcombank', '970407': 'Techcombank', '970418': 'BIDV', '970415': 'VietinBank',
+          '970405': 'Agribank', '970416': 'ACB', '970432': 'VPBank', '970423': 'TPBank', '970403': 'Sacombank',
+          '970441': 'VIB', '970448': 'OCB', '970443': 'SHB', '970431': 'Eximbank', '970426': 'MSB', '970437': 'HDBank',
+        };
+        $('[data-nh]').textContent = TEN_NH[nh.id] ?? nh.id;
         $('[data-stk]').textContent = nh.stk;
         $('[data-chu]').textContent = nh.ten || '—';
-        $('[data-so-tien]').textContent = giaVN(don.tong) + (don.phiShip === 'Miễn phí' ? '' : ' (chưa gồm ship)');
-        $('[data-nd]').textContent = don.maDon;
+        $('[data-so-tien]').textContent = giaVN(nh.tien);
+        $('[data-nd]').textContent = nh.nd;
+        $('[data-ship-rieng]').classList.toggle('hidden', don.phiShip === 'Miễn phí');
+        if (p) {
+          $('[data-payos-ghi-chu]').classList.remove('hidden');
+          const a = goc.querySelector<HTMLAnchorElement>('[data-payos-link]')!;
+          a.href = p.checkoutUrl;
+          a.classList.remove('hidden');
+        }
         $('[data-co-qr]').classList.remove('hidden');
+        const tt = new URLSearchParams(location.search).get('thanhtoan');
+        if (tt === 'ok') $('[data-tt-ok]').classList.remove('hidden');
+        if (tt === 'huy') $('[data-tt-huy]').classList.remove('hidden');
       } else {
         $('[data-chua-qr]').classList.remove('hidden');
       }

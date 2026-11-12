@@ -6,6 +6,9 @@ export interface Don {
   maDon: string; thoiGian: string; hoTen: string; sdt: string; tinh: string; xa: string; diaChi: string;
   ghiChu: string; thanhToan: 'COD' | 'CK'; dong: DongDon[]; soSp: number; tamTinh: number; phiShip: string;
   tong: number; cheDoThu: boolean; daGui: boolean;
+  /** Mã đơn payOS (orderCode) — có khi đơn chuyển khoản tạo link payOS thành công */
+  maPayos?: number;
+  payos?: { checkoutUrl: string; bin: string; accountNumber: string; accountName: string; amount: number; description: string };
 }
 
 const ENDPOINT = import.meta.env.PUBLIC_ORDER_ENDPOINT ?? '';
@@ -134,6 +137,20 @@ export async function khoiTaoDatHang() {
     nut.disabled = true;
     nut.textContent = 'Đang gửi đơn…';
     try {
+      // Chuyển khoản: thử tạo link payOS (máy chủ tự tính tiền). Chưa cấu hình / lỗi → dùng QR VietQR tĩnh như cũ.
+      if (don.thanhToan === 'CK') {
+        try {
+          const r = await fetch('/api/payos/tao-link', {
+            method: 'POST', headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ maDon: don.maDon, dong: dong.map((d) => ({ sku: d.sku, sl: d.sl })) }),
+          });
+          const kq = await r.json().catch(() => null);
+          if (r.ok && kq?.ok) {
+            don.maPayos = kq.orderCode;
+            don.payos = { checkoutUrl: kq.checkoutUrl, bin: kq.bin, accountNumber: kq.accountNumber, accountName: kq.accountName, amount: kq.amount, description: kq.description };
+          }
+        } catch { /* không có payOS → bỏ qua */ }
+      }
       if (ENDPOINT) {
         // text/plain để tránh preflight CORS với Google Apps Script
         const r = await fetch(ENDPOINT, { method: 'POST', body: JSON.stringify(don), headers: { 'Content-Type': 'text/plain;charset=utf-8' } });

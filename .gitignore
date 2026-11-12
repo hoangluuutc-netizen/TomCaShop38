@@ -8,3 +8,6 @@ docs/kiem-thu/
 .playwright-mcp/
 !.env.example
 web/public/anh-sp/
+.dev.vars
+web/.dev.vars
+.wrangler/
