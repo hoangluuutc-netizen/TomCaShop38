@@ -47,7 +47,7 @@ Bắt đầu từ Giai đoạn 0. Làm lần lượt từng giai đoạn; cuối
 ## Giai đoạn 5 — Thanh toán tự động & quảng cáo
 - [x] Tích hợp payOS: tạo link VietQR cho đơn chuyển khoản, nhận webhook (Cloudflare Pages Functions), cập nhật trạng thái đơn. Khóa API đặt trong biến môi trường, không commit. — code + kiểm thử xong (12/11/2026), *chờ chủ shop tạo tài khoản payOS + dán khóa*
 - [x] Hướng dẫn tôi đặt thử 1 đơn thật giá trị nhỏ. — docs/huong-dan-payos.md mục 5, *chờ đặt thử*
-- [ ] Soạn 2–3 mẫu quảng cáo mục tiêu Tin nhắn + bảng theo dõi chỉ số (CTR, chi phí/tin nhắn, tỉ lệ chốt, ROAS) trong fanpage/ads/.
+- [x] Soạn 2–3 mẫu quảng cáo mục tiêu Tin nhắn + bảng theo dõi chỉ số (CTR, chi phí/tin nhắn, tỉ lệ chốt, ROAS) trong fanpage/ads/. — 3 mẫu A/B (kiểm duyệt ĐẠT) + theo-doi-quang-cao.xlsx (12/11/2026)
 
 ## Hằng tuần
 - [ ] /bao-cao-tuan
