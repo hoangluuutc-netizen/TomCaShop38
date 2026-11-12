@@ -5,11 +5,11 @@ import { CHINH_SACH } from '../lib/shop';
 const duongDan = Astro.url.pathname;
 ---
 {coDuLieuMau() && (
-  <div class="bg-amber-100 px-4 py-1.5 text-center text-xs font-medium text-amber-900">
+  <div class="bg-amber-100 px-4 py-1.5 text-center text-xs font-semibold text-amber-900">
     Website đang dùng <b>dữ liệu mẫu</b> — sản phẩm và giá chưa phải hàng thật.
   </div>
 )}
-<div class="bg-hong-600 px-4 py-2 text-center text-xs font-medium text-white sm:text-sm">
+<div class="bg-hong-600 px-4 py-2 text-center text-xs font-semibold text-white sm:text-sm">
   {CHINH_SACH.mienShip} · {CHINH_SACH.kiemTra}
 </div>
 <header class="sticky top-0 z-30 border-b border-xanh-100 bg-white/95 backdrop-blur">
@@ -23,8 +23,8 @@ const duongDan = Astro.url.pathname;
       </label>
     </form>
     <div class="ml-auto flex items-center gap-1">
-      <a href="/chinh-sach/van-chuyen" class="hidden px-3 py-3 text-sm font-medium text-slate-600 hover:text-xanh-700 lg:block">Chính sách</a>
-      <a href="/lien-he" class="hidden px-3 py-3 text-sm font-medium text-slate-600 hover:text-xanh-700 lg:block">Liên hệ</a>
+      <a href="/chinh-sach/van-chuyen" class="hidden px-3 py-3 text-sm font-semibold text-slate-600 hover:text-xanh-700 lg:block">Chính sách</a>
+      <a href="/lien-he" class="hidden px-3 py-3 text-sm font-semibold text-slate-600 hover:text-xanh-700 lg:block">Liên hệ</a>
       <a href="/gio-hang" class="relative grid h-11 w-11 place-items-center rounded-full bg-xanh-50" aria-label="Giỏ hàng">
         <svg class="h-6 w-6 text-xanh-700" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 4h2l2.5 11h11L21 7H6.2"/><circle cx="9" cy="20" r="1.5"/><circle cx="18" cy="20" r="1.5"/></svg>
         <span data-so-gio class="absolute -right-0.5 -top-0.5 hidden h-5 min-w-5 place-items-center rounded-full bg-hong-600 px-1 text-[11px] font-bold text-white">0</span>
@@ -39,7 +39,7 @@ const duongDan = Astro.url.pathname;
     </label>
   </form>
   <nav aria-label="Danh mục" class="border-t border-xanh-50">
-    <div class="khung flex gap-1 overflow-x-auto py-1.5 text-sm font-medium [scrollbar-width:none]">
+    <div class="khung flex gap-1 overflow-x-auto py-1.5 text-sm font-semibold [scrollbar-width:none]">
       {DANH_MUC.map((d) => {
         const dang = duongDan.startsWith(`/danh-muc/${d.slug}`);
         return <a href={`/danh-muc/${d.slug}`} aria-current={dang ? 'page' : undefined} class:list={['inline-flex min-h-11 items-center whitespace-nowrap rounded-full px-4', dang ? 'bg-xanh-600 text-white' : 'text-slate-700 hover:bg-xanh-50']}>{d.ten}</a>;

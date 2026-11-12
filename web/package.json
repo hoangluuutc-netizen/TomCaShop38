@@ -8,7 +8,10 @@
     "build": "node tools/chep-anh.mjs && astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "sua-loi-windows": "npm install --no-save --force @astrojs/compiler-binding-wasm32-wasi@0.5.3"
+    "sua-loi-windows": "npm install --no-save --force @astrojs/compiler-binding-wasm32-wasi@0.5.3",
+    "test": "node --test \"tests/*.test.mts\"",
+    "test:e2e": "node tests/e2e/giao-dien.mjs",
+    "test:e2e:cai": "npm install --prefix tests/e2e"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.7.4",

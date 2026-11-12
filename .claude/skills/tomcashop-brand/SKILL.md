@@ -54,7 +54,7 @@ Quy tắc tương phản (WCAG AA ≥ 4.5:1):
 - Chữ trên nền màu phải đạt tương phản WCAG AA (≥ 4.5:1 cho chữ thường).
 
 ## 4. Chữ
-- Font: **Be Vietnam Pro** (Google Fonts, hỗ trợ đầy đủ tiếng Việt).
+- Font: **Be Vietnam Pro** (Google Fonts, hỗ trợ đầy đủ tiếng Việt). **Chỉ 3 độ đậm: 400 (thường), 600 (`font-semibold`), 700 (`font-bold`)** — web chỉ tải 3 độ đậm này (~100 KB). Không dùng `font-medium`/`font-extrabold`/`font-black` (13/11/2026 đã bỏ 500 và 800 để giảm 66 KB).
 - Luôn kiểm tra chữ có dấu hiển thị đúng (ă, ơ, ư, ệ, ỹ…).
 
 ## 5. Giọng văn

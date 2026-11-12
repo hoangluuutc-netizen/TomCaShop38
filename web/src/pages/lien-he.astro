@@ -7,11 +7,11 @@ const banDo = `https://www.google.com/maps/search/?api=1&query=${encodeURICompon
 <Base title="Liên hệ TomcaShop38" description={`Liên hệ TomcaShop38: gọi/Zalo ${SHOP.dienThoai}, giờ làm việc ${SHOP.gioLamViec}. Địa chỉ: ${SHOP.diaChi}.`}>
   <Breadcrumb muc={[{ ten: 'Liên hệ' }]} />
   <div class="khung mt-4 max-w-3xl">
-    <h1 class="text-2xl font-extrabold text-xanh-800 md:text-3xl">Liên hệ shop</h1>
+    <h1 class="text-2xl font-bold text-xanh-800 md:text-3xl">Liên hệ shop</h1>
     <p class="mt-2 text-slate-600">Bố mẹ cần tư vấn size, hỏi đơn hàng hay đổi trả — nhắn shop bất cứ lúc nào, shop trả lời trong giờ làm việc {SHOP.gioLamViec}.</p>
     <div class="mt-6 grid gap-3 sm:grid-cols-2">
       <a href={SHOP.zalo} target="_blank" rel="noopener" class="flex items-center gap-4 rounded-3xl bg-[#0068FF] p-5 text-white">
-        <span class="grid h-12 w-12 place-items-center rounded-full bg-white text-xs font-extrabold text-[#0068FF]">Zalo</span>
+        <span class="grid h-12 w-12 place-items-center rounded-full bg-white text-xs font-bold text-[#0068FF]">Zalo</span>
         <span><b class="block">Nhắn Zalo</b><span class="text-sm opacity-90">{SHOP.dienThoai}</span></span>
       </a>
       <a href={`tel:${SHOP.dienThoaiSo}`} class="flex items-center gap-4 rounded-3xl bg-hong-600 p-5 text-white">

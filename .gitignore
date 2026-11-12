@@ -14,3 +14,4 @@ web/.dev.vars
 .claude/skills/phan-tich-web-tham-khao/scripts/node_modules/
 # Ảnh chụp trang của người khác: chỉ dùng nội bộ, không đưa lên Git
 docs/tham-khao/*/anh/
+web/tests/e2e/node_modules/

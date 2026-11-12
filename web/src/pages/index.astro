@@ -18,7 +18,7 @@ const noiBat = DANH_MUC.flatMap((d) => conHang.filter((s) => s.danhMuc.slug === 
     <div class="khung grid items-center gap-6 pt-6 md:grid-cols-2 md:pt-14">
       <div>
         <span class="inline-flex items-center gap-2 rounded-full bg-white px-3 py-1 text-xs font-semibold text-hong-600 shadow-sm">🐟 Cá Baby chào bố mẹ!</span>
-        <h1 class="mt-4 text-[32px] font-extrabold leading-tight text-xanh-800 md:text-5xl">Vali &amp; cặp xinh<br />cho bé <span class="text-hong-600">mỗi ngày đến trường</span></h1>
+        <h1 class="mt-4 text-[32px] font-bold leading-tight text-xanh-800 md:text-5xl">Vali &amp; cặp xinh<br />cho bé <span class="text-hong-600">mỗi ngày đến trường</span></h1>
         <p class="mt-4 text-slate-600 md:text-lg">Chọn theo tuổi bé từ 3 đến 15. Bố mẹ được kiểm tra hàng trước khi thanh toán, bảo hành 3 tháng.</p>
         <div class="mt-6 flex flex-col gap-3 sm:flex-row">
           <a href="/danh-muc/vali-tre-em" class="nut-chinh">Xem vali cho bé</a>
@@ -52,10 +52,10 @@ const noiBat = DANH_MUC.flatMap((d) => conHang.filter((s) => s.danhMuc.slug === 
   <!-- Theo tuổi -->
   <section class="khung mt-12">
     <div class="items-center gap-8 rounded-3xl bg-gradient-to-r from-xanh-600 to-xanh-700 p-6 text-white md:flex md:p-10">
-      <div class="md:flex-1"><h2 class="text-2xl font-extrabold">Bé nhà mình mấy tuổi?</h2><p class="mt-1 text-xanh-100">Chọn tuổi để xem đồ vừa với bé</p></div>
+      <div class="md:flex-1"><h2 class="text-2xl font-bold">Bé nhà mình mấy tuổi?</h2><p class="mt-1 text-xanh-100">Chọn tuổi để xem đồ vừa với bé</p></div>
       <div class="mt-5 grid grid-cols-3 gap-3 md:mt-0">
         {NHOM_TUOI.map((n) => (
-          <a href={`/tim-kiem?tuoi=${n.slug}`} class="rounded-2xl bg-white px-4 py-3 text-center font-bold text-xanh-700">{n.ten.replace(' tuổi', '')}<span class="block text-xs font-medium text-slate-500">{n.phu}</span></a>
+          <a href={`/tim-kiem?tuoi=${n.slug}`} class="rounded-2xl bg-white px-4 py-3 text-center font-bold text-xanh-700">{n.ten.replace(' tuổi', '')}<span class="block text-xs font-semibold text-slate-500">{n.phu}</span></a>
         ))}
       </div>
     </div>

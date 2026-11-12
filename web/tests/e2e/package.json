@@ -1,0 +1,7 @@
+{
+  "name": "tomcashop-kiem-thu-giao-dien",
+  "private": true,
+  "type": "module",
+  "description": "Kiểm thử giao diện bằng Playwright, tách riêng để không làm nặng bản build trên Cloudflare",
+  "dependencies": { "playwright": "1.65.0" }
+}

@@ -21,7 +21,7 @@ const { trang } = Astro.props as { trang: TrangChinhSach };
       </ul>
     </nav>
     <article class="order-1 max-w-2xl md:order-2">
-      <h1 class="text-2xl font-extrabold text-xanh-800 md:text-3xl">{trang.ten}</h1>
+      <h1 class="text-2xl font-bold text-xanh-800 md:text-3xl">{trang.ten}</h1>
       {trang.doan.map((d) => (
         <section class="mt-6">
           {d.tieuDe && <h2 class="text-lg font-bold text-xanh-800">{d.tieuDe}</h2>}

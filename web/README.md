@@ -7,6 +7,9 @@
 | `npm run dev` | Chạy thử khi đang sửa (http://localhost:4321) |
 | `npm run build` | Tạo bản web hoàn chỉnh vào `dist/` |
 | `npm run preview` | Xem bản đã build |
+| `npm test` | Kiểm thử đơn vị: dữ liệu sản phẩm, định dạng, payOS (không cần build, không gọi mạng thật) |
+| `npm run test:e2e:cai` | Cài Playwright cho kiểm thử giao diện (lần đầu, dùng Chrome có sẵn) |
+| `npm run test:e2e` | Kiểm thử giao diện 390px + 1280px trên bản build (tự bật preview). Bản online: `npm run test:e2e -- https://tomcashop38.pages.dev` |
 
 ## Lưu ý máy Windows có Application Control / Smart App Control
 Astro 7 dùng trình biên dịch dạng file native (`astro.win32-x64-msvc.node`). Chính sách bảo mật Windows trên máy này chặn file đó

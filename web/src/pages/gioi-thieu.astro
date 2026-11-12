@@ -11,20 +11,20 @@ import { SHOP } from '../lib/shop';
     <div class="items-center gap-8 rounded-3xl bg-hong-50 p-6 md:flex md:p-10">
       <CaBaby class="mx-auto w-32 shrink-0 md:mx-0" />
       <div class="mt-4 md:mt-0">
-        <h1 class="text-2xl font-extrabold text-xanh-800 md:text-3xl">Xin chào, TomcaShop38 đây!</h1>
+        <h1 class="text-2xl font-bold text-xanh-800 md:text-3xl">Xin chào, TomcaShop38 đây!</h1>
         <p class="mt-2 leading-relaxed text-slate-700">TomcaShop38 bán vali, cặp da và đồ dùng cho bé từ 3 đến 15 tuổi. Tôm xanh và Cá hồng trong logo là hai người bạn nhỏ, cùng mascot Cá Baby đồng hành với bé trong mỗi chuyến đi và mỗi ngày đến lớp.</p>
         <!-- [Câu chuyện thương hiệu: chờ chủ shop kể, Claude viết lại] -->
       </div>
     </div>
     <div class="mt-8"><CamKet /></div>
     <section class="mt-8 rounded-3xl border border-xanh-100 p-6">
-      <h2 class="text-xl font-extrabold text-xanh-800">Thông tin người bán</h2>
+      <h2 class="text-xl font-bold text-xanh-800">Thông tin người bán</h2>
       <dl class="mt-3 grid gap-2 text-sm sm:grid-cols-[160px_1fr]">
-        <dt class="text-slate-500">Người bán</dt><dd class="font-medium">{SHOP.nguoiBan}</dd>
-        <dt class="text-slate-500">Địa chỉ</dt><dd class="font-medium">{SHOP.diaChi}</dd>
-        <dt class="text-slate-500">Điện thoại / Zalo</dt><dd class="font-medium"><a href={`tel:${SHOP.dienThoaiSo}`} class="underline">{SHOP.dienThoai}</a></dd>
-        <dt class="text-slate-500">Fanpage</dt><dd class="font-medium">{SHOP.fanpage}</dd>
-        <dt class="text-slate-500">Giờ làm việc</dt><dd class="font-medium">{SHOP.gioLamViec}</dd>
+        <dt class="text-slate-500">Người bán</dt><dd class="font-semibold">{SHOP.nguoiBan}</dd>
+        <dt class="text-slate-500">Địa chỉ</dt><dd class="font-semibold">{SHOP.diaChi}</dd>
+        <dt class="text-slate-500">Điện thoại / Zalo</dt><dd class="font-semibold"><a href={`tel:${SHOP.dienThoaiSo}`} class="underline">{SHOP.dienThoai}</a></dd>
+        <dt class="text-slate-500">Fanpage</dt><dd class="font-semibold">{SHOP.fanpage}</dd>
+        <dt class="text-slate-500">Giờ làm việc</dt><dd class="font-semibold">{SHOP.gioLamViec}</dd>
       </dl>
     </section>
   </div>

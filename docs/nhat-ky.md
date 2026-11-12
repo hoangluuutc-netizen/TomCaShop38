@@ -23,3 +23,4 @@
 | 12/11/2026 | Nâng Astro 5.18 → 7.4.11 (npm audit: 0 lỗ hổng). Máy Windows chặn trình biên dịch native → dùng bản WASM dự phòng (npm run sua-loi-windows). Node 24. Kiểm thử 390/1280 + 16 kiểm thử payOS đạt | |
 | 12/11/2026 | Đổi biến NODE_VERSION trên Cloudflare Pages (Production) từ 22 → 24 | Build lại để áp dụng |
 | 12/11/2026 | Nhận skill phan-tich-web-tham-khao: viết lại (kiểm tra điều khoản/robots, chặn tên miền cấm tự động, dùng Chrome có sẵn, đổi màu oklch→hex, đo tốc độ LCP/CLS/KB, tóm tắt md, ảnh không lên Git); nghiên cứu REA; đề xuất tối ưu docs/de-xuat-toi-uu.md | Lỡ chạy thử script 1 lần trên Amazon (đã xóa dữ liệu, đã chặn cứng) |
+| 13/11/2026 | Giảm font 166→99 KB (chỉ còn 400/600/700; trang chủ 196→127 KB). Đưa kiểm thử vào dự án: npm test (24 kiểm thử đơn vị) + npm run test:e2e (15 nhóm, 21 trang × 2 khổ) — tất cả đạt; cập nhật /kiem-tra-web | |

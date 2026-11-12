@@ -26,8 +26,8 @@
 | # | Việc | Học từ | Lợi ích | Công sức |
 | --- | --- | --- | --- | --- |
 | 1 | **Ảnh sản phẩm tối ưu**: dùng `<Picture>` của Astro xuất AVIF/WebP nhiều cỡ (srcset), lazy-load, khung vuông cố định | Mọi sàn lớn (Tiki, Lazada, Target) | Trang vẫn nhanh khi có 10–50 ảnh thật | M · cần shop (ảnh) |
-| 2 | **Giảm font ~166 KB → ~100 KB**: bỏ độ đậm 500 (14 chỗ dùng → đổi sang 400/600), chỉ preload 700 | Số đo của chính web | Tải nhanh hơn trên 4G yếu | S |
-| 3 | **Đưa bộ kiểm thử vào dự án** (`web/tests/`): 16 kiểm thử payOS + kịch bản Playwright đặt hàng COD/CK, chạy 1 lệnh | Quy trình CI của các shop lớn | Sửa gì cũng kiểm lại được ngay, không phụ thuộc phiên làm việc | M |
+| 2 | ✅ **Đã làm 13/11/2026** — **Giảm font ~166 KB → ~100 KB**: bỏ độ đậm 500 (14 chỗ dùng → đổi sang 400/600), chỉ preload 700 | Số đo của chính web | Tải nhanh hơn trên 4G yếu | S |
+| 3 | ✅ **Đã làm 13/11/2026** — **Đưa bộ kiểm thử vào dự án** (`web/tests/`): 16 kiểm thử payOS + kịch bản Playwright đặt hàng COD/CK, chạy 1 lệnh | Quy trình CI của các shop lớn | Sửa gì cũng kiểm lại được ngay, không phụ thuộc phiên làm việc | M |
 | 4 | **Cloudflare Web Analytics** (miễn phí, không dùng cookie) | Mọi web bán hàng | Biết trang nào được xem, khách từ đâu — trước khi chạy quảng cáo | S · cần shop bật |
 | 5 | **Trang tra cứu đơn hàng** (nhập mã đơn + SĐT → trạng thái từ Google Sheet) | Tiki, Lazada "theo dõi đơn" | Bớt tin nhắn "đơn em tới đâu rồi", tăng tin tưởng | M |
 
