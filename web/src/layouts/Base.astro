@@ -17,7 +17,9 @@ interface Props {
 }
 const { title, description, anhChiaSe = "/og-mac-dinh.png", noindex = false, loaiOg = "website", anNutNoiDiDong = false } = Astro.props;
 const tieuDe = title.includes('TomcaShop38') ? title : `${title} | TomcaShop38`;
-const canonical = new URL(Astro.url.pathname, Astro.site);
+// Bỏ đuôi .html (build.format = 'file') để địa chỉ chuẩn khớp với địa chỉ Cloudflare phục vụ
+const duongDanChuan = Astro.url.pathname.replace(/\.html$/, '').replace(/\/index$/, '/') || '/';
+const canonical = new URL(duongDanChuan, Astro.site);
 const anhOg = new URL(anhChiaSe, Astro.site);
 const chanIndex = noindex || coDuLieuMau();
 const toChuc = {

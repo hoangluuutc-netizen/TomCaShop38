@@ -8,7 +8,9 @@ const SITE_URL = process.env.SITE_URL || 'https://tomcashop38.pages.dev';
 
 export default defineConfig({
   site: SITE_URL,
-  trailingSlash: 'ignore',
+  trailingSlash: 'never',
+  // Xuất /trang.html (không phải /trang/index.html) để Cloudflare Pages phục vụ /trang trực tiếp, không chuyển hướng 308
+  build: { format: 'file' },
   integrations: [
     sitemap({
       filter: (page) => !/\/(gio-hang|dat-hang|cam-on)\/?$/.test(page),
