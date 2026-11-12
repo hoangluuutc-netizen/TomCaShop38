@@ -11,3 +11,6 @@ web/public/anh-sp/
 .dev.vars
 web/.dev.vars
 .wrangler/
+.claude/skills/phan-tich-web-tham-khao/scripts/node_modules/
+# Ảnh chụp trang của người khác: chỉ dùng nội bộ, không đưa lên Git
+docs/tham-khao/*/anh/

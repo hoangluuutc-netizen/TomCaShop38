@@ -22,3 +22,4 @@
 | 12/11/2026 | Rà soát toàn dự án: Git/bí mật sạch, build sạch, 21/21 trang online 200, giá khớp CSV, nội dung không từ cấm; cập nhật tài liệu cũ (tên, phạm vi spec, phiếu bổ sung); phát hiện Astro 5 có lỗ hổng đã vá ở Astro 7 | Đề xuất nâng cấp Astro 7 |
 | 12/11/2026 | Nâng Astro 5.18 → 7.4.11 (npm audit: 0 lỗ hổng). Máy Windows chặn trình biên dịch native → dùng bản WASM dự phòng (npm run sua-loi-windows). Node 24. Kiểm thử 390/1280 + 16 kiểm thử payOS đạt | |
 | 12/11/2026 | Đổi biến NODE_VERSION trên Cloudflare Pages (Production) từ 22 → 24 | Build lại để áp dụng |
+| 12/11/2026 | Nhận skill phan-tich-web-tham-khao: viết lại (kiểm tra điều khoản/robots, chặn tên miền cấm tự động, dùng Chrome có sẵn, đổi màu oklch→hex, đo tốc độ LCP/CLS/KB, tóm tắt md, ảnh không lên Git); nghiên cứu REA; đề xuất tối ưu docs/de-xuat-toi-uu.md | Lỡ chạy thử script 1 lần trên Amazon (đã xóa dữ liệu, đã chặn cứng) |

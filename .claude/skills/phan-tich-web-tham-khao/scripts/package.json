@@ -1,0 +1,7 @@
+{
+  "name": "phan-tich-web-tham-khao",
+  "private": true,
+  "type": "module",
+  "description": "Công cụ của skill phan-tich-web-tham-khao (dùng Chrome có sẵn trên máy, không tải Chromium)",
+  "dependencies": { "playwright": "1.65.0" }
+}
