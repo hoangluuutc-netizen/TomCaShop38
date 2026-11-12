@@ -14,7 +14,7 @@ hoặc (4) nhắn Zalo/Messenger hỏi trước khi mua.
 - **Làm:** trang chủ, danh mục (lọc theo tuổi, giá, màu), trang sản phẩm, giỏ hàng, đặt hàng, trang cảm ơn,
   chính sách, giới thiệu, liên hệ, SEO cơ bản, nút Zalo/Messenger/Gọi nổi.
 - **Chưa làm (giai đoạn sau):** tài khoản khách hàng, mã giảm giá, đánh giá sản phẩm, blog *(Claude chọn — để sau
-  khi có bài viết)*, payOS tự động, Meta Pixel (Giai đoạn 4), tích hợp API vận chuyển.
+  khi có bài viết)*, tích hợp API vận chuyển. *(Cập nhật 12/11/2026: Meta Pixel và payOS đã làm ở Giai đoạn 4–5, chờ ID/khóa.)*
 - **Tuyệt đối tránh:** bịa đánh giá/số đã bán/chứng nhận; từ tuyệt đối ("tốt nhất", "số 1", "100%"…);
   form dài; bắt đăng ký tài khoản; trang nặng chậm trên 4G; chữ tiếng Việt lỗi dấu.
 

@@ -1,6 +1,6 @@
 # Thông tin shop cần bổ sung (Giai đoạn 0)
 
-> **11/11/2026:** Đã nhận mục B, C và khách mục tiêu (xem brand/ho-so-thuong-hieu.md, docs/chinh-sach.md). Còn thiếu: logo, mã màu (Claude đề xuất), link m.me, đơn vị vận chuyển, phạm vi bảo hành, ngân hàng nhận chuyển khoản, danh sách sản phẩm + ảnh.
+> **Cập nhật 12/11/2026:** Đã có mục B, C, khách mục tiêu, logo (brand/logo.png), màu (chốt theo Mẫu A), tên miền tạm tomcashop38.pages.dev. **Còn thiếu:** danh sách sản phẩm + ảnh thật, link m.me, đơn vị vận chuyển, phạm vi bảo hành, ngân hàng nhận chuyển khoản, tên miền riêng.
 
 > Chủ shop điền trực tiếp vào file này (hoặc trả lời trong chat). Mục nào chưa có thì để trống, Claude sẽ để chỗ trống trên web chứ không tự điền.
 

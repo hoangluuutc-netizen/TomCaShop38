@@ -1,4 +1,4 @@
-# Cẩm nang dự án: Website bán hàng + Fanpage TomCaShop
+# Cẩm nang dự án: Website bán hàng + Fanpage TomcaShop38
 
 > Tài liệu tham chiếu cho Claude Code. Quy tắc làm việc nằm ở CLAUDE.md; kế hoạch triển khai nằm ở KHOI-DONG.md.
 
@@ -58,7 +58,7 @@ Phương án thay thế khi đơn lớn, cần đồng bộ kho đa kênh: chuy�
 ## 4. Fanpage
 
 ### Thiết lập (chủ shop làm, Claude chuẩn bị nội dung)
-1. Tên: "TomCaShop – Vali & Cặp da cho bé"; username @tomcashop; hạng mục cửa hàng đồ trẻ em.
+1. Tên: "TomcaShop38 – Vali & Cặp da cho bé"; username @tomcashop38; hạng mục cửa hàng đồ trẻ em.
 2. Ảnh đại diện: logo huy hiệu tròn tôm–cá. Ảnh bìa: Claude thiết kế, kiểm tra trên điện thoại và máy tính.
 3. Nút "Gửi tin nhắn"; thêm website, SĐT, Zalo, giờ mở cửa.
 4. Meta Business Suite: danh mục doanh nghiệp, gắn Trang, phương thức thanh toán quảng cáo, xác minh tên miền.
@@ -69,7 +69,7 @@ Phương án thay thế khi đơn lớn, cần đồng bộ kho đa kênh: chuy�
 | --- | --- | --- |
 | Sản phẩm thật | 40% | Video thử kéo vali; so kích thước cặp với dáng bé lớp 1 |
 | Hữu ích cho bố mẹ | 30% | Checklist đồ cho bé đi du lịch Tết; chọn cặp không hại lưng |
-| Thương hiệu & Cá Baby | 20% | Chuyện tên TomCaShop; hậu trường đóng gói |
+| Thương hiệu & Cá Baby | 20% | Chuyện tên TomcaShop38; hậu trường đóng gói |
 | Ưu đãi | 10% | Combo vali + cặp; miễn phí ship dịp tựu trường |
 
 Kịch bản video: Hook (3 giây đầu) – Vấn đề – Sản phẩm – Bằng chứng – Kêu gọi; ghi rõ thời lượng, phân cảnh, lời thoại, chữ trên màn hình, góc quay, nhạc, caption, hashtag; 2–3 phương án để A/B.

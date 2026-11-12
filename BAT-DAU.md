@@ -1,4 +1,4 @@
-# Bắt đầu nhanh — TomCaShop trên Claude Code
+# Bắt đầu nhanh — TomcaShop38 trên Claude Code
 
 1. Giải nén → được thư mục `tomcashop/`. Đặt ở nơi dễ tìm (ví dụ Documents).
 2. Chép hồ sơ thương hiệu, logo, giọng văn vào `brand/`; ảnh sản phẩm vào `products/anh/`.
