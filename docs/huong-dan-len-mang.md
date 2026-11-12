@@ -28,7 +28,7 @@
 4. **Environment variables** (mục Advanced, hoặc sau này ở Settings → Variables and Secrets):
    | Tên | Giá trị | Khi nào |
    | --- | --- | --- |
-   | `NODE_VERSION` | `22` | ngay |
+   | `NODE_VERSION` | `24` (Astro 7 cần Node ≥ 22.23.4) | ngay |
    | `SITE_URL` | `https://tomcashop38.pages.dev` (đổi khi có tên miền) | ngay |
    | `PUBLIC_ORDER_ENDPOINT` | URL Apps Script (docs/huong-dan-apps-script.md) | khi tạo xong Apps Script |
    | `PUBLIC_BANK_ID` · `PUBLIC_BANK_ACCOUNT` · `PUBLIC_BANK_ACCOUNT_NAME` | mã ngân hàng VietQR · số TK · tên chủ TK | khi muốn hiện QR chuyển khoản |
