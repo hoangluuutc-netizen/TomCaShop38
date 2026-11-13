@@ -34,3 +34,14 @@
 - Xong mỗi việc: commit Git với mô tả tiếng Việt, ghi 1 dòng vào docs/nhat-ky.md.
 - Trả lời tôi bằng tiếng Việt, ngắn gọn, giải thích thuật ngữ khi cần.
 - Khi tôi sửa cùng một lỗi lần thứ hai: đề xuất thêm quy tắc vào file này.
+
+## Luật khóa phiên (Bắt buộc cho cả Claude & Antigravity)
+Không bao giờ báo "đã xong" hoặc chuyển công cụ khi chưa hoàn tất đủ 4 bước theo đúng thứ tự:
+1. **Xong 1 việc:** Đúng phạm vi đã duyệt, đúng số liệu `products/products.csv` và chuẩn `brand/`.
+2. **Test pass:** Chạy `npm run build` không lỗi và kiểm tra giao diện thực tế (Playwright hoặc trình duyệt) ở **390px** và **1280px** (với bài Fanpage: chạy kiểm duyệt `kiem-duyet-qc`).
+3. **Cập nhật nhật ký:** Ghi 1 dòng tóm tắt kết quả vào `docs/nhat-ky.md`.
+4. **Commit Git:** Kiểm tra `git status` (không để lọt `.env`, khóa API, dữ liệu khách) và `git commit` với mô tả tiếng Việt trước khi kết thúc phiên.
+
+## Luật tiếp quản khi hết token / đổi công cụ
+- **Tình huống 1 (bên trước đã `git commit` sạch):** Đọc `git log -n 3` và `docs/nhat-ky.md` để nắm tiến độ rồi lập kế hoạch ngắn cho bước tiếp theo.
+- **Tình huống 2 (bên trước bị ngắt giữa chừng, chưa test/chưa commit):** Không xóa hay sửa đè bừa bãi; chạy ngay `git status` và `git diff`, đối chiếu `CLAUDE.md` + `products/products.csv` + `brand/`, chạy `npm run build` kiểm tra hiện trạng rồi báo ngắn trước khi hoàn thiện nốt và chạy đủ **Luật khóa phiên**.
